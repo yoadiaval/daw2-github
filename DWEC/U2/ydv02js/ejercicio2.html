@@ -7,8 +7,10 @@
 </head>
 <body>
     <script>
-         var nombre = prompt("Inserta tu nombre")
-         alert("Hola " + nombre)
+        const dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+        for(dia in dias){
+            document.write(dias[dia] + "<br/>")
+        }
     </script>
 </body>
 </html>
