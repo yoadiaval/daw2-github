@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        sumaPos, sumeNeg = 0;
+       cantPos, cantNeg, cantCeros = 0;
+
+        for(let i=1; i<=10; i++){
+            do{
+            num = parseFloat(prompt("Inserte el numero: " + i));
+            if(isNaN(num)){
+                alert("Ha introdicido un valor erróneo")
+            }
+            }while(isNaN(num)); //controla que no se inserten letras en lugar de números y de ocurrir esto garantiza que se continúe pidiendo la posición en el que se intentó insertar el valor erróneo.
+           
+            switch(true){
+                case num > 0: cantPos++; sumaPos += num; break;
+                case num < 0: cantNeg++; sumaNeg += num; break;
+                case num ===0: cantCeros++; break
+             }
+            
+        }
+        document.write("La media de los valores positivos es: " + (sumaPos/cantPos))
+        document.write("La media de los valores negativos es: " + (sumaNeg / cantNeg))
+        document.write("La cantidad de los ceros es: " + cantCeros)
+    </script>
+</body>
+</html>

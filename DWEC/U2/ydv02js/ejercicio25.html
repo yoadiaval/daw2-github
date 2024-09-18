@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        suma = 0;
+        for(let i=1; i<=15; i++){
+            do{
+            num = parseFloat(prompt("Inserte el numero: " + i));
+            if(isNaN(num)){
+                alert("Ha introdicido un valor erróneo")
+            }
+            }while(isNaN(num)); //controla que no se inserten letras en lugar de números y de ocurrir esto garantiza que se continúe pidiendo la posición en el que se intentó insertar el valor erróneo.
+            suma += num;
+            
+        }
+        document.write("La suma resultante de todos los numero insertados es: " + suma)
+    </script>
+</body>
+</html>

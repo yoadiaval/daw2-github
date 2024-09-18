@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        num = parseInt(prompt("Inserte un número: "))
+        factorial = 1;
+        for(let i=num; i>0; i--){  
+            factorial *= i; 
+        }//ciclo for que barre desde el numero introducido hasta 1. Como resultado se va multiplicando cada numero por el anterior y se almacena este en la variable factorial. 
+
+        document.write("El factorial del número introdcido es: " + factorial)
+    </script>
+</body>
+</html>

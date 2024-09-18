@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var contador = 0;
+         var suma = 0
+        do{
+            var num = parseInt(prompt("Inserte un número"));
+            if(isNaN(num)){ //controla que no se introduzca una letra en lugar de un número 
+                alert("Ha introducido un valor erróneo"); 
+                num = 0; //se asigna valor cero para que no rompa el bucle y no afecte las operaciones 
+            }else if(num > 0){
+
+                contador ++;
+                suma += num; 
+            }
+        }while(num >= 0);
+        var media = suma / contador;
+        document.write("La suma de todos los números es: " + media.toFixed(2))
+    </script>
+</body>
+</html>

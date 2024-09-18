@@ -7,12 +7,12 @@
 </head>
 <body>
     <script>
-        var texto;
+        var texto = prompt("Inserte un texto")
         
-        if(texto === undefined) {document.write("A la variable no tiene asociado ningún valor")}else{
-            document.write("el valor de la variable texto es: "+texto)
-        }
-        
+        if(texto === "") { //identifica una cadena vacía
+            document.write("No se ha introducido ningún texto")}else{
+                document.write("El texto introducido fue: " + texto)
+            }
     </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        value = 8;
+        do{
+            var num = parseInt(prompt("Inserte un número: ")); 
+            
+            switch(true){
+                case num > value: alert("El número insertado es mayor al que debe adivinar"); break;
+                case num < value: alert("El número insertado es menor al que debe adivinar"); break;
+                case num === value: document.write("Ha acertado el número")
+            }
+            
+        }while(num!==value); //Mientras el num sea diferente de value se va a estar ejeculando el  código
+        
+       
+        
+
+    </script>
+</body>
+</html>
