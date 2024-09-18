@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        do{
+            var num = parseFloat(prompt("Introduzca un número: "))
+           if(isNaN(num)){
+            alert("Inserte un valor válido")
+           }else{
+            switch(true){
+                    case num % 2 === 0 && num !== 0 : alert("El número es par"); break;
+                    case (num % 2 !== 0  ): alert("El número es impar"); break;
+                    case num === 0: break;
+                    default: alert("Inserte un valor válido")
+                }
+           }    
+        }while(num!==0)
+    </script>
+</body>
+</html>
