@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        sumaEdades = 0;
+        sumaAlturas = 0;
+        contTotal = 0;
+        superaAltura = 0;
+        superaEdad = 0;
+
+         for(let i=1; i<=5; i++){
+            do{
+            edad = parseFloat(prompt("Inserte la edad: " + i));
+            if(isNaN(edad)){
+                alert("Ha introdicido un valor erróneo")
+            }
+            }while(isNaN(edad)); //controla que no se inserten letras en lugar de números y de ocurrir esto garantiza que se continúe pidiendo la posición en el que se intentó insertar el valor erróneo.
+           sumaEdades += edad;
+           if(edad>=18) superaEdad++;
+          do{
+            altura = parseFloat(prompt("Inserte la altura: " + i));
+            if(isNaN(altura)){
+                alert("Ha introdicido un valor erróneo")
+            }
+            }while(isNaN(altura));
+           sumaAlturas += altura;
+           if(altura >= 1.75) superaAltura++;
+           contTotal++;
+        }
+        document.write("la media de las edades introducidas es: " + (sumaEdades/contTotal).toFixed(2) + "<br/>")
+        document.write("La media de las alturas es: " + (sumaAlturas/contTotal).toFixed(2) + "<br/>")
+        document.write("Son mayores de 18: " + superaEdad + "<br/>")
+        document.write("Miden más de 1.75m: "+ superaAltura + "<br/>")
+    </script>
+</body>
+</html>
