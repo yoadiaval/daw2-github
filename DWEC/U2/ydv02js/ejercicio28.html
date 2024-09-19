@@ -7,8 +7,8 @@
 </head>
 <body>
     <script>
-        sumaPos, sumeNeg = 0;
-       cantPos, cantNeg, cantCeros = 0;
+      var sumaPos=0, sumaNeg = 0;
+      var cantPos=0, cantNeg=0, cantCeros = 0;
 
         for(let i=1; i<=10; i++){
             do{
@@ -17,17 +17,17 @@
                 alert("Ha introdicido un valor erróneo")
             }
             }while(isNaN(num)); //controla que no se inserten letras en lugar de números y de ocurrir esto garantiza que se continúe pidiendo la posición en el que se intentó insertar el valor erróneo.
-           
+          
             switch(true){
                 case num > 0: cantPos++; sumaPos += num; break;
                 case num < 0: cantNeg++; sumaNeg += num; break;
                 case num ===0: cantCeros++; break
-             }
-            
+             } //los valores se van actualizando en dependencia de los criterios de comparación
+        
         }
-        document.write("La media de los valores positivos es: " + (sumaPos/cantPos))
-        document.write("La media de los valores negativos es: " + (sumaNeg / cantNeg))
-        document.write("La cantidad de los ceros es: " + cantCeros)
+        document.write("La media de los valores positivos es: " + (sumaPos/cantPos).toFixed(2) + "<br/>")
+        document.write("La media de los valores negativos es: " + (sumaNeg / cantNeg).toFixed(2) + "<br/>")
+        document.write("La cantidad de los ceros es: " + cantCeros + "<br/>")
     </script>
 </body>
 </html>

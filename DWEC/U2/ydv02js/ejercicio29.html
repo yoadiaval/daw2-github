@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sumaSueldo = 0;
+        var superaUmbral = 0
+
+        for(let i=1; i<=10; i++){
+            do{
+            sueldo = parseFloat(prompt("Inserte el sueldoero: " + i));
+            if(isNaN(sueldo)){
+                alert("Ha introdicido un valor erróneo")
+            }
+            }while(isNaN(sueldo)); //controla que no se inserten letras en lugar de números y de ocurrir esto garantiza que se continúe pidiendo la posición en el que se intentó insertar el valor erróneo.
+          
+          if(sueldo >= 1000){
+            superaUmbral++;
+          }
+          
+          sumaSueldo += sueldo;
+        }
+        document.write("Suma de los sueldos: " + sumaSueldo + "<br/>")
+        document.write("Superan los 1000 euros: " + superaUmbral + "<br/>")
+       
+    </script>
+</body>
+</html>
