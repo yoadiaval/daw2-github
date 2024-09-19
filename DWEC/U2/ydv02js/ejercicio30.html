@@ -13,7 +13,7 @@
         superaAltura = 0;
         superaEdad = 0;
 
-         for(let i=1; i<=5; i++){
+         for(let i=1; i<=5; i++){  //garantiza que se inserten sólo 5 artículos 
             do{
             edad = parseFloat(prompt("Inserte la edad: " + i));
             if(isNaN(edad)){
@@ -26,7 +26,7 @@
             altura = parseFloat(prompt("Inserte la altura: " + i));
             if(isNaN(altura)){
                 alert("Ha introdicido un valor erróneo")
-            }
+            } //envía una alerta al usuario para indicarle el tipo de error que ha tenido
             }while(isNaN(altura));
            sumaAlturas += altura;
            if(altura >= 1.75) superaAltura++;

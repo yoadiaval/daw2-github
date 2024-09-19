@@ -7,10 +7,10 @@
 </head>
 <body>
     <script>
-        var sueldo = parseFloat(prompt("Inserte el sueldo en pesetas: "));
-        const valorEuroEnPesetas = 166.386;
-        var euros = sueldo / valorEuroEnPesetas;
-        document.write(euros.toFixed(2))  
+        var gastoEnEuros = parseFloat(prompt("Inserte el sueldo en pesetas: "));
+        const euroEnPesetas = 166.386;
+        var gastoEnPesetas = gastoEnEuros *  euroEnPesetas;
+        document.write(gastoEnPesetas.toFixed(2))  //muestra en el documento el resultado con solo dos decimales
     </script>
 </body>
 </html>
