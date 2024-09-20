@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fecha_actual = new Date();
+var fecha_nac = new Date(1989, 10, 15);
+var tiempo = fecha_actual-fecha_nac;
+document.write("Fecha Actual: "+fecha_actual+"<br>");
+document.write("Fecha Nac: "+fecha_nac+"<br>");
+document.write("Le edad es "+
+Math.floor(tiempo/(12*31*24*60*60*1000))+" años<br>");
+document.write("Año: "+fecha_actual.getFullYear()+"<br>");
+document.write("Mes: "+fecha_actual.getMonth()+"<br>");
+document.write("Día: "+fecha_actual.getDate()+"<br>");
+document.write("Día Semana: "+fecha_actual.getDay()+"<br>");
+document.write("Horas: "+fecha_actual.getHours()+"<br>");
+document.write("Minutos: "+fecha_actual.getMinutes()+"<br>");
+document.write("Segundos: "+fecha_actual.getSeconds()+"<br>");
+fecha_nac.setFullYear(1970);
+fecha_nac.setMonth(1);
+fecha_nac.setDate(24);
+fecha_nac.setHours(15);
+fecha_nac.setMinutes(5);
+fecha_nac.setSeconds(17);
+document.write("Año: "+fecha_nac.getFullYear()+"<br>");
+document.write("Mes: "+fecha_nac.getMonth()+"<br>");
+document.write("Día: "+fecha_nac.getDate()+"<br>"); 
+document.write("Día Semana: "+fecha_nac.getDay()+"<br>");
+document.write("Horas: "+fecha_nac.getHours()+"<br>");
+document.write("Minutos: "+fecha_nac.getMinutes()+"<br>");
+document.write("Segundos: "+fecha_nac.getSeconds()+"<br>");
+document.write("Fecha Completa: "+fecha_nac.toLocaleDateString()+"<br>");
+document.write("Hora Completa: "+fecha_nac.toLocaleTimeString()+"<br>");
+    </script>
+</body>
+</html>
