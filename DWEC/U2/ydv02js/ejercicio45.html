@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let notaTotal = 5;
+      q1 = parseInt(prompt("Pregunta1 \n[1] op1\n[2] op2\n[3] op3"));
+      q2 = parseInt(prompt("Pregunta2 \n[1] op1\n[2] op2\n[3] op3"));
+      q3 = parseInt(prompt("Pregunta3 \n[1] op1\n[2] op2\n[3] op3"));
+      q4 = parseInt(prompt("Pregunta4 \n[1] op1\n[2] op2\n[3] op3"));
+
+      if (q1 !== 1) {
+        notaTotal -= 1;
+      }
+      if (q2 !== 2) {
+        notaTotal -= 1;
+      }
+      if (q3 !== 3) {
+        notaTotal -= 1;
+      }
+      if (q4 !== 1) {
+        notaTotal -= 1;
+      }
+      document.write(notaTotal);
+    </script>
+  </body>
+</html>

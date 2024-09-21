@@ -1,0 +1,5 @@
+table,th, td {
+  border-collapse: collapse; /* Colapsa los bordes entre las celdas */
+  border: 1px solid black;    /* Aplica un borde a toda la tabla */
+}
+

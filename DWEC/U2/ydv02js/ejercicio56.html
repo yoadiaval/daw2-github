@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      do {
+        base = Number(prompt("Introduce la base: "));
+        if (isNaN(base)) {
+          alert("Inserte numeros en lugar de letras");
+        }
+      } while (isNaN(base));
+
+      do {
+        exp = Number(prompt("Introduce la exp: "));
+        if (isNaN(exp)) {
+          alert("Inserte numeros en lugar de letras");
+        } else if (!Number.isInteger(exp)) {
+          alert("El número insertado debe de ser un entero");
+        }
+      } while (!Number.isInteger(exp) || isNaN(exp));
+      document.write(
+        "La potencia de " +
+          base +
+          " elevado a " +
+          exp +
+          " es " +
+          Math.pow(base, exp)
+      );
+    </script>
+  </body>
+</html>

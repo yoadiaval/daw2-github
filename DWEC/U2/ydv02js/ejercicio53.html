@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      passw = 4568;
+      cont = 1;
+      do {
+        value = parseInt(prompt("Inserte la combinación de la caja fuerte"));
+        cont++;
+        if (value === passw) {
+          alert("La caja fuerte se ha abierto satisfactoriamente");
+        } else {
+          alert("Lo siento esa no es la combinación");
+        }
+        if (cont === 4) {
+          alert("ha alcanzado el máximo número de intentos");
+        }
+      } while (cont !== 4 || value === passw);
+    </script>
+  </body>
+</html>

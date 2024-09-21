@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      suma = 0;
+
+      do {
+        num = Number(prompt("Introduce un número entero y positivo"));
+        if (isNaN(num)) {
+          alert("Debe insertar numeros en lugar de letras ");
+        }
+
+        if (!Number.isInteger(num)) {
+          alert("El número insertado debe de ser un entero");
+        }
+      } while (num < 0 || !Number.isInteger(num));
+      for (let i = num + 1; i <= num + 100; i++) {
+        suma += i;
+      }
+      document.write(
+        "La suma de los 100 número siguientes al " + num + " es: " + suma
+      );
+    </script>
+  </body>
+</html>

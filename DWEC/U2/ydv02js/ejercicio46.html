@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      do {
+        nota1 = parseFloat(prompt("Inserte la nota del parcial 1"));
+        if (isNaN(nota1)) {
+          alert("Ha insertado un valor erróneo");
+        }
+      } while (isNaN(nota1));
+      do {
+        nota2 = parseFloat(prompt("Inserte la nota del parcial 2"));
+        if (isNaN(nota2)) {
+          alert("Ha insertado un valor erróneo");
+        }
+      } while (isNaN(nota2));
+      media = (nota1 + nota2) / 2;
+      if (media < 5) {
+        do {
+          recuperacion = prompt(
+            "Indique el resultado de la recuperacion: \n [1] Apto \n [2] No apto"
+          );
+          if (recuperacion !== "1" && recuperacion !== "2") {
+            alert("Seleccione una opción válida");
+          }
+        } while (recuperacion !== "1" && recuperacion !== "2");
+        document.write(
+          recuperacion === "1"
+            ? "La nota final es: " + 5
+            : "La nota final es: " + 1
+        );
+      } else {
+        document.write("La media de las notas es: " + media);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      salarioBase = 0;
+      salarioPlus = 0;
+      do {
+        totalHoras = parseInt(
+          prompt("Inserte la cantidad de horas trabajadas: ")
+        );
+      } while (isNaN(totalHoras));
+
+      if (totalHoras <= 40) {
+        salarioBase = totalHoras * 12;
+      } else {
+        salarioBase = 40 * 12;
+        salarioPlus = (totalHoras - 40) * 16;
+      }
+      salarioTot = salarioBase + salarioPlus;
+      document.write("Salario: " + salarioTot + "euros");
+    </script>
+  </body>
+</html>

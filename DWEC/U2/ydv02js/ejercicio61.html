@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let cont = 1;
+      let suma = 0;
+      let sumaCtrol = 0;
+      do {
+        num = parseFloat(prompt("Introduzca un número: " + cont));
+        sumaCtrol += num; //Suma real que dispara el while cuando se superen los 1000
+        if (suma + num <= 1000) {
+          cont++;
+          suma += num;
+        }// controla que solo se sume si el nuevo numero más la suma no superan los 1000 
+      } while (sumaCtrol <= 1000);
+
+      document.write(
+        "La suma de los números introducidos es: " + suma + "<br/>"
+      );
+      document.write(
+        "La media de los números introducidos es: " +
+          (suma / cont).toFixed(2) +
+          "<br/>"
+      );
+    </script>
+  </body>
+</html>

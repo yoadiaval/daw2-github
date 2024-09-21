@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var negativeValue;
+      contNums = 0;
+      contImp = 0;
+      sumaImp = 0;
+      mayorPar = 0;
+      do {
+        num = parseInt(prompt("Introduce un número: "));
+        if (num >= 0) {
+          contNums++;
+          if (num % 2 !== 0) {
+            contImp++;
+            sumaImp += num;
+          } else if (num > mayorPar) {
+            mayorPar = num;
+          }
+        } else {
+          negativeValue = num;
+        }
+      } while (num >= 0);
+
+      document.write("Cantidad de números introducidos" + contNums + "<br/>");
+      document.write(
+        "Media de los impares: " + (sumaImp / contImp).toFixed(2) + "<br/>"
+      );
+      document.write("Mayor de los pares: " + mayorPar + "<br/>");
+    </script>
+  </body>
+</html>

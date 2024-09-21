@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      flag = false;
+      number = parseInt(prompt("inserte un número"));
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          flag = true;
+        }
+      }
+      document.write(
+        `${
+          flag
+            ? "El número introducido no es primo"
+            : "El número introducido es primo"
+        }`
+      );
+    </script>
+  </body>
+</html>

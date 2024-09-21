@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let ivaTxt;
+      let iva;
+      do {
+        baseImp = parseFloat(prompt("Introduzca la base imponible: "));
+        if (isNaN(baseImp)) {
+          alert("Ha introducido un valor erróneo");
+        }
+      } while (isNaN(baseImp));
+
+      tipoIva = prompt(
+        "Introduzca el tipo de IVA\n[1] General\n[2] Reducido\n[3] Superreducido: "
+      );
+      codProm = prompt("Introduzca el código promocional: ");
+
+      switch (tipoIva) {
+        case "1":
+          ivaTxt = "21%";
+          iva = 0.21 * baseImp;
+          break;
+        case "2":
+          ivaTxt = "10%";
+          iva = 0.1 * baseImp;
+          break;
+        case "3":
+          ivaTxt = "4%";
+          iva = 0.4 * baseImp;
+          break;
+        default:
+          alert("Inserte una opción válida");
+      }
+
+      switch (codProm) {
+        case "nopro":
+          montoCodProm = 0;
+          break;
+        case "mitad":
+          montoCodProm = baseImp / 2;
+          break;
+        case "meno5":
+        case "5porc":
+          montoCodProm = baseImp * 0.05;
+          break;
+        default:
+          alert(
+            "No es válido el código promocional. No se alicará ninguna promoción"
+          );
+      }
+
+      resultFinal = baseImp + iva - montoCodProm;
+
+      document.write("Base Imponible: " + baseImp.toFixed(2) + "<br/>");
+      document.write("CodProm (" + codProm + "): -" + montoCodProm + "<br/>");
+      document.write("IVA(" + ivaTxt + "): " + iva + "<br/>");
+      document.write("Precio con IVA: " + resultFinal.toFixed(2) + "<br/>");
+      document.write("TOTAL: " + resultFinal.toFixed(2));
+    </script>
+  </body>
+</html>
