@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      cont = 1;
+      do {
+        num = parseInt(prompt("Inserte un número" + cont));
+        if (num % 3 === 0) {
+          document.write("El número: " + num + " es multiplo de 3 <br/>");
+        } else {
+          document.write("El número: " + num + " no es multiplo de 3 <br/>");
+        }
+        cont++;
+      } while (cont <= 5);
+    </script>
+  </body>
+</html>

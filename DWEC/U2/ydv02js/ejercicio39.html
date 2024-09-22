@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      hora = parseInt(prompt("Inserte la hora: "));
+      switch (true) {
+        case hora >= 6 && hora <= 12:
+          document.write("buenos días");
+          break;
+        case hora >= 13 && hora <= 20:
+          document.write("buenas tardes");
+          break;
+        case hora >= 21 && hora <= 15:
+          document.write("buenas noches");
+          break;
+      }
+    </script>
+  </body>
+</html>

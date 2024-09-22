@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      facturacionTot = 0;
+      cantLitros = 0;
+      superaUmbral = 0; 
+      for (let i = 1; i <= 5; i++) {
+        cod = prompt("Inserte el código de la factura: ");
+        cant = parseInt(prompt("Inserte la cantidad de litros vendidos"));
+        precio = parseFloat(prompt("Inserte el precio por litro"));
+        cantLitros += cant;
+        facturacionTot += cant * precio;
+        if (cant * precio >= 600) {
+          superaUmbral++;
+        }
+      }
+    </script>
+  </body>
+</html>

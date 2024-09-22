@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      cont = 1;
+      sueldoMax = 0;
+      sueldo = 0;
+      do {
+        totalSueldos = parseInt(
+          prompt("Inserte el número total de sueldos que va a introdcir ")
+        );
+      } while (isNaN(sueldo));
+      23;
+      for (let i = 1; i <= totalSueldos; i++) {
+        do {
+          sueldo = parseFloat(prompt("Inserte el sueldo " + i));
+          if (isNaN(sueldo) || sueldo < 0) {
+            alert("Inserte un valor válido");
+          }
+        } while (isNaN(sueldo) || sueldo < 0);
+
+        if (sueldoMax < sueldo) {
+          sueldoMax = sueldo;
+        }
+      }
+      document.write("El sueldo máximo de los insertados es: " + sueldoMax);
+    </script>
+  </body>
+</html>
