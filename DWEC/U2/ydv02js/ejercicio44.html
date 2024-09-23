@@ -7,7 +7,49 @@
 </head>
 <body>
     <script>
+        do{
+            mes = parseInt(prompt("Introduce el mes de nacimiento"))
+            if(mes < 1 || mes > 12 || isNaN(mes)){
+                alert("Introduce un mes válido")
+            }
+          
+        }while(mes < 1 || mes > 12 || isNaN(mes))
+
+        do{
+            dia = parseInt(prompt("Introduce el día de nacimiento"))
+            if((mes === 4 || mes === 6 || mes === 9 || mes === 11 ) && dia > 30){
+                dia = 30
+            }
+            if(mes === 2 && dia > 29){
+                dia = 29
+            }
+            if(dia < 1 || dia > 31  || isNaN(dia)){
+                alert("Introduce un día válido")
+            }
+        }while(dia < 1 || dia > 31 || isNaN(dia))
         
+        switch (mes) {
+            case 1: document.write(dia < 20 ? "capricornio" : "acuario"); break;
+            case 2: document.write(dia < 19 ? "acuario" : "piscis"); break;
+            case 3: document.write(dia < 21 ? "piscis" : "aries"); break;
+            case 4: document.write(dia < 20 ? "aries" : "tauro"); break;
+            case 5: document.write(dia < 21 ? "tauro" : "geminis"); break; 
+            case 6: document.write(dia < 21 ? "geninis" : "cancer"); break;
+            case 7: document.write(dia < 23 ? "cancer" : "leo"); break;
+            case 8: document.write(dia < 23 ? "leo" : "virgo"); break;
+            case 9: document.write(dia < 23 ? "virgo" : "libra"); break;
+            case 10: document.write(dia < 23 ? "libra" : "escorpio"); break;
+            case 11: document.write(dia < 22 ? "escorpio" : "sagitario"); break;
+            case 12: document.write(dia < 22 ? "sagitario" : "capricornio"); break;
+            
+
+                
+                
+                break;
+        
+            default:
+                break;
+        }
     </script>
 </body>
 </html>
