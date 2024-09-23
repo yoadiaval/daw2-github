@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
+</head>
+<body>
     <script>
-      facturacionTot = 0;
-      cantLitros = 0;
-      superaUmbral = 0; 
+    superaUmbral = 0; 
       litrosFac1 = 0;
+      precioOp  = 0;
+      cantLitros = 0;
+      facturacionTot = 0;
       for (let i = 1; i <= 5; i++) {
-        cod = prompt("Inserte el código de la factura: " + i);
+        precioOp = prompt("Inserte el producto: " + i +"\n [1] 0.6 euros/litro \n[2] 3 euros/litro \n[3] 1.25 euros/litro");
+
+        switch(precioOp){
+            case "1": precio = 0.6;
+            case "2": precio = 3;
+            case "3": precio = 1.25;
+        }
         cant = parseInt(prompt("Inserte la cantidad de litros vendidos en la factura " + i));
-        precio = parseFloat(prompt("Inserte el precio por litro de la factura " + i));
         cantLitros += cant;
         facturacionTot += cant * precio;
         if (cant * precio >= 600) {
@@ -28,5 +34,5 @@
       document.write("Cantidad de litros de la factira 1: " + litrosFac1 + " litros <br/>")
       document.write("Se emitieron " + superaUmbral+ " facturas por encima de 600 euros <br/>")
     </script>
-  </body>
+</body>
 </html>
