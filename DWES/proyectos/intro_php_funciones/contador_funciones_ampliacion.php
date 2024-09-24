@@ -18,27 +18,7 @@
             $salto = 1;
          }
 
-if($a > $b){
-    $inicio = $a;
-    $fin = $b;
-    $saldo *= -1;
-}else{
-    $inicio = $b;
-    $fin = $a;
-}
-
-
- while($inicio != $fin ){
-    echo $inicio;
-    if($inicio != $fin){
-        echo ", ";
-    }
-    $inicio += $salto;
- }
-
-
-
-       /* if($a > $b){
+       if($a > $b){
             for($i = $a; $i >= $b; $i -= $salto ){
                 echo $i;
                 if($i != $b){
@@ -52,9 +32,8 @@ if($a > $b){
                     echo ", ";
                 }
             }
-        }*/
+        }
     }
-
 
     cuenta(40,30,2);
     ?>
