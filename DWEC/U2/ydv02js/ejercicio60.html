@@ -12,18 +12,19 @@
       contImp = 0;
       sumaImp = 0;
       mayorPar = 0;
+    
       do {
         num = parseInt(prompt("Introduce un número: "));
         if (num >= 0) {
-          contNums++;
+          contNums++; //cuanta la cantidad total de numeros controlando que sean mayores que cero
           if (num % 2 !== 0) {
-            contImp++;
-            sumaImp += num;
+            contImp++;  //cantidad de impares que so
+            sumaImp += num; //Suma de los impares
           } else if (num > mayorPar) {
-            mayorPar = num;
+            mayorPar = num; //mayor de los pares
           }
         } else {
-          negativeValue = num;
+          negativeValue = num; 
         }
       } while (num >= 0);
 

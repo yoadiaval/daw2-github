@@ -12,7 +12,7 @@
         if (isNaN(base)) {
           alert("Inserte numeros en lugar de letras");
         }
-      } while (isNaN(base));
+      } while (isNaN(base)); //controla que la base sea un número
 
       do {
         exp = Number(prompt("Introduce la exp: "));
@@ -21,7 +21,7 @@
         } else if (!Number.isInteger(exp)) {
           alert("El número insertado debe de ser un entero");
         }
-      } while (!Number.isInteger(exp) || isNaN(exp));
+      } while (!Number.isInteger(exp) || isNaN(exp)); //garantiza que el exponente sea un número y este número sea entero
       document.write(
         "La potencia de " +
           base +

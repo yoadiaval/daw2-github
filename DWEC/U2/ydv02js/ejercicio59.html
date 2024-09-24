@@ -13,14 +13,14 @@
         if (num1 == num2) {
           alert("los números deben de ser diferentes");
         }
-      } while (num1 == num2);
+      } while (num1 == num2); //controla que los números sean diferentes
       if (num1 < num2) {
         menor = num1;
         mayor = num2;
       } else {
         menor = num2;
         mayor = num1;
-      }
+      } //condición que determina qué número es mayor y cual es menor
 
       for (let i = menor; i <= mayor; i += 7) {
         document.write(i + "<br/>");

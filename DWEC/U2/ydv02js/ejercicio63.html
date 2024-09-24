@@ -14,11 +14,12 @@
         if (isNaN(num)) {
           alert("Ha introducido un valor erróneo");
         }
-      } while (isNaN(num));
+      } while (isNaN(num)); //controla que no se introduzcan letras en lugar de números 
 
       for (let i = num; i > 0; i--) {
         factorial *= i;
-      }
+      } //calcula el factorila de un número.
+
       document.write("El factorial de " + num + " es: " + factorial);
     </script>
   </body>

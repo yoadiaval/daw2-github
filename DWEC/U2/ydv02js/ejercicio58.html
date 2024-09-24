@@ -18,10 +18,10 @@
         if (!Number.isInteger(num)) {
           alert("El número insertado debe de ser un entero");
         }
-      } while (num < 0 || !Number.isInteger(num));
+      } while (num < 0 || !Number.isInteger(num)); //Se utiliza la clase Num para utilizar el método isInteger y verificar que el número introducido sea un integer.
       for (let i = num + 1; i <= num + 100; i++) {
         suma += i;
-      }
+      } 
       document.write(
         "La suma de los 100 número siguientes al " + num + " es: " + suma
       );

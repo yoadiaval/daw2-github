@@ -9,9 +9,9 @@
     <script>
       flag = false;
       number = parseInt(prompt("inserte un número"));
-      for (let i = 2; i < number; i++) {
+      for (let i = 2; i < number; i++) { //el rango de comprobación se excluye el 1 y el propio número pues por ellos ya es divisible.
         if (number % i === 0) {
-          flag = true;
+          flag = true; //si la ejecución entra en este if quiere decir que en el rango especificado se encuentra otro número por el cual es divisible además del propio número 
         }
       }
       document.write(

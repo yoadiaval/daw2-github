@@ -14,7 +14,7 @@
         if (isNaN(baseImp)) {
           alert("Ha introducido un valor erróneo");
         }
-      } while (isNaN(baseImp));
+      } while (isNaN(baseImp));// controla que no se introduzcan valores erróneos
 
       tipoIva = prompt(
         "Introduzca el tipo de IVA\n[1] General\n[2] Reducido\n[3] Superreducido: "
@@ -36,7 +36,7 @@
           break;
         default:
           alert("Inserte una opción válida");
-      }
+      } //calcula el iva que finalmente se estará empleando. 
 
       switch (codProm) {
         case "nopro":
@@ -53,9 +53,9 @@
           alert(
             "No es válido el código promocional. No se alicará ninguna promoción"
           );
-      }
+      } //Maneja el valor del código promocional en función de los datos insertados por el usuario.
 
-      resultFinal = baseImp + iva - montoCodProm;
+      resultFinal = baseImp + iva - montoCodProm; //computa el resultado final teniendo en cuenta el iva y el código
 
       document.write("Base Imponible: " + baseImp.toFixed(2) + "<br/>");
       document.write("CodProm (" + codProm + "): -" + montoCodProm + "<br/>");

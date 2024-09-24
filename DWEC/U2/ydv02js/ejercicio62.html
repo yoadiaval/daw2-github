@@ -15,14 +15,14 @@
         if (isNaN(num)) {
           alert("Ha insertado un valor erróneo");
         }
-      } while (isNaN(num));
+      } while (isNaN(num)); //evita que se inserte un valor erróneo
 
       for (let i = 1; i <= num; i++) {
         if (i % 3 === 0) {
           cont++;
           suma += i;
           document.write(i + "<br/>");
-        }
+        } //controla que solo muestre el número cuando este sea divisible entre 3
       }
       document.write("Suma: " + suma + "<br/>");
       document.write("Cantidad: " + cont + "<br/>");
