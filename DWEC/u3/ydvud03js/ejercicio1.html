@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>El dia de hoy es</h1>
+    <script>
+        fecha_actual = new Date();
+        dia =  fecha_actual.getDate()  ;
+        mes = fecha_actual.getMonth()+1;
+        anyo = fecha_actual.getFullYear();
+    //concatena un cero en caso de que la cifra del dia o del mes sea de un solo dígito
+        if(mes.toString().length==1){
+            mes = "0" + mes;
+        }
+        if(dia.toString().length ==1){
+             dia = "0"+ dia;
+        }
+        
+        document.writeln(dia + "/" + mes + "/" + anyo);
+     
+    </script>
+</body>
+</html>
