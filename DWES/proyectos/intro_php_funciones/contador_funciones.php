@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+<h1>Función Contador 2</h1>
     <?php 
     function cuenta($a, $b){
         if($a > $b){
