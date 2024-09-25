@@ -12,9 +12,9 @@
       do {
         do {
           nota = parseFloat(prompt("Inserte la nota de la asignatura " + cont));
-        } while (isNaN(nota) || nota > 10 || nota < 0);
+        } while (isNaN(nota) || nota > 10 || nota < 0); //pide la nota continuamente en caso de que se in tente insertar un valor que no coincida con la condición del while
 
-        sumaNotas += nota;
+        sumaNotas += nota; //
         cont++;
       } while (cont <= 3);
 

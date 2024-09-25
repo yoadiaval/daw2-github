@@ -12,7 +12,9 @@
         if (num > 7 || num <= 0 || isNaN(num)) {
           alert("Inserte un valor Válido");
         }
-      } while (num > 7 || num <= 0 || isNaN(num));
+      } while (num > 7 || num <= 0 || isNaN(num)); //se controla que se inserte un valor válido
+
+      //En dependencia del número insertado se escribe un día de la semana
       switch (num) {
         case 1:
           document.write("lunes");

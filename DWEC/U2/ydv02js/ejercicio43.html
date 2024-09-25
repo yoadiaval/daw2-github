@@ -15,22 +15,26 @@
         } while (isNaN(nota) || nota > 10 || nota < 0);
 
         sumaNotas += nota;
-        cont++;
+        
+         //En dependencia 
+      if (nota < 5) {
+        document.write("Nota"  + cont+ " Insuficiente <br/>");
+      } else if (nota < 6) {
+        document.write("Nota"  + cont+ " Suficiente <br/>");
+      } else if (nota < 7) {
+        document.write("Nota"  + cont+ " bien <br/>");
+      } else if (nota < 9) {
+        document.write("Nota"  + cont+ " notable <br/>");
+      } else if (nota <= 10) {
+        document.write("Nota"  + cont+ " Sobresaliente <br/>");
+      }
+      cont++;
       } while (cont <= 3);
       document.write(
         "La media de las tres notas es: " + (sumaNotas / 3).toFixed(2) + "<br/>"
       );
-      if (nota < 5) {
-        document.write("Insuficiente");
-      } else if (nota < 6) {
-        document.write("Suficiente");
-      } else if (nota < 7) {
-        document.write("bien");
-      } else if (nota < 9) {
-        document.write("notable");
-      } else if (nota <= 10) {
-        document.write("Sobresaliente");
-      }
+
+     
     </script>
   </body>
 </html>

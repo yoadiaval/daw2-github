@@ -7,6 +7,7 @@
   </head>
   <body>
     <script>
+      //los bucles do...while controlan que no se inserten valores erróneos
       do {
         nota1 = parseFloat(prompt("Inserte la nota del parcial 1"));
         if (isNaN(nota1)) {
@@ -19,7 +20,10 @@
           alert("Ha insertado un valor erróneo");
         }
       } while (isNaN(nota2));
+      
       media = (nota1 + nota2) / 2;
+     
+      //si la media no alcanza el 5 se pide al usuario que inserte el resultado de la recuperación 
       if (media < 5) {
         do {
           recuperacion = prompt(
@@ -28,7 +32,7 @@
           if (recuperacion !== "1" && recuperacion !== "2") {
             alert("Seleccione una opción válida");
           }
-        } while (recuperacion !== "1" && recuperacion !== "2");
+        } while (recuperacion !== "1" && recuperacion !== "2"); 
         document.write(
           recuperacion === "1"
             ? "La nota final es: " + 5

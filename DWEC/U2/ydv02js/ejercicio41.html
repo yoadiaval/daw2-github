@@ -18,7 +18,7 @@
       if (totalHoras <= 40) {
         salarioBase = totalHoras * 12;
       } else {
-        salarioBase = 40 * 12;
+        salarioBase = 40 * 12; //como las horas son mayores que 40 hay que tener en cuenta que las 40 primeras se pagan a 12 euros 
         salarioPlus = (totalHoras - 40) * 16;
       }
       salarioTot = salarioBase + salarioPlus;

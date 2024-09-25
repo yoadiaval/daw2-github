@@ -13,7 +13,7 @@
           nota = Number(prompt("Inserte la nota " + i));
         } while (isNaN(nota));
         if (nota < 5) {
-          flag = true;
+          flag = true; //si se alcanza este punto del código quiere decir que al menos hay una nota suspensa
         }
       }
       if (flag) {

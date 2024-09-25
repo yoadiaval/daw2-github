@@ -10,13 +10,15 @@
       cont = 1;
       do {
         num = parseInt(prompt("Inserte un número" + cont));
+
+        //Muestra si es múltiplo o no de tres, si tras dividir el número entre tres el resto es cero 
         if (num % 3 === 0) {
           document.write("El número: " + num + " es multiplo de 3 <br/>");
         } else {
           document.write("El número: " + num + " no es multiplo de 3 <br/>");
         }
         cont++;
-      } while (cont <= 5);
+      } while (cont <= 5); //permite que se pidan 5 números
     </script>
   </body>
 </html>

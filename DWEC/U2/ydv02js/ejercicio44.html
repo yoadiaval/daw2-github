@@ -13,16 +13,16 @@
                 alert("Introduce un mes válido")
             }
           
-        }while(mes < 1 || mes > 12 || isNaN(mes))
+        }while(mes < 1 || mes > 12 || isNaN(mes)) //cntrola que el mes sea un valor para el mes sea un número o que esté comprendido entre 1 y 12 
 
         do{
             dia = parseInt(prompt("Introduce el día de nacimiento"))
             if((mes === 4 || mes === 6 || mes === 9 || mes === 11 ) && dia > 30){
                 dia = 30
-            }
+            }//para los meses que tienen 30 o menos dias si se inserta un valor mayor se asume que se refiere al último día del mes
             if(mes === 2 && dia > 29){
                 dia = 29
-            }
+            } //si se trata del mes de febrero controla que no inserte un número mayor que 29
             if(dia < 1 || dia > 31  || isNaN(dia)){
                 alert("Introduce un día válido")
             }
