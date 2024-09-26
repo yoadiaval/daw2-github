@@ -14,8 +14,9 @@
             }
             if(num > 10 || num < 0){
                 alert("el número debe estar entre 0 y 10")}
-        }while(isNaN(num) || num > 10 || num < 0)
+        }while(isNaN(num) || num > 10 || num < 0) //controla que el número insertado no sea letras y que esté entre 0 y 10
 
+        //muestra la tabla de multiplicar para el número especificado.
         document.write("Tabla del " + num + "<br/>")
             document.write("***********" + "<br/>" )
         for(let i = 1; i <= 10; i++ ){

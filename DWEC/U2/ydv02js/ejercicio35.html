@@ -15,17 +15,18 @@
           prompt("Inserte el número total de sueldos que va a introdcir ")
         );
       } while (isNaN(sueldo));
-      23;
+      
+      //ciclo for que solicita el sueldo tantas veces como se indicó antes
       for (let i = 1; i <= totalSueldos; i++) {
         do {
           sueldo = parseFloat(prompt("Inserte el sueldo " + i));
           if (isNaN(sueldo) || sueldo < 0) {
             alert("Inserte un valor válido");
-          }
-        } while (isNaN(sueldo) || sueldo < 0);
+          } 
+        } while (isNaN(sueldo) || sueldo < 0); //controla que se inserte un valor válido
 
         if (sueldoMax < sueldo) {
-          sueldoMax = sueldo;
+          sueldoMax = sueldo; //si el sueldo máximo es menor que el insertado, el insertado pasa a ser el nuevo máximo.
         }
       }
       document.write("El sueldo máximo de los insertados es: " + sueldoMax);

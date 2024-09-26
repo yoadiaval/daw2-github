@@ -9,14 +9,16 @@
     <script>
       cantAprob = 0;
       cantSusp = 0;
+
+      //cliclo for para garantizar que se pidan 6 notas
       for (let i = 1; i <= 6; i++) {
         do {
           nota = Number(prompt("Inserte la nota " + i));
         } while (isNaN(nota));
         if (nota < 5) {
-          cantSusp++;
+          cantSusp++; //aumentan los suspensos si la nota es menor que 5
         } else {
-          cantAprob++;
+          cantAprob++;//aumentan los aprobados si la nota es mayor que 5
         }
       }
       document.write("Cantidad de Aprobados: " + cantAprob + "<br/>");

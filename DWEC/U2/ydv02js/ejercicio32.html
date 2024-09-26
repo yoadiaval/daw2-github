@@ -8,25 +8,38 @@
   <body>
     <script>
       facturacionTot = 0;
-      cantLitros = 0;
       superaUmbral = 0; 
-      litrosFac1 = 0;
+      litrosProduct1 = 0;
+
+      //se solicitan 5 productos correcpondiente a 5 facturas diferentes 
       for (let i = 1; i <= 5; i++) {
-        cod = prompt("Inserte el código de la factura: " + i);
-        cant = parseInt(prompt("Inserte la cantidad de litros vendidos en la factura " + i));
-        precio = parseFloat(prompt("Inserte el precio por litro de la factura " + i));
-        cantLitros += cant;
-        facturacionTot += cant * precio;
-        if (cant * precio >= 600) {
-          superaUmbral++;
+        contProd = 1;
+       //ciclo que controla que se pidan más productos para la factura que esté en curso
+        do{
+          cod = prompt("Inserte el código "+ contProd +" de la factura: " + i);
+          cant = parseInt(prompt("Inserte la cantidad de litros vendidos "+ contProd +" en la factura " + i));
+          precio = parseFloat(prompt("Inserte el precio por litro "+ contProd +" de la factura " + i));
+          salir = prompt("Desea seguir: \n [1] Si \n[2] No") 
+         
+          facturacionTot += cant * precio;
+          if(i===1 && contProd===1 ){
+             litrosProduct1 += cant;
+          }
+          contProd++;
+        }while(salir == "1")
+
+        if (facturacionTot >= 600) {
+          superaUmbral++; //contabiliza las facturas que superan el umbral.
         }
+     
+       
         if(i===1){
-          litrosFac1 = cant;
+          litrosFac1 = cant; //guarda la cantidad de litros de la factura 1
         }
       }
       document.write("Facturación total: " + facturacionTot + " euros <br/>")
-      document.write("Cantidad de litros de la factira 1: " + litrosFac1 + " litros <br/>")
       document.write("Se emitieron " + superaUmbral+ " facturas por encima de 600 euros <br/>")
+      document.write("Cantidad de litros del producto 1 de la factura 1 es : " + litrosProduct1 + " litros <br/>")
     </script>
   </body>
 </html>
