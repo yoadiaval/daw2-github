@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        date = new Date(2024,3,30)
+        //Almaceno los meses y los dias en arrays para luego acceder a ellos.
+        meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" ];
+        dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+       
+        document.write(`${dias[date.getDay()-1]}, ${date.getDate()} de ${meses[date.getMonth()-1]} de ${date.getFullYear()}`)
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         fechaActual = new Date();
+        
+        //Modifico los valores de la fecha con los setters del objeto Date 
+        fechaActual.setFullYear(fechaActual.getFullYear()-5) ;
+        fechaActual.setMonth(fechaActual.getMonth() + 11 );
+        fechaActual.setDate(fechaActual.getDate() + 18);        
+        
+        document.write(`Resultado de sumar a la fecha actual 10 años, 4 meses y 5 dias: ${fechaActual.getDate()}/ ${fechaActual.getMonth()+1} / ${fechaActual.getFullYear()} `)
+    </script>
+</body>
+</html>
