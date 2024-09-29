@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //función que controla que las fechas introducidas sean correctas
+      function Obtenerfecha(mensaje) {
+        myRegex = /[0|1][0-9]\/[0-3][0-9]\/[0-9]{2}$/; //regex que controla que el formato insertado de la fecha sea correcto
+        do {
+          fecha = prompt(
+            `Inserte la fecha de ${mensaje} en formato : mm/dd/aa`
+          );
+          if (myRegex.test(fecha) == false) {
+            alert("Ha insertado un formato para la fecha erróneo");
+          }
+        } while (myRegex.test(fecha) == false); //garantiza que se sigan pidiendo la fecha mientras el formato no se haya insertado correctamente.
+
+        return fecha;
+      }
+
+      fecha1 = new Date(Obtenerfecha(1));
+      fecha2 = new Date(Obtenerfecha(2));
+
+      result = Math.ceil(
+        ((fecha2.getTime() - fecha1.getTime()) * Math.pow(10, -3)) /
+          60 / //min
+          60 / //horas
+          24   //dias
+      ); //convirtiendo los milisegundos a dias
+
+      result < 0 ? (result *= -1) : (result = result);
+      salario = result * 55;
+      document.write(
+        `El salario correspondiente a los ${result} días trabajados es de: ${salario.toFixed(
+          2
+        )} euros`
+      );
+    </script>
+  </body>
+</html>

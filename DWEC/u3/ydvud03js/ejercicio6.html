@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      timer = setInterval(reloj, 1000); //se llama a la función reloj cada segundo para actualizar los datos en pantalla 
+
+      function reloj() {
+
+        //Se obtienen los valores actualizados de los minutos segundos y horas que hay en la actualidad
+        now = new Date();
+        h = now.getHours();
+        m = now.getMinutes();
+        s = now.getSeconds();
+
+        div = document.getElementById(
+          "reloj"
+        ).innerHTML = `${h}:${m}:${s} <br/>`; //agrega el contenido html en el div cuyo id es "reloj"
+      }
+    </script>
+    <div id="reloj"></div>
+    <button onclick="clearTimeout(timer)">Parar</button>
+  </body>
+</html>

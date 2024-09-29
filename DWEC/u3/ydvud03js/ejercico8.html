@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      personalData = [1, "luis", "MasRos", "05/10/1990", 7.5];
+      now = new Date();
+      nac = new Date(personalData[3]);
+      edad =
+        ((now.getTime() - nac.getTime()) * Math.pow(10, -3)) /
+        60 /
+        60 /
+        24 /
+        360;
+
+      tabla = document.getElementById("tabla");
+      tabla.innerHTML = `
+         <tr>
+            <td>Código</td>
+            <td>${personalData[0]}</td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td>${personalData[1]}</td>
+        </tr>
+         <tr>
+            <td>Apellidos</td>
+            <td>${personalData[2]}</td>
+        </tr>
+         <tr>
+            <td>Fecha nac</td>
+            <td>${personalData[3]}</td>
+        </tr>
+         <tr></tr>
+            <td>Calificación</td>
+            <td>${personalData[4]}</td>
+        </tr>
+        `;
+
+      //console.log(Math.floor(edad));
+    </script>
+    <table id="tabla"></table>
+    <p></p>
+  </body>
+</html>
