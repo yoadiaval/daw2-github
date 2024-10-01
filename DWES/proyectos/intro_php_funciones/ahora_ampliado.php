@@ -7,8 +7,6 @@
 </head>
 <body>
     <?php
-    
-<?php
 $fechaNac = "01/18/1993";
 $arrFechNac = explode("/", $fechaNac);
 
@@ -20,9 +18,8 @@ if (checkdate($arrFechNac[0], $arrFechNac[1], $arrFechNac[2])==1) {
     $edad = ($hoy - $nacToTime) / (60 * 60 * 24 * 365);
     echo "Edad: " . $edad;
 } else {
-    echo "Fecha de nacimiento no válida.";
+    echo "Fecha inválida";
 }
-?>
     ?>
 </body>
 </html>
