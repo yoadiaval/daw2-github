@@ -9,9 +9,8 @@
 <body>
     <?php
     date_default_timezone_set("Europe/Madrid"); //para que coincida la hora con la de los ordenadores
-    $fechaHoraActual = date('d M Y - H:i:s');
-    echo $fechaHoraActual;
+    $now = date('d M Y - H:i:s');
+    echo $now;
     ?>
-
 </body>
 </html>
