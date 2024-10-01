@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function pedirNum(){
+         do{
+            num = parseFloat(prompt("Introduce un número"))
+            if(isNaN(num)) alert("Inserte números en lugar de letras");
+         }while(isNaN(num))
+
+         return num;
+       }
+
+       num1 = pedirNum();
+       num2 = pedirNum();
+       
+       division = num1 / num2;
+       if(division == "Infinity" || division == "-Infinity" ){
+            document.write("La división por cero no es posible")
+       }else{
+            document.write( `El resultado de dividir ${num1} entre ${num2} es: ${division}`)    
+    }
+
+     
+    </script>
+</body>
+</html>

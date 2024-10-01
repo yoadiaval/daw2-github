@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
   <body>
     <script>
-      lado1 = parseInt(6 * Math.random() + 1);
-      lado2 = parseInt(6 * Math.random() + 1);
-      document.write("Lado 1: " + lado1 + "<br/>" + "Lado 2: " + lado2);
+      letra = String.fromCharCode(parseInt( 26*Math.random() + 65 )); //se elige un número aleatorio hasta el 26 y se le suma a 65 para que el rango final esté comprendido entre 65 y 90. 
+      document.write(letra);
     </script>
   </body>
 </html>

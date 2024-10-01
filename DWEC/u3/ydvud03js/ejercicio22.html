@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        max = 0;
+        cont = 1;
+        do{
+            num = parseInt(prompt("Introduce un número"));
+            if(num > 0 && num % 2 == 0) {
+                if(num > max) max = num; 
+                cont++; //cont solo se incrementa cuando el número es positivo y mayor que cero 
+            }
+            if(isNaN(num)) alert("Inserte números en lugar de letras")
+        
+        }while(cont <= 5 || isNaN(num));
+        document.write("El valor máximo de los númeroos pares introducidos es: " + max)
+    </script>
+</body>
+</html>
