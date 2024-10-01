@@ -1,42 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <table id="list"></table>
+    <style>
+      table,
+      td,
+      th {
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody id="list"></tbody>
+    </table>
     <script>
-        trabajadores = [
-            {
-                nombre: "Juan",
-                apellidos: "Lozano",
-                alta : new Date("10/20/1979")      
-            },
-            {
-                nombre: "Pedro",
-                apellidos: "Lozano",
-                alta : new Date("10/20/1997")      
-            },
-            {
-                nombre: "Claudia",
-                apellidos: "Lozano",
-                alta : new Date("10/20/2005")      
-            }
-        ];
+      trabajadores = [
+        {
+          nombre: "Juan",
+          apellidos: "Lozano",
+          alta: new Date("10/20/1979"),
+          sueldo: 2000,
+        },
+        {
+          nombre: "Pedro",
+          apellidos: "Lozano",
+          alta: new Date("10/20/1997"),
+          sueldo: 3000,
+        },
+        {
+          nombre: "Claudia",
+          apellidos: "Lozano",
+          alta: new Date("10/20/2005"),
+          sueldo: 4000,
+        },
+      ];
       let list = document.getElementById("list");
-      
-for(let i in trabajadores){
-    arr = Object.keys(trabajadores[i]);
-    list.innerHTML=`<tr>
-        <td></td>
-        </tr>`
-    
-    //list.innerHTML += trabajadores[i].nombre;
-    //console.log(trabajadores[i].nombre);
-}
+       
+      //Recorre el array de objetos y muestra la info de todos los trabajadores + retención en formato tabla.
+      for (let i in trabajadores) {
+        //guarda las key del objeto actual en un array
+        array = Object.keys(trabajadores[i]);
+        year = trabajadores[i].alta.getFullYear();
+
+        //Calcula la retención en función del año introducido
+        switch (true) {
+          case year < 1980:
+            retencion = 0.2 * trabajadores[i].sueldo;
+            break;
+          case year >= 1980 && year <= 2000:
+            retencion = 0.15 * trabajadores[i].sueldo;
+            break;
+          case year > 200:
+            retencion = 0.05 * trabajadores[i].sueldo;
+            break;
+        }
+
+        array.forEach(function (item) {
+          list.innerHTML += `<tr>
+        <th>${item}</th>
+        <td>${trabajadores[i][item]}</td>
+        </tr>`;
+        });//agrega una fila por cada key del objeto
+        list.innerHTML += `<tr>
+                            <th>Retención</th>
+                            <td>${retencion} euros</td>
+                        </tr>
+                        `; //agrega una fila para la retención a la tabla 
+      }
     </script>
-    
-</body>
+  </body>
 </html>

@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      table,td{
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
+    <table id="tabla"></table>
     <script>
       personalData = [1, "luis", "MasRos", new Date("05/10/1990"), 7.5];
       now = new Date();
@@ -47,7 +54,7 @@ tabla.innerHTML = `
 
     
     </script>
-    <table id="tabla"></table>
+    
     <p></p>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         do{valor =parseFloat(prompt("Introduce un número"));
+            if(isNaN(valor)){
+                alert("Inserte números en lugar de letras")
+            }
+        }while(isNaN(valor));
+        cuadrado_valor= Math.pow(valor,2); //calcula el cuadrado de un número
+        document.write("El cuadrado de: "+ valor + " es: " + cuadrado_valor)
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         do{valor =parseFloat(prompt("Introduce un número"));
+            if(isNaN(valor)){
+                alert("Inserte números en lugar de letras")
+            }
+        }while(isNaN(valor));
+        valor_redondeado = Math.floor(valor); //redondea al entero inferior.
+        document.write(valor_redondeado)
+    </script>
+</body>
+</html>
