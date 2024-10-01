@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="list"></table>
+    <script>
+        trabajadores = [
+            {
+                nombre: "Juan",
+                apellidos: "Lozano",
+                alta : new Date("10/20/1979")      
+            },
+            {
+                nombre: "Pedro",
+                apellidos: "Lozano",
+                alta : new Date("10/20/1997")      
+            },
+            {
+                nombre: "Claudia",
+                apellidos: "Lozano",
+                alta : new Date("10/20/2005")      
+            }
+        ];
+      let list = document.getElementById("list");
+      
+for(let i in trabajadores){
+    arr = Object.keys(trabajadores[i]);
+    list.innerHTML=`<tr>
+        <td></td>
+        </tr>`
+    
+    //list.innerHTML += trabajadores[i].nombre;
+    //console.log(trabajadores[i].nombre);
+}
+    </script>
+    
+</body>
+</html>

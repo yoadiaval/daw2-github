@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fecha = prompt("Introducir la fechade entrega en formato mm/dd/aa")
+        let f_entrega = new Date(fecha);
+        now = new Date();
+        lapso = now.getTime() - f_entrega.getTime(); //calcula el lapso de tiempo en milisegundos entre la fecha de entrega y la fecha actual.
+        if(lapso < 0 ){  //si el lapso es negativo quiere decir que la fecha de entrega fue posterior al plazo.
+            document.write("Está fuera de plazo la entrega")
+        }else{
+            document.write("La entrega se ha hecho en tiempo")
+        }
+    </script>
+</body>
+</html>
