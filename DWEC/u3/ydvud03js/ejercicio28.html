@@ -7,11 +7,11 @@
 </head>
 <body>
     <script>
-        str = "Centro de Estudios IES el Grao"
-        posIni = str.indexOf("de")
-        posFin = posIni + 11;
-        str_modif = str.slice(posIni, posFin)
-        document.write(str_modif)
+        str = "Centro de Estudios Superior"
+        strDetect = "Superior"
+        strSust = "IES el Grao"
+        newStr = str.replace("Superior","IES el Grao")
+        document.write(newStr)
     </script>
 </body>
 </html>

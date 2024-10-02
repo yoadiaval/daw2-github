@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        str = prompt("Inserte el mensaje a encriptar")
+        //ENCRIPTACION 
+        strCif = str.split("")
+           .map(element => {
+            //Retorna el caracter cifrado de cada elemento, previamente se obtiene el código ascii y se le suma 5
+            return String.fromCharCode(element.charCodeAt() + 5)  ; 
+        }).join("");
+
+        document.write(`Mensaje encriptado: ${strCif} <br/>`)
+
+        //DESENCRIPTACIÓN
+         strDes = strCif.split("")
+           .map(element => {
+            return String.fromCharCode(element.charCodeAt() - 5)  ;
+        }).join("");
+
+        document.write(`Mensaje desencriptado: ${strDes}`)
+
+    </script>
+</body>
+</html>

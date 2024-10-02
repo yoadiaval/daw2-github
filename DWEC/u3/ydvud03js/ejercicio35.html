@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        //Se obtiene ancho y altura de la pantalla 
+      ancho = window.screen.width; 
+      altura = window.screen.height;
+
+      //Se obtienen ancho y altura disponible de la pantalla
+      anchoDisp = window.innerWidth;
+      alturaDisp = window.innerHeight;
+      // Calcular los píxeles ocupados por barras del sistema operativo
+      barraHorizontal = ancho - anchoDisp;
+      barraVertical = altura - alturaDisp;
+
+      document.write(
+        `Barra de tareas: ${barraHorizontal}px <br/>`
+      );
+      document.write(
+        `Barra del navegador: ${barraVertical}px <br/>`
+      );
+
+      // se Verifica si la resolución es superior a 1024x768 px
+      if (ancho > 1024 && altura > 768) {
+        document.write(
+          "La resolución de pantalla es superior a 1024x768 píxeles."
+        );
+      } else {
+       document.write(
+          "La resolución de pantalla NO es superior a 1024x768 píxeles."
+        );
+      }
+    </script>
+  </body>
+</html>
