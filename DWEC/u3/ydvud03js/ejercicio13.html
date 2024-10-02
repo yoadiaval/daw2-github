@@ -7,13 +7,14 @@
 </head>
 <body>
     <script>
-        do{valor =parseFloat(prompt("Introduce un número"));
+        do{
+            valor =parseFloat(prompt("Introduce un número"));
             if(isNaN(valor)){
                 alert("Inserte números en lugar de letras")
             }
         }while(isNaN(valor));
-        valor_redondeado = Math.ceil(valor); //redondea al entero superior.
-        document.write(valor_redondeado)
+            valor_redondeado = Math.ceil(valor); //redondea al entero superior.
+            document.write(valor_redondeado)
     </script>
 </body>
 </html>
