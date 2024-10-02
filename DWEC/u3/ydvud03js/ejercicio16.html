@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<style>
+    .ficha{
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .dot{
+        width: 10px;
+        height: 10px;
+        background-color: red;
+    }
+</style>
 </head>
 <body>
+    <div class="ficha">
+        <div id="lado1"></div>
+        <div id="lado2"></div>
+    </div>
     <script>
-      
         lado1 = parseInt(6*Math.random() + 1);
         lado2 = parseInt(6*Math.random() + 1);
-        document.write(lado1 + "<br/>" + lado2)
+        document.write(lado1 + "<br/>" + lado2);
+
+        dot = document.createElement("div")
+        dot.setAttribute("id", "dot")
+
+
     </script>
 </body>
 </html>
