@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        rojo = 0;
+        negro = 0;
+        cantExt = 15;
+        colores = ["rojo", "negro"];
+        //simulación de las 15 extracciones
+        for(let i= 1 ; i <= cantExt ; i++){
+            pos = parseInt(2*Math.random()); //Se elige la posicion del array de forma aleatoria.
+            switch(colores[pos]){
+                case "rojo" : rojo++; break;
+                case "negro" : negro++; break;            }
+        }
+        rojoPorciento = ((rojo/cantExt)*100).toFixed(2); //calculo del porcentaje de salida del rojo;
+        negroPorciento = ((negro/cantExt)*100).toFixed(2); // cálculo del porcentaje de salida del negro;
+        document.write(`porcentaje de salida del rojo: ${rojoPorciento} <br/>`)
+        document.write(`porcentaje de salida del rojo: ${negroPorciento} <br/>`)
+    </script>
+</body>
+</html>
