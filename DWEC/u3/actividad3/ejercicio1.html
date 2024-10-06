@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script type="text/javascript">
+      /* var ventana;
+      function abrirVentana() {
+        ventana = window.open("", "", "width=900,height=900 noResize ");
+        ventana.focus();
+        ventana.document.write(`
+        <h3>Ejemplo de ventana nueva</h3>
+        URL Completa: ${window.location.href} <br/>
+        Protocolo utilizado: ${window.location.protocol} <br/>
+        Nombre en código del navegador: ${navigator.appCodeName} <br/>
+        `);
+        if (ventana.navigator.javaEnabled()) {
+          ventana.document.write("Java SI disponible en esta ventana");
+        } else {
+          ventana.document.write("Java NO disponible en esta ventana");
+        }
+        ventana.document.write(`
+        <iframe src="https://www.wikipedia.org/" width="800" height="600"></iframe>
+        `);
+      }*/
+
+      /* const intervalo = setInterval(() => {
+        clearInterval(intervalo);
+        if (ventana.closed) {
+          document.write(`<h1>TAREADWEC03</h1>`);
+          nombre = prompt("Introduzca su nombre y apellidos");
+          diaNac = prompt("Introduzca día de nacimiento");
+          medNac = prompt("Introduzca mes de nacimiento");
+          yearNac = prompt("Introduzca año de nacimiento");
+        }
+      }, 500);*/
+
+      document.write(`<h1>TAREADWEC03</h1>`);
+      nombre = prompt("Introduzca su nombre y apellidos");
+      diaNac = parseInt(prompt("Introduzca día de nacimiento"));
+      mesNac = parseInt(prompt("Introduzca mes de nacimiento"));
+      yearNac = parseInt(prompt("Introduzca año de nacimiento"));
+      dateNac = new Date(yearNac, mesNac, diaNac);
+      now = new Date();
+      //EL if CONTROLA QUE NUNGUNO DE LOS DATOS SEA null
+      //PARA PODER OPERAR CON ELLOS CORRECTAMENTE.
+      if (nombre && diaNac && yearNac) {
+        div = document.querySelector("div");
+        div.innerHTML = `
+      <h1>TAREADWEC03</h1>
+      <p>Buenos días: ${nombre}</p>
+      <p>Tu nombre tiene: ${nombre.length()} caracteres, incluidos espacios</p>
+      <p>La primera letra "A" de tu nombre ${
+        nombre.indexOf("a") != -1
+          ? `está en la posicón:${nombre.indexOf("a")}`
+          : `no está contenida en tu nombre`
+      } </p>
+      <p>La última letra A de tu nombre  ${
+        nombre.lastIndexOf("a") != -1
+          ? `está en la posicón:${nombre.lastIndexOf("a")}`
+          : `no está contenida en tu nombre`
+      }</p>
+      <p>Tu nombre menos las tres primeras letras es: ${nombre.substring(2)}</p>
+      <p>Tu nombre todo en mayúsculas es: ${nombre.toUpperCase()}</p>
+      <p>Tu edad es: ${now.getFullYear - yearNac}</p>
+      <p>Naciste un feliz ${diaNac} del año ${yearNac}</p>
+      `;
+      }
+    </script>
+    <button onclick="abrirVentana()">Abrir Ventana</button>
+  </body>
+</html>

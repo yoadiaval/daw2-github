@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      const div = document.getElementsByTagName("div");
+      const navigatorName = navigator.appCodeName;
+      const appName = navigator.appName;
+      const coockies = navigator.cookieEnabled;
+      const platform = navigator.platform;
+      const userAgent = navigator.userAgent,
+        text = `Nombre del navegador: ${navigatorName}<br/>
+                Nombre del cliente: ${appName}<br/>
+                Están habilitadas la cookies: ${coockies}<br/>
+                Plataforma sobre la que se está ejecutando el programa del cliente: ${platform}<br/>
+                UserAgent ${userAgent}`;
+      div[0].innerHTML = `<p>${text}</p>`;
+      if (navigator.javaEnabled()) {
+        document.write("Navegador soporta Applets Java<br>");
+      } else {
+        document.write("Navegador NO soporta Applets Java<br>");
+      }
+    </script>
+  </body>
+</html>

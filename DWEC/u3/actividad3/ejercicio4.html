@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      const div = document.querySelector("div");
+      arrIframeVideos = [
+        `<iframe width="560" height="315" src="https://www.youtube.com/embed/AAiV1JAX54g?si=Xl6YwoKbny5QxMn0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        `<iframe width="560" height="315" src="https://www.youtube.com/embed/6x-cLWOd6d8?si=Ety7ou2KBz4R3nY9&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        `<iframe width="560" height="315" src="https://www.youtube.com/embed/1IBfQHeix8w?si=oQrLgowEvn5UmJNz&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+      ];
+      pos = Math.round(2 * Math.random());
+      div.innerHTML = `${arrIframeVideos[pos]}`;
+    </script>
+  </body>
+</html>

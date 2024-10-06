@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var ventana;
+      function abrir() {
+        ventana = window.open("", "", "width=100,height=100"); //""->url, ""-> nombre de la ventana
+        ventana.focus(); //activa y hace que la ventana se convierta en la ventana de primer plano
+      }
+      function tam() {
+        ventana.resizeTo(250, 250);
+        ventana.focus();
+      }
+      function aumentatam() {
+        ventana.resizeBy(20, 20);
+        ventana.focus();
+      }
+      function disminuyetam() {
+        ventana.resizeBy(-20, -20);
+        ventana.focus();
+      }
+      function pos() {
+        ventana.moveTo(100, 100);
+        ventana.focus();
+      }
+      function aumentapos() {
+        ventana.moveBy(20, 20);
+        ventana.focus();
+      }
+      function disminuyepos() {
+        ventana.moveBy(-20, -20);
+        ventana.focus();
+      }
+      function estado() {
+        if (ventana.closed) alert("Ventana Cerrada");
+        else {
+          alert("Ventana Abierta");
+          ventana.focus();
+        }
+      }
+      function imprimir() {
+        ventana.print();
+        ventana.focus();
+      }
+      function mensaje(texto) {
+        ventana.document.write(texto + "<br>");
+        ventana.focus();
+      }
+    </script>
+    <input type="button" value="ABRIR" onclick="abrir();" />
+    <input type="button" value="CERRAR" onclick="ventana.close();" />
+    <input type="button" value="CERRADA?" onclick="estado();" />
+    <input type="button" value="TAM" onclick="tam();" />
+    <input type="button" value="TAM +" onclick="aumentatam();" />
+    <input type="button" value="TAM -" onclick="disminuyetam();" />
+    <input type="button" value="POS" onclick="pos();" />
+    <input type="button" value="POS +" onclick="aumentapos();" />
+    <input type="button" value="POS -" onclick="disminuyepos();" />
+    <input type="button" value="QUITAR FOCO" onclick="ventana.blur();" />
+    <input type="button" value="PONER FOCO" onclick="ventana.focus();" />
+    <input type="button" value="IMPRIMIR" onclick="imprimir();" />
+    <input type="button" value="MENSAJE" onclick="mensaje(Mensaje);" />
+  </body>
+</html>
