@@ -11,8 +11,8 @@ include "estudiante.inc.php";
 </head>
 <body>
     <?php
-    
 
-    ?>
+        $est = new Estudiante("1405", "yoannet", "adf@", "dsfgh");
+   ?>
 </body>
 </html>
