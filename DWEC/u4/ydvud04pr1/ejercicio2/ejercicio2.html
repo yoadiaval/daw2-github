@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO_2</title>
+</head>
+<body>
+    <h1>EJERCICIO_2</h1>
+    <div id="contenido"></div>
+    <script>
+        const contenido = document.getElementById("contenido")
+        arr = [];
+        do{
+            num = parseInt(prompt("Inserte un número"));
+            if(num!=0){arr.push(num);}
+          }while( isNaN(num) || num!=0 )
+       
+        contenido.innerHTML += `<strong>Longitud del array:</strong> ${arr.length}`
+
+        //MOSTRAR ELEMENTOS EN ORDEN INVERSO E IRLOS ELIMINANDO
+        contenido.innerHTML += "<h2>Elementos del array listados en orden inverso</h2>"
+        for(let i = arr.length - 1 ; i>=0 ; i-- ){
+            //SIEMPRE SE MUESTRA LA ÚLTIMA POSICION DEL ARRAY 
+            //YA QUE LOS VALORES DENTRO DE ESTE SE VAN ELIMINANDO 
+            //A MEDIDA QUE SE VAN MOSTRANDO.
+            contenido.innerHTML += `${arr[arr.length - 1]}<br/>`;
+            arr.pop();
+        }
+
+        //LONGITUD FINAL DEL ARREGLO
+        contenido.innerHTML += `<strong>Longitud final del array:</strong> ${arr.length}`
+
+    </script>
+</body>
+</html>
