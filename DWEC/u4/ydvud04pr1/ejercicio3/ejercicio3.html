@@ -1,94 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="script3.js" defer></script>
     <style>
-       main{
+      main {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-       }
-form{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    gap: 1em;
-    border: 1px solid rgb(202, 200, 200);
-    padding: 1em;
-    border-radius: 5px;
-}
-input, select{
-    height: 2em;
-    border-radius: 5px;
-}
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        gap: 1em;
+        border: 1px solid rgb(202, 200, 200);
+        padding: 1em;
+        border-radius: 5px;
+      }
+      input,
+      select {
+        height: 2em;
+        border-radius: 5px;
+      }
 
-input, select{
-    border: 1px solid rgb(218, 218, 218);
-    padding-left: 0.5em;
-}
-select:focus, input:focus{
-    outline-color:rgb(76, 180, 145) ;
-}
-button{
-    border: none;
-    background-color: rgb(76, 180, 145);
-    border-radius: 5px;
-    color: white;
-    padding: 0.5em 1em;
-}
-#consultas{
-    display: flex;
-    flex-direction: row;
-    gap: 5em;
-}
+      input,
+      select {
+        border: 1px solid rgb(218, 218, 218);
+        padding-left: 0.5em;
+      }
+      select:focus,
+      input:focus {
+        outline-color: rgb(76, 180, 145);
+      }
+      button {
+        border: none;
+        background-color: rgb(76, 180, 145);
+        border-radius: 5px;
+        color: white;
+        padding: 0.5em 1em;
+        cursor: pointer;
+      }
+      #consultas {
+        display: flex;
+        flex-direction: row;
+        gap: 5em;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-            <h1>SISTEMA DE ACCESO A CITAS</h1>
-    <form action="" id="form">
-       
-            <input type="text" name="nombre" placeholder="Inserte el nombre" id="nombre">
-            <select name="consulta" id="">
-                <option value="0">Consulta</option>
-                <option value="1">Pediatría</option>
-                <option value="2">Dermatología</option>
-                <option value="3">Cardiología</option>
-            </select>
-            <button type="submit">ENVIAR</button>
-    </form>
+      <h1>SISTEMA DE ACCESO A CITAS</h1>
+      <form action="" id="form">
+        <input
+          type="text"
+          name="nombre"
+          placeholder="Inserte el nombre"
+          id="nombre"
+          required
+        />
+        <select name="consulta" id="" required>
+          <option value="0">Consulta</option>
+          <option value="1">Pediatría</option>
+          <option value="2">Dermatología</option>
+          <option value="3">Cardiología</option>
+        </select>
+        <button type="submit">ENVIAR</button>
+      </form>
 
-    <h2>Consultas</h2>
-    <div id="consultas">
-    <div class="consultas__item">
-        <h3>Pediatría</h3>
-        <button>Llamar al próximo</button>
-        <h4>Paciente llamado a consulta:</h4>
-        <p id="pacientePediatria">Nombre paciente</p>
-        <h4>Pacientes en espera:</h4>
-        <ul id="listEsperaPediatria"></ul>
-    </div>
-    <div class="consultas__item">
-        <h3>Dermatología</h3>
-        <button>Llamar al próximo</button>
-        <h4>Paciente llamado a consulta:</h4>
-        <p id="pacienteDerma">Nombre paciente</p>
-        <h4>Pacientes en espera:</h4>
-        <ul id="listEsperaDerma"></ul>
-    </div>
-    <div class="consultas__item">
-        <h3>Cardiología</h3>
-        <button>Llamar al próximo</button>
-        <h4>Paciente llamado a consulta:</h4>
-        <p id="pacienteCardio">Nombre paciente</p>
-        <h4>Pacientes en espera:</h4>
-        <ul id="listEsperaCardio"></ul>
-    </div>
-</div>
-</main>
-
-</body>
+      <h2>Consultas</h2>
+      <div id="consultas">
+        <div class="consultas__item">
+          <h3>Pediatría</h3>
+          <p id="doctorPediatria"></p>
+          <button id="btn-pediatria" class="btnConsulta">
+            Llamar al próximo
+          </button>
+          <h4>Paciente llamado a consulta:</h4>
+          <p id="proxPediatria"></p>
+          <h4>Pacientes en espera:</h4>
+          <ul id="listEsperaPediatria"></ul>
+        </div>
+        <div class="consultas__item">
+          <h3>Dermatología</h3>
+          <p id="doctorDerma"></p>
+          <button id="btn-derma" class="btnConsulta">Llamar al próximo</button>
+          <h4>Paciente llamado a consulta:</h4>
+          <p id="proxDerma"></p>
+          <h4>Pacientes en espera:</h4>
+          <div id="listEsperaDerma"></div>
+        </div>
+        <div class="consultas__item">
+          <h3>Cardiología</h3>
+          <p id="doctorCardio"></p>
+          <button id="btn-cardio" class="btnConsulta">Llamar al próximo</button>
+          <h4>Paciente llamado a consulta:</h4>
+          <p id="proxCardio"></p>
+          <h4>Pacientes en espera:</h4>
+          <ul id="listEsperaCardio"></ul>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
