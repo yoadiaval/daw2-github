@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <h1>INVOICE</h1>
-    </header>
+    
     <main>
+      <h1>FACTURA</h1>
+      <hr/>
+    <div class="infoEmpCliente">
       <div>
-        <h2>Empresa: <span id="empresa"></span></h2>
+        <h2>Empresa <span id="empresa"></span></h2>
         <ul id="detallesEmpresa"></ul>
       </div>
       <div>
         <h2>Cliente: <span id="cliente"></span></h2>
         <ul id="detallesCliente"></ul>
       </div>
-
+    </div> <!--fin seccion que muestra la info de la empresa y el cliente-->
+    <div class="infofactura">
       <h2>Detalles Factura</h2>
       <table>
         <tr>
@@ -29,7 +32,7 @@
           <th>Cantidad</th>
         </tr>
       </table>
-
+    </div> <!--seccion que contiene info de la factura-->
       <h2>Totales de la factura</h2>
       <div id="InfoTotalesFactura"></div>
     </main>

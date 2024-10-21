@@ -1,3 +1,4 @@
+
 class Empresa {
   constructor(nombre, direccion, telefono, nif) {
     this.nombre = nombre;
@@ -34,10 +35,15 @@ class Factura {
     this.formaPago = formaPago;
   }
   calculaTotal() {
+    //con la funcion reduce, recorro todos los elementos del array detalles y por cada uno 
+    //calculo el importe total (precio x cantidad) y lo voy acumulando en la variable
+    //total 
     this.totalFactura = this.detalles.reduce((total, item) => {
       return total + item.precio * item.cantidad;
     }, 0);
   }
+  //Calcula el total llamando a la función calculaTotal() y luego lo retorna para que 
+  //pueda ser mostrado.
   muestraTotal() {
     this.calculaTotal();
     return this.totalFactura;
@@ -46,16 +52,16 @@ class Factura {
     //muestro detalles de la empresa
     document.getElementById("empresa").innerHTML = `${this.empresa.nombre}`;
     document.getElementById("detallesEmpresa").innerHTML = `
-    <li>Direccion: <span>${this.empresa.direccion}</span></li>
-    <li>Teléfono: <span>${this.empresa.telefono}</span></li>
-    <li>NIF: <span>${this.empresa.nif}</span></li>
+    <li><span>Dirección: </span>${this.empresa.direccion}</li>
+    <li><span>Teléfono: </span>${this.empresa.telefono}</li>
+    <li><span>NIF: </span>${this.empresa.nif}</li>
     `;
     //Muestro detalles de los clientes
     document.getElementById("cliente").innerHTML = `${this.cliente.nombre}`;
     document.getElementById("detallesCliente").innerHTML = `
-    <li>Direccion: <span>${this.cliente.direccion}</span></li>
-    <li>Teléfono: <span>${this.cliente.telefono}</span></li>
-    <li>NIF: <span>${this.cliente.nif}</span></li>
+    <li><span>Dirección: </span>${this.cliente.direccion}</li>
+    <li><span>Teléfono: </span>${this.cliente.telefono}</li>
+    <li><span>NIF: </span>${this.cliente.nif}</li>
     `;
     //Por cada elemento en la lista de detalles agrego una fila
     //en la tabla que lista los detalles de la factura.
@@ -68,12 +74,12 @@ class Factura {
                 </tr>`;
       })
       .join("")}
-      <tr>
+      <tr id="totTabla">
       <td></td>
-      <td>Total:</td>
+      <td >Total:</td>
       <td>${this.muestraTotal()}</td>
       </tr>
-      `;
+      `;/*con join("") uno todos loa elementos del array que me devuelve la función map()*/
 
     //Info de los totales de la factura
     document.getElementById("InfoTotalesFactura").innerHTML = `

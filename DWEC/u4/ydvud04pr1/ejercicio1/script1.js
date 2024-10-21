@@ -8,8 +8,8 @@ class Hospital{
         this.poblacion = poblacion;
         this.codPostal = codPostal;
     }
+    
     mostrarDatos(){
-      
       divDatos.innerHTML += `
       <h2>Datos de la instancia ${this.nombreHospital}</h2>
       Codigo: ${this.codHospital} <br/>

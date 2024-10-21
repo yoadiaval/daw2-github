@@ -1,0 +1,55 @@
+/*ESTILOS GENERALES*/
+body{
+    background-color: rgb(196, 195, 195);
+  
+}
+main{
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2em 4em;
+}
+h1{
+    color: rgb(128, 0, 0);
+}
+h2 > span{display: block; color: rgb(128, 0, 0);}
+hr{
+    border-color: rgb(128, 0, 0);
+}
+
+/*ESTILOS SECCIÓN MAIN*/
+.infoEmpCliente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infofactura{
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 5px;
+    padding: 1em;
+}
+table, th, td{
+    border-collapse: collapse;
+    border: 1px solid rgb(209, 209, 209);
+
+}
+td, th{
+    width: 600px;
+}
+th{
+    background-color: rgb(197, 197, 197);
+}
+tr{
+    align-items: center;
+}
+#totTabla{
+    font-weight: bold;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+ul li > span{
+    font-weight: bold;
+}

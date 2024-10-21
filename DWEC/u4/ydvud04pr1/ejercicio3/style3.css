@@ -40,3 +40,6 @@ main {
         flex-direction: row;
         gap: 5em;
       }
+      .consultas__item > h3{
+       
+      }
