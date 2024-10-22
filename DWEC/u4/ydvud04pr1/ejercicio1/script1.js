@@ -46,7 +46,6 @@ class Medico{
     return retencion;
    }
    mostrarDatos(){
-     
       divDatos.innerHTML += `<h2>Datos del médico ${this.nombre}</h2>
                              Codigo: ${this.codMedico}</br>
                              Nombre: ${this.nombre}</br>

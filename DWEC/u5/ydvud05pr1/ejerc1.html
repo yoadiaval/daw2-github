@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script1.js" defer></script>
+    <title>EJERCICIO 1</title>
+</head>
+<body>
+    <form action="">
+        <select name="tipoInmueble" id="tipoInmueble">
+            <option value="0">Seleccione una opción</option>
+            <option value="1">Piso</option>
+            <option value="2">Adosado</option>
+            <option value="3">Parcela</option>
+            <option value="4">Casa</option>
+            <option value="5">Chalet</option>
+            <option value="6">Local</option>
+            <option value="7">Nave</option>
+        </select>
+        <div>
+        <input type="text" list="provincias">
+        <datalist id="provincias">
+            <option value="Madrid"></option>
+            <option value="Valencia"></option>
+            <option value="Barcelona"></option>
+            <option value="Murcia"></option>
+        </datalist>
+        </div>
+
+        <select name = "ubicacion" id = "ubucacion" size = "4" multiple>
+            <option value="1">Centro</option>
+            <option value="2">Sur</option>
+            <option value="3">Este</option>
+            <option value="4">Oeste</option>
+            <option value="5">Ronda</option>
+            <option value="6">Periferia</option>
+        </select>
+
+        <div>
+        <input type = "range" name = "precioMax" id = "precioMax" min = "0" max = "500000" step="10000">
+        <input type = "range" name = "metrosMin" id = "metrosMin" min = "0" max = "5000" sstep = "50" >
+        <input type = "number" name = "alturaMin" id = "alturaMin" min = "0" max = "40">
+        <input type = "number" name = "minHab" id = "minHab" min = "1" max = "10" >
+        <input type = "number" name = "minBanios" id = "minBanios" min = "1" max = "5">
+    </div>
+        <fieldset>
+
+
+        </fieldset>
+    </form>
+</body>
+</html>
