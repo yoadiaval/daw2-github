@@ -4,6 +4,7 @@ body{
     background-color: rgb(201, 198, 195);
     text-align: center;
 }
+
 #header{
     text-align: center;
     height: 100px;
@@ -14,16 +15,19 @@ body{
     text-align: center;
     background-color: yellow;
 }
+
 #content{
     background-color: red;
     
 }
+
 #main{
     width: 700px;
     height: 500px;
     float: left;
     background-color: blue;
 }
+
 #aside{
     width: 270px;
     height: 500px;
@@ -31,6 +35,7 @@ body{
     background-color: violet;
 
 }
+
 #footer{
     background-color: brown;
     text-align: center;
