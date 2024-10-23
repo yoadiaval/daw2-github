@@ -1,16 +1,16 @@
 *{
     margin: 0;
     padding: 0;
-}
+}/*establece a 0 todos los margenes y paddings de la página*/
 :root{
-    --total-width: 980px;
+    --total-width: 980px; /*variable que almacena ancho total de la pagina*/
 }
 
 body{
     width: var(--total-width);
     margin: 0 auto;
     color: white;
-    height: 100vh;
+    height: 100vh; /*Se define la altura total como el 100% de la altura de la pantalla*/
     text-align: center;
 
 }
@@ -26,7 +26,7 @@ body{
 
 #aside{
     width: 20%;
-    float: left;
+    float: left; /*Se le indica aside que flote a la izquierda*/
     background-color: rgb(51, 196, 196);
     height: 92%;
 }
@@ -34,7 +34,7 @@ body{
 #main{
     width: 80%;
     height: 92%;
-    float: left;
+    float: left; /*Se indica a main qu eflote a la izquierda*/
     background-color: rgb(233, 159, 233);
 }
 
@@ -44,7 +44,7 @@ body{
     float: left;
     border: 2px solid red;
     margin: 2% 5%; 
-}
+} /*estilos de las cajas rojas dentro de main*/
 
 #cajaSuperior > div{
     width: 45%;
@@ -53,8 +53,9 @@ body{
     margin-top: 3%;
     margin-left: 3%;
     border: 2px solid blue;
+}/*estilos de los elementos div de la caja superior dentro del main*/
 
-}
+
  #cajaInferior > div{
     width: 29%;
     height: 80%;
@@ -62,10 +63,8 @@ body{
     margin-top: 3%;
     margin-left: 3%;
     border: 2px solid blue;
-}
+}/*Estilos de los elementos div de la caja inferior dentro del main*/
 
 #footer{
-    width: 100%;
-clear: both;
     background-color: rgb(221, 138, 124);
 }

@@ -1,6 +1,6 @@
 :root{
-    --width-page: 980px;
-    --height-content: 500px;
+    --width-page: 980px; /*variable que almacena ancho de la página*/
+    --height-content: 500px; /*variable que almacena altura del contenido*/
 }
 
 
@@ -8,7 +8,7 @@ body{
     width: var(--width-page);
     margin: 0 auto;
     background-color: rgb(252, 237, 186);
-    text-align: center;
+    text-align: center; /*centra todos los elementos hijos de body*/
 }
 
 
@@ -32,26 +32,24 @@ p{
     height: 250px;
     background-color: rgb(248, 248, 165);
     float: left;
-    text-align: center;
-    
+    text-align: center; /*centra el elemento dentro de la caja menu*/  
 }
+
 #menu > p{
-    margin-top:120px;
+    margin-top:120px; /*centrado vertical aproximado del elemento p dentro de menu*/
 }
 
 #content{
     background-color: rgb(211, 253, 177);
     height: var(--height-content);
     width: var(--width-page);
-    text-align: center;
-    text-align: initial;
 }
 
 #main{
     width: 700px;
     height: var(--height-content);
     background-color: rgb(128, 234, 241);
-    display: inline-block;
+    display: inline-block; /*ubica al elemento main en línea ocupando su ancho*/
     text-align: center;
 }
 
@@ -59,12 +57,8 @@ p{
     width: 146px;
     height: var(--height-content);
     background-color: rgb(185, 171, 199);
-    display: inline-block;
-    text-align: center;
-
+    display: inline-block; /*ubica al elemento aside en línea ocupando su ancho*/
 }
 #footer{
     background-color: rgb(211, 153, 153);
-    
-    
 }

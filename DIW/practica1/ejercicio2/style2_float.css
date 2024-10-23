@@ -1,24 +1,23 @@
 :root{
-    --height-content: 500px;
+    --height-content: 500px; /*variable que almacena la altura que tendrá la seccion de contenido*/
 }
 
 body{
     width: 980px;
     margin: 0 auto;
     background-color: rgb(252, 237, 186);
-    text-align: center;
+    text-align: center; /*centra los elementos internos de body*/
 }
 p{
-    margin-top: 250px;
+    margin-top: 250px; /*centrado vertical aproximado de los elementos p*/
 }
 
 #header > p{
     margin-top: 0;
     padding-top: 50px;
-}
+} /*estilo diferenciado para el elemento p dentro de header*/
 
 #header{
-    text-align: center;
     height: 100px;
     background-color: rgb(255, 194, 179);
 }
@@ -31,14 +30,15 @@ p{
 #menu{
     width: 130px;
     height: 250px;
-    float: left;
+    float: left; /*Se indica a menu que salga del flujo de la página y flote a la izquierda*/
     background-color:rgb(248, 248, 165) ;
 }
 #menu > p{
     margin-top: 0;
     padding-top: 120px;
-}
-#main{display: block;
+}/*se define estilo diferente para el elemento p dentro de menu*/
+
+#main{
     width: 700px;
     height: var(--height-content);
     float: left;
@@ -55,6 +55,4 @@ p{
 
 #footer{
     background-color: rgb(211, 153, 153);
-    text-align: center;
-    clear: both;
 }

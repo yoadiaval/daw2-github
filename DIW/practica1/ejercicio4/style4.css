@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --total-width: 980px;
+}
+
+body{
+    margin: 0 auto;
+    color: white;
+    height: 100vh;
+    text-align: center; /*centra todos sus hijos*/
+}
+
+#header{
+    width: 100%;
+    height: 5%;
+    background-color: rgb(40, 187, 101);
+    padding-top: 1%;
+    text-align: initial; /*se restablece valor inicial de text-align para que no herede de body*/
+}
+#menuHeader li{
+    display: inline; /*pone en linea todos los elementos li dentro del ul*/
+    margin-left: 2rem; /*el margin izquierdo será doveces el valor el tamaño de fuente definido en este caso por defecto 16px*/
+}
+#menuHeader li:first-child{
+    color: blue; 
+}/*estilo para el primer elemento de la lista*/
+#aside{
+    width: 20%;
+    float: left; /*Se indica a aside que flote a la izquierda*/
+    background-color: rgb(51, 196, 196);
+    height: 90%;
+}
+
+#menuAside li{
+margin-top: 20%;
+font-size: 2rem;
+}/*estilo para los elementos li dentro de menuAside*/
+
+
+#main{
+    width: 80%;
+    height: 90%;
+    float: left; /*se indica a main que flote a la izquierda de aside*/
+    background-color: rgb(233, 159, 233);
+}
+
+#main > div{
+    width: 90%;
+    height: 42%;
+    border: 2px solid red;
+    margin: 1% 5%; 
+} /*estilos de las cajas rojas superior e inferior denrto de main*/
+
+#cajaSuperior > div{
+    width: 45%;
+    height: 80%;
+    float: left; /*Se indica a los elementos div dentro de la caja superior que floten a la izquierda*/
+    margin-top: 2%;
+    margin-left: 3%;
+    border: 2px solid blue;
+
+}
+
+#cajaSuperior > div:nth-child(2){
+float: right;
+margin-right: 3%;
+margin-left: initial;/*se restablece valor de margin para este elemento*/
+} /*estilos segundo hijo de la caja superior en main*/
+
+ #cajaInferior > div{
+    width: 29%;
+    height: 80%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    border: 2px solid blue;
+}/*estilos  de los elementos div dentro de la caja inferior */
+
+#footer{
+    background-color: rgb(221, 138, 124);
+}

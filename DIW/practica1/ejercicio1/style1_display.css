@@ -1,5 +1,5 @@
 :root{
-    --width-page: 980px;
+    --width-page: 980px; /*variable para el ancho total de la página*/
     --height-content: 500px;
 }
 
@@ -8,12 +8,12 @@ body{
     width: var(--width-page);
     margin: 0 auto;
     background-color: rgb(252, 237, 186);
-    text-align: center;
+    text-align: center; /*centra el contenido de todos los elementos hijos*/
 }
 
 
 p{
-    margin-top: 250px;
+    margin-top: 250px; /*margin superior para que el texto quede aproximadamente centradoverticalmente*/
 }
 
 #header{
@@ -25,8 +25,8 @@ p{
 #header > p{
     margin: 0;
     padding-top: 50px;
+}/*se definen estilos para los elementos p dentro de header*/
 
-}
 #nav{
     width: var(--width-page);
     background-color: rgb(248, 248, 165);
@@ -37,30 +37,26 @@ p{
     height: var(--height-content);
     width: var(--width-page);
     text-align: center;
-    text-align: initial;
-}
-#content{
-   text-align: initial;
+    text-align: initial; /*Se restablece la propiedad text-align para evitar que herede se su padre, las secciones dentro de main
+                          ya no estarán centradas, dentro de cada una si se especificará que se centre su contenido*/
 }
 
 #main{
     width: 700px;
     height: var(--height-content);
     background-color: rgb(128, 234, 241);
-    display: inline-block;
-    text-align: center;
+    display: inline-block; /*se indica a main que se posicione ocupando su ancho permitiendo que si aside cabe, se posicione detrás*/
+    text-align: center; /*se centra contenido dentro de main*/
 }
 
 #aside{
     width: 276px;
     height: var(--height-content);
     background-color: rgb(185, 171, 199);
-    display: inline-block;
-    text-align: center;
+    display: inline-block; /*se indica a aside que se posicione en línea ocupando su ancho*/
+    text-align: center; /*Se centra contenido dentro de aside*/ 
 
 }
 #footer{
     background-color: rgb(211, 153, 153);
-    
-    
 }
