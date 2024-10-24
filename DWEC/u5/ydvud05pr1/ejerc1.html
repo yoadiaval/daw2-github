@@ -17,6 +17,11 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+       const now = new Date();
+       console.log(`${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`);
+       document.getElementById("now").value = "2024-10-24";
+    </script>
 </head>
 
 <body>
@@ -125,11 +130,11 @@
             <label for="nac">Fecha de Nacimiento: </label><input type="date" id="nac">
             <input type="password" id="dni" placeholder="DNI">
             <textarea name="" id="" cols="60" rows="6" placeholder="Deje un comentario"></textarea>
-            <input type="hidden" value="2024-10-24">
+            <input type="date" id="now" value="2024-10-24">
         </fieldset>
         <div class="sendResetForm">
             <button type="submit">Enviar</button>
-            <button type="reset">Limpiar Formilario</button>
+            <button type="reset">Limpiar Formulario</button>
         </div>
     </form>
     </div>
