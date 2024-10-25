@@ -1,0 +1,107 @@
+:root{
+    --color-fondo:rgb(241, 241, 176);
+    --color-gray:rgb(163, 163, 163);
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+} /*todos los elementos pasan a tener margin y padding cero*/
+
+
+body{
+width: 960px; /*Se define un ancho para el body*/
+margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+  color: blue;
+}
+
+#header{
+    width: 100%; /*el header ocupará el 100% de los 960px definidos para el body*/
+    height: 3rem;
+    background-color: var(--color-fondo);
+    padding-top: 1rem;
+    font-size: xx-large;
+    font-weight: bolder;
+    border: 1px solid var(--color-gray);
+   
+}
+#header p{
+    padding-left: 1rem; /*Se le da padding al elemento p dentro del header*/
+}
+
+#nav{
+    width: 100%;
+    background-color: var(--color-gray);
+    border: 1px solid var(--color-gray);
+}
+
+#nav ul li{
+    display: inline; /*Los elements del menú se muestran en línea*/
+    margin-left: 1rem; 
+    
+    
+}
+
+#nav ul li:first-child a{
+    color: initial;
+} /*se restablece el color del primer elementol anchor del primer elemento del menú de navegación*/
+
+
+#comntent > div {
+    margin: 1rem;
+}
+
+#main{
+    margin-left: 1rem;
+    width: 60%;
+    float: left;    
+}
+
+#main > div {
+    background-color: var(--color-fondo);
+    margin:1rem 0 1rem 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-gray);
+}/*estilo de las cajas dentro del main*/
+
+
+#infoImg{
+    font-style: italic;
+}
+
+#aside{
+    width: 30%;
+    float: right;
+    background-color: var(--color-gray);
+    margin-top: 1rem;
+    margin-right:1rem;
+    height: 10vh;
+    padding-top: 2rem;
+    padding-left: 1rem;
+}/*estilos de aside*/
+
+.comentarioCount{
+    width: 100%;
+    text-align: end;/**/
+}
+
+.fechaPublicacion{
+    color: var(--color-gray);
+}
+
+#bordeImg{
+    border: 1px solid var(--color-gray);
+    padding: 0.5rem; /*agrega padding al contenedor de la imagen*/
+}
+
+#footer{
+    clear: both;
+    border-top: 1px solid var(--color-gray); /*Se le pone borde superior a footer para que aparezca la línea sobre su contenido*/
+    padding-top: 1rem;
+    text-align: center;
+}
