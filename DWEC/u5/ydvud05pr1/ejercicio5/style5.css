@@ -1,8 +1,8 @@
 main {
-  width: 50%;
+  width: fit-content;
   border: 10px dotted black;
   margin: 10% auto;
-  padding: 1rem;
+  padding: 2rem;
   background-color: rgb(221, 221, 221);
 }
 
