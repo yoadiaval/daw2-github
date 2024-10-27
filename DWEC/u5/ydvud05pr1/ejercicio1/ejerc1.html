@@ -5,23 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script1.js" defer></script>
+    <link rel="stylesheet" href="style1.css">
     <title>EJERCICIO 1</title>
-    <style>
-        fieldset {
-            margin-top: 20px;
-            border: 1px solid gray;
-            border-radius: 5px;
-        }
-        .sendResetForm{
-            display: flex;
-            margin-top: 20px;
-        }
-    </style>
-    <script>
-       const now = new Date();
-       console.log(`${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`);
-       document.getElementById("now").value = "2024-10-24";
-    </script>
+   
+    
 </head>
 
 <body>
@@ -61,10 +48,16 @@
         </fieldset>
 
         <fieldset>
-            <label for="precioMax">Precio Maximo: </label>
-            <input type="range" name="precioMax" id="precioMax" min="0" max="500000" step="10000" />
-            <label for="metrosMin">Metros mínimos</label>
-            <input type="range" name="metrosMin" id="metrosMin" min="0" max="5000" sstep="50" />
+            <div class="range">
+                 <label for="precioMax">Precio Maximo: </label>
+                 <input type="range" onchange="handleChange(this)" name="precioMax" id="precioMax" min="0" max="500000" step="10000" />
+                 <p id="valuePrecioMax"></p>
+            </div>
+            <div class="range">
+                 <label for="metrosMin">Metros mínimos</label>
+                 <input type="range" onchange="handleChange(this)" name="metrosMin" id="metrosMin" min="0" max="5000" sstep="50" />
+                 <p id="valueMetrosMin"></p>
+            </div>
             <label for="alturaMin">Altura mínima</label>
             <input type="number" name="alturaMin" id="alturaMin" min="0" max="40" />
             <label for="minHab">Mínimo de habitaciones</label>
@@ -112,8 +105,11 @@
                 <input type="checkbox" name="amueblado" id="amueblado" />
                 Amueblado
             </label>
-            <label for="distPlaya">Proximidad a la Playa</label>
-            <input type="range" name="distPlaya" id="distPlaya" min="0" max="10" step="2">
+            <div class="range">
+                 <label for="distPlaya" >Proximidad a la Playa</label>
+                 <input onchange="handleChange(this)" type="range"  name="distPlaya" id="distPlaya" min="0" max="10" step="2" >
+                 <p id="valueDistPlaya"></p>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Estado</legend>
@@ -130,7 +126,7 @@
             <label for="nac">Fecha de Nacimiento: </label><input type="date" id="nac">
             <input type="password" id="dni" placeholder="DNI">
             <textarea name="" id="" cols="60" rows="6" placeholder="Deje un comentario"></textarea>
-            <input type="date" id="now" value="2024-10-24">
+            <input type="hidden" id="now" value="">
         </fieldset>
         <div class="sendResetForm">
             <button type="submit">Enviar</button>

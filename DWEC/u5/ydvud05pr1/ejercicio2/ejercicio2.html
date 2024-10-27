@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script2.js" defer></script>
+    <title>EJERCICIO_2</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Datos personales</legend>
+        <input
+          type="text"
+          minlength="3"
+          maxlength="30"
+          placeholder="Inserte el Nombre"
+        />
+        <input
+          type="text"
+          minlength="3"
+          maxlength="60"
+          placeholder="Inserte su Apellidos"
+        />
+        <input type="text" oninput="validacion(this)" id="telf" placeholder="Teléfono Ej: (xxx) xxx-xxx" />
+        <input type="text" oninput="validacion(this)" id="movil" placeholder="Movil Ej: 6xx-xxx-xxx" />
+        <input type="text" oninput="validacion(this)" id="dni" placeholder="Inserte su DNI Ej: xx.xxx.xxx-letra" />
+        <div id="fechaNac">
+          <label for="nac">Fecha de Nacimiento</label>
+          <input type="date" id="nac" />
+        </div>
+        <input type="number" min="0" placeholder="Inserte el número de hijos" />
+        <input type="email" placeholder="Inserte correo electrónico" />
+      </fieldset><!--Fin fieldset datos personales-->
+      <fieldset>
+        <legend>Datos de la dirección</legend>
+        <input
+          type="text"
+          minlength="3"
+          maxlength="50"
+          placeholder="Inserte la Direccion"
+        />
+        <input
+          type="text"
+          minlength="3"
+          maxlength="30"
+          placeholder="Inserte la Población"
+        />
+        <input
+          oninput="validacion(this)"
+          id="codPostal"
+          type="text"
+          minlength="5"
+          maxlength="5"
+          placeholder="Código Postal"
+        />
+      </fieldset><!--Fin fieldset direccion-->
+      <fieldset>
+        <legend>Información de Pago</legend>
+        <input
+        oninput="validacion(this)"
+          type="text"
+          id="cuenta"
+          placeholder="Inserte el número de la cuenta corriente"
+        />
+        <input oninput="validacion(this)" type="text" id="cuota" min="0" placeholder="Cuota mensual" />
+      </fieldset><!--Fin fieldset info pago-->
+      <button type="submit">Enviar</button>
+      <button type="reset">Limpiar formulario</button>
+    </form>
+  </body>
+</html>

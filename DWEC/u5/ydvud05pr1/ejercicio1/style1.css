@@ -1,0 +1,17 @@
+        fieldset {
+            margin-top: 20px;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius: 5px;  
+        }
+        .sendResetForm{
+            display: flex;
+            margin-top: 20px;
+        }
+        .range{
+            display: block;
+        }
+        p{display: inline;
+        }
+       
+        
+   
