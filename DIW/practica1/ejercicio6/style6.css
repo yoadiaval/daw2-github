@@ -1,51 +1,61 @@
 * {
   margin: 0;
   padding: 0;
-}
+} /*pone a cero el margin y el padding de los elementos dentro de la página*/
 :root {
   --color-gray: rgb(46, 46, 46);
-}
+  --color-clear-gray: rgb(101, 101, 101);
+  --border-width: 4px;
+} /*Definición de variables*/
 body {
   width: 800px;
   height: 80vh;
   margin: 0 auto;
-  background-image: url(./img/old_map.png);
-  background-repeat: no-repeat;
+  background-image: url(./img/old_map.png); /*Establece una imagen de fondo*/
   background-size: cover;
 }
+span {
+  font-weight: bold;
+}
 #header {
-  width: 100%;
-  height: 6rem;
-
-  background-color: var(--color-gray);
+  width: 95%;
+  height: 3rem;
+  background-color: var(--color-clear-gray);
+  padding: 2rem 1rem;
   color: white;
+  border: solid var(--border-width) var(--color-gray);
 }
 
-#header p {
-  float: left;
+#header_container p {
+  float: left; /*Flota a la izquierda el elemento p*/
   margin-top: 0.5rem;
   margin-left: 2rem;
   font-size: xx-large;
 }
-#header img {
-  float: left;
+#header_container img {
+  float: left; /*Flota a la izquierda la imagen*/
 }
 
 #nav {
   width: 100%;
   height: 100px;
-  background-image: url(./img/red015.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(./img/red015.jpg); /*establece de fondo una imagen*/
+  background-size: cover; /*permite que la imagen se posicione cubriendo todo el fondo*/
   padding-top: 1rem;
-  color: rgba(255, 255, 255, 0.41);
+  color: rgba(
+    255,
+    255,
+    255,
+    0.41
+  ); /*define el color blanco con 0.41 de transparencia*/
 }
 
 #nav > div {
-  width: 33.3%;
+  width: 33.3%; /*ancho de un 33% para los hijos directos de #nav*/
   text-align: center;
   float: left;
 }
+
 #main {
   background-image: url(./img/lgrey008.jpg);
   background-repeat: no-repeat;
@@ -54,30 +64,30 @@ body {
   padding-top: 2rem;
 }
 #main > div {
-  width: 25%;
+  width: 25%; /*ancho de un 25% para los hijos directos de #main*/
   float: left;
   text-align: center;
   margin-left: 3.5%;
   padding: 1rem;
   background-color: white;
 }
-
+.img-card {
+  margin-left: -20px;
+  margin-top: -15px;
+  scale: 0.95;
+}
 #main > div > p {
-  border-top: 1px solid gray;
+  border-top: 1px solid gray; /*borde superior para los elementos p dentro del div de la seccion #main*/
   margin-top: 1rem;
   padding-top: 1rem;
 }
-#main > div > img {
-  float: left;
-  scale: 0.8;
-}
+
 #footer {
   height: 2rem;
   text-align: center;
   clear: both;
-}
-#footer {
   padding-top: 1rem;
   color: white;
-  background-color: var(--color-gray);
+  border-top: var(--border-width) solid var(--color-gray);
+  background-color: var(--color-clear-gray);
 }
