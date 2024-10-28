@@ -6,45 +6,40 @@ body {
   text-align: center;
 }
 form {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   text-align: initial;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   border: 1px solid var(--color-gray);
-  padding: 1rem;
   border-radius: 5px;
+  padding: 1rem;
 }
 fieldset {
-  margin-top: 20px;
-  border: 1px solid rgb(204, 204, 204);
-  border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(235, 235, 235);
 }
-legend {
+fieldset legend {
   color: var(--color-primary);
 }
-.sendResetForm {
-  display: flex;
-  margin-top: 20px;
-  color: var(--color-primary);
-}
-.range {
-  display: block;
-}
-p {
-  display: inline;
-}
-
-button {
-  color: white;
-  background-color: var(--color-primary);
-  border: none;
-  margin-left: 1rem;
+fieldset,
+input {
+  border: 1px solid var(--color-gray);
   border-radius: 5px;
-  padding: 0.5rem 0.5rem;
 }
-.label_nac {
-  display: block;
+input {
+  padding: 0rem 0.5rem;
+}
+#dni {
+  width: 200px;
+}
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
 }

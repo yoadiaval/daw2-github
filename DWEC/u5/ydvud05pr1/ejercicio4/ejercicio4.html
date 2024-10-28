@@ -10,20 +10,20 @@
   <body>
     <h1>Alta de Personas</h1>
     <p>Rellene los siguientes datos y envíalos para insertarnuevas personas</p>
-    <form action="">
+    <form>
       <div>
         <label id="dni">DNI </label
-        ><input oninput="validacion(this)" type="text" id="dni" required />
+        ><input onblur="validacion(this)" type="text" id="dni" required />
       </div>
       <div>
         <label for="nombre">Nombre</label
-        ><input oninput="validacion(this)" type="text" id="nombre" required />
+        ><input onblur="validacion(this)" type="text" id="nombre" required />
         <div><label for="foto">Foto</label><input type="text" id="foto" /></div>
         <div><label for="edad">Edad</label><input type="text" id="edad" /></div>
         <div>
           <label for="poblacion">Población</label>
           <select
-            oninput="validacion(this)"
+            onblur="validacion(this)"
             name="poblacion"
             id="poblacion"
             required

@@ -1,139 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script1.js" defer></script>
-    <link rel="stylesheet" href="style1.css">
-    <title>EJERCICIO 1</title>
-   
-    
-</head>
+    <link rel="stylesheet" href="style1.css" />
+    <title>EJERCICIO_1</title>
+  </head>
 
-<body>
-    <h1>EJERCICIO_1 FORMULARIO</h1>
+  <body>
+    <h1>FORMULARIO EJERCICIO 1</h1>
     <form action="">
-        <fieldset>
-            <label for="tipoInmueble">Seleccione el tipo de inmueble: </label>
-            <select name="tipoInmueble" id="tipoInmueble">
-                <option value="0">Seleccione una opción</option>
-                <option value="1">Piso</option>
-                <option value="2">Adosado</option>
-                <option value="3">Parcela</option>
-                <option value="4">Casa</option>
-                <option value="5">Chalet</option>
-                <option value="6">Local</option>
-                <option value="7">Nave</option>
-            </select>
-            <div>
-                <label for="provincias">Seleccione la provincia: </label>
-                <input type="text" list="provincias" />
-                <datalist id="provincias">
-                    <option value="Madrid"></option>
-                    <option value="Valencia"></option>
-                    <option value="Barcelona"></option>
-                    <option value="Murcia"></option>
-                </datalist>
-            </div>
-            <label for="ubicacion">Seleccione las posibles ubicaciones: </label>
-            <select name="ubicacion" id="ubucacion" size="4" multiple>
-                <option value="1">Centro</option>
-                <option value="2">Sur</option>
-                <option value="3">Este</option>
-                <option value="4">Oeste</option>
-                <option value="5">Ronda</option>
-                <option value="6">Periferia</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-            <div class="range">
-                 <label for="precioMax">Precio Maximo: </label>
-                 <input type="range" onchange="handleChange(this)" name="precioMax" id="precioMax" min="0" max="500000" step="10000" />
-                 <p id="valuePrecioMax"></p>
-            </div>
-            <div class="range">
-                 <label for="metrosMin">Metros mínimos</label>
-                 <input type="range" onchange="handleChange(this)" name="metrosMin" id="metrosMin" min="0" max="5000" sstep="50" />
-                 <p id="valueMetrosMin"></p>
-            </div>
-            <label for="alturaMin">Altura mínima</label>
-            <input type="number" name="alturaMin" id="alturaMin" min="0" max="40" />
-            <label for="minHab">Mínimo de habitaciones</label>
-            <input type="number" name="minHab" id="minHab" min="1" max="10" />
-            <label for="minBanios">Cantidad mínima de baños</label>
-            <input type="number" name="minBanios" id="minBanios" min="1" max="5" />
-        </fieldset>
-        <fieldset>
-            <label for="">
-                <input type="checkbox" name="calefaccion" id="calefaccion" />
-                Calefaccion
-            </label>
-            <label for="">
-                <input type="checkbox" name="aire" id="aire" />
-                Aire acondicionado
-            </label>
-            <label for="">
-                <input type="checkbox" name="garaje" id="garaje" />
-                Garaje
-            </label>
-
-            <label for="">
-                <input type="checkbox" name="trastero" id="trastero" />
-                Trastero
-            </label>
-
-            <label for="">
-                <input type="checkbox" name="piscina" id="piscina" />
-                Piscina
-            </label>
-
-            <label for="">
-                <input type="checkbox" name="ascensor" id="ascensor" />
-                Ascensor
-            </label>
-            <label for="">
-                <input type="checkbox" name="exterior" id="exterior" />
-                Exterior
-            </label>
-            <label for="">
-                <input type="checkbox" name="terraza" id="terraza" />
-                Terraza
-            </label>
-            <label for="">
-                <input type="checkbox" name="amueblado" id="amueblado" />
-                Amueblado
-            </label>
-            <div class="range">
-                 <label for="distPlaya" >Proximidad a la Playa</label>
-                 <input onchange="handleChange(this)" type="range"  name="distPlaya" id="distPlaya" min="0" max="10" step="2" >
-                 <p id="valueDistPlaya"></p>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Estado</legend>
-            <input type="radio" name="estasdo" id="indiferente" value="indiferente"><label for="">Indiferente</label>
-            <input type="radio" name="estado" id="nuevo" value="nuevo"><label for="nuevo">Nuevo</label>
-            <input type="radio" name="estado" id="bien" value="bien"><label for="bien">Buen Estado</label>
-            <input type="radio" name="estado" id="reformar" value="reformar"><label for="reformar">Para Reformar</label>
-        </fieldset>
-        <fieldset>
-            <legend>Datos personales</legend>
-            <input type="text" id="nombre" placeholder="Inserte su Nombre" maxlength="35">
-            <input type="text" id="apellidos" placeholder="Inserte sus Apellidos" maxlength="75">
-            <input type="email" id="email" placeholder="Inserte su Email">
-            <label for="nac">Fecha de Nacimiento: </label><input type="date" id="nac">
-            <input type="password" id="dni" placeholder="DNI">
-            <textarea name="" id="" cols="60" rows="6" placeholder="Deje un comentario"></textarea>
-            <input type="hidden" id="now" value="">
-        </fieldset>
-        <div class="sendResetForm">
-            <button type="submit">Enviar</button>
-            <button type="reset">Limpiar Formulario</button>
+      <!---------------------------FIELDSET_1------------------------------->
+      <fieldset>
+        <label for="tipoInmueble">Seleccione el tipo de inmueble: </label>
+        <select name="tipoInmueble" id="tipoInmueble">
+          <option value="0">Seleccione una opción</option>
+          <option value="1">Piso</option>
+          <option value="2">Adosado</option>
+          <option value="3">Parcela</option>
+          <option value="4">Casa</option>
+          <option value="5">Chalet</option>
+          <option value="6">Local</option>
+          <option value="7">Nave</option>
+        </select>
+        <div>
+          <label for="provincias">Seleccione la provincia: </label>
+          <input type="text" list="provincias" />
+          <datalist id="provincias">
+            <option value="Madrid"></option>
+            <option value="Valencia"></option>
+            <option value="Barcelona"></option>
+            <option value="Murcia"></option>
+          </datalist>
         </div>
-    </form>
-    </div>
-</body>
+        <label for="ubicacion">Seleccione las posibles ubicaciones: </label>
+        <select name="ubicacion" id="ubucacion" size="4" multiple>
+          <option value="1">Centro</option>
+          <option value="2">Sur</option>
+          <option value="3">Este</option>
+          <option value="4">Oeste</option>
+          <option value="5">Ronda</option>
+          <option value="6">Periferia</option>
+        </select>
+      </fieldset>
+      <!---------------------------FIELDSET_2------------------------------->
+      <fieldset>
+        <div>
+          <div class="range">
+            <label for="precioMax">Precio Maximo: </label>
+            <input
+              type="range"
+              onchange="handleChange(this)"
+              name="precioMax"
+              id="precioMax"
+              min="0"
+              max="500000"
+              step="10000"
+            />
+            <p id="valuePrecioMax"></p>
+          </div>
+          <div class="range">
+            <label for="metrosMin">Metros mínimos</label>
+            <input
+              type="range"
+              onchange="handleChange(this)"
+              name="metrosMin"
+              id="metrosMin"
+              min="0"
+              max="5000"
+              sstep="50"
+            />
+            <p id="valueMetrosMin"></p>
+          </div>
+        </div>
+        <div>
+          <label for="alturaMin">Altura mínima</label>
+          <input
+            type="number"
+            name="alturaMin"
+            id="alturaMin"
+            min="0"
+            max="40"
+          />
+          <label for="minHab">Mínimo de habitaciones</label>
+          <input type="number" name="minHab" id="minHab" min="1" max="10" />
+          <label for="minBanios">Cantidad mínima de baños</label>
+          <input
+            type="number"
+            name="minBanios"
+            id="minBanios"
+            min="1"
+            max="5"
+          />
+        </div>
+      </fieldset>
+      <!---------------------------FIELDSET_3------------------------------->
+      <fieldset>
+        <label for="">
+          <input type="checkbox" name="calefaccion" id="calefaccion" />
+          Calefaccion
+        </label>
+        <label for="">
+          <input type="checkbox" name="aire" id="aire" />
+          Aire acondicionado
+        </label>
+        <label for="">
+          <input type="checkbox" name="garaje" id="garaje" />
+          Garaje
+        </label>
 
+        <label for="">
+          <input type="checkbox" name="trastero" id="trastero" />
+          Trastero
+        </label>
+
+        <label for="">
+          <input type="checkbox" name="piscina" id="piscina" />
+          Piscina
+        </label>
+
+        <label for="">
+          <input type="checkbox" name="ascensor" id="ascensor" />
+          Ascensor
+        </label>
+        <label for="">
+          <input type="checkbox" name="exterior" id="exterior" />
+          Exterior
+        </label>
+        <label for="">
+          <input type="checkbox" name="terraza" id="terraza" />
+          Terraza
+        </label>
+        <label for="">
+          <input type="checkbox" name="amueblado" id="amueblado" />
+          Amueblado
+        </label>
+        <div class="range">
+          <label for="distPlaya">Proximidad a la Playa</label>
+          <input
+            onchange="handleChange(this)"
+            type="range"
+            name="distPlaya"
+            id="distPlaya"
+            min="0"
+            max="10"
+            step="2"
+          />
+          <p id="valueDistPlaya"></p>
+        </div>
+      </fieldset>
+      <!---------------------------FIELDSET_4------------------------------->
+      <fieldset>
+        <legend>Estado</legend>
+        <input
+          type="radio"
+          name="estasdo"
+          id="indiferente"
+          value="indiferente"
+        /><label for="">Indiferente</label>
+        <input type="radio" name="estado" id="nuevo" value="nuevo" /><label
+          for="nuevo"
+          >Nuevo</label
+        >
+        <input type="radio" name="estado" id="bien" value="bien" /><label
+          for="bien"
+          >Buen Estado</label
+        >
+        <input
+          type="radio"
+          name="estado"
+          id="reformar"
+          value="reformar"
+        /><label for="reformar">Para Reformar</label>
+      </fieldset>
+      <!---------------------------FIELDSET_5------------------------------->
+      <fieldset>
+        <legend>Datos personales</legend>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Inserte su Nombre"
+          maxlength="35"
+        />
+        <input
+          type="text"
+          id="apellidos"
+          placeholder="Inserte sus Apellidos"
+          maxlength="75"
+        />
+        <input type="email" id="email" placeholder="Inserte su Email" />
+        <div>
+          <label for="nac">Fecha de Nacimiento: </label
+          ><input type="date" id="nac" />
+        </div>
+        <input type="password" id="dni" placeholder="DNI" />
+        <textarea
+          name=""
+          id=""
+          cols="60"
+          rows="6"
+          placeholder="Deje un comentario"
+        ></textarea>
+        <input type="hidden" id="now" value="" />
+      </fieldset>
+      <div class="sendResetForm">
+        <button type="submit">ENVIAR</button>
+        <button type="reset">LIMPIAR FORMULARIO</button>
+      </div>
+    </form>
+  </body>
 </html>
