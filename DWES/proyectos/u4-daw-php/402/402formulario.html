@@ -6,30 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="402formulario.php" method="get">
+    <form action="402formulario.php" method="GET">
         <input type="text" name="nombre" placeholder="Inserte Nombre">
-        <input type="email" name="emaiil" id="email" placeholder="Inserte Email">
+        <input type="email" name="email" id="email" placeholder="Inserte Email">
         <input type="url" name="url" id="url" placeholder="Inserte url personal">
         <input type="radio" name="sexo" value="masculino" id="masculino"><label for="masculino">Maculino</label>
         <input type="radio" name="sexo" value="femenino" id="femenino"><label for="femenino">Femenino</label>
     <div>
         <label for="numConv">Número de convivientes</label>
-        <input type="number" id="numConv">
+        <input type="number" name="numConv" id="numConv">
     </div>
     <div>
-        <label>Aficiones</label>
-<input type="checkbox" name="beisbol" id="beisbol">
-<input type="checkbox" name="natacion" id="natacion">
-<input type="checkbox" name="pintura" id="pintura">
-<input type="checkbox" name="lectura" id="lectura">
+        <label>Aficiones:</label>
+<input type="checkbox" name="aficiones[]" value="beisbol" id="beisbol"><label for="beisbol">Beisbol</label>
+<input type="checkbox" name="aficiones[]" value="natacion" id="natacion"><label for="natacion">Natación</label>
+<input type="checkbox" name="aficiones[]" value="pintura" id="pintura"><label for="pintura">Pintura</label>
+<input type="checkbox" name="aficiones[]" value="lectura" id="lectura"><label for="lectura">Lectura</label>
     </div>
-    <select name="numFav" id="" multiple>
-        <option value="0">Selecciona un valor</option>
-        <option value="1">2</option>
-        <option value="2">6</option>
-        <option value="3">10</option>
-        <option value="4">20</option>
+    <label for="menuFav">Menu Favorito</label>
+    <select name="menuFav[]" id="menuFav" multiple="true">
+        <option value="1">Menu_1</option>
+        <option value="2">menu_2</option>
+        <option value="3">Menu_3</option>
+        <option value="4">Menu_4</option>
     </select>
+    <button type="submit">Enviar</button>
     </form>
 </body>
 </html>

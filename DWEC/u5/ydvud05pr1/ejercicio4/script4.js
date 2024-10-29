@@ -15,7 +15,7 @@ function validacion(element) {
   //verifica que sea un select elemento y que se haya seleccionado un valor
   //distinto de cero
   isSelectValid = element.value == "0" && element.tagName == "SELECT";
-
+ 
   if (
     element.hasAttribute("required") &&
     (element.value == "" || isSelectValid)
