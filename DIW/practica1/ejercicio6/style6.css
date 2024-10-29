@@ -2,18 +2,20 @@
   margin: 0;
   padding: 0;
 } /*pone a cero el margin y el padding de los elementos dentro de la página*/
+
 :root {
   --color-gray: rgb(46, 46, 46);
   --color-clear-gray: rgb(101, 101, 101);
   --border-width: 4px;
 } /*Definición de variables*/
+
 body {
   width: 800px;
   height: 80vh;
   margin: 0 auto;
   background-image: url(./img/old_map.png); /*Establece una imagen de fondo*/
-  background-size: cover;
 }
+
 span {
   font-weight: bold; /*resalta los elementos span dandole peso a la fuente */
 }
@@ -32,6 +34,7 @@ span {
   margin-left: 2rem;
   font-size: xx-large;
 }
+
 #header_container img {
   float: left; /*Flota a la izquierda la imagen*/
 }
@@ -40,7 +43,7 @@ span {
   width: 100%;
   height: 100px;
   background-image: url(./img/red015.jpg); /*establece de fondo una imagen*/
-  background-size: cover; /*permite que la imagen se posicione cubriendo todo el fondo*/
+ 
   padding-top: 1rem;
   color: rgba(
     255,
@@ -62,6 +65,7 @@ span {
   height: 80%;
   padding-top: 2rem;
 }
+
 #main > div {
   width: 25%; /*ancho de un 25% para los hijos directos de #main*/
   float: left;
@@ -70,11 +74,13 @@ span {
   padding: 1rem;
   background-color: white;
 }
+
 .img-card {
   margin-left: -20px;
   margin-top: -15px;
   scale: 0.95;
 }
+
 #main > div > p {
   border-top: 1px solid gray; /*borde superior para los elementos p dentro del div de la seccion #main*/
   margin-top: 1rem;
