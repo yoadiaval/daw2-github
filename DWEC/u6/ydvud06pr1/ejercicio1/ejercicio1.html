@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <h1>LIBRERIAS VALENCIA</h1>
+      <div>
+        <label for="titulo">TITULO </label
+        ><input type="text" name="titulo" id="titulo" />
+      </div>
+      <div>
+        <label for="autor">AUTOR </label
+        ><input type="text" name="autor" id="autor" />
+      </div>
+      <div>
+        <label for="precio">PRECIO </label
+        ><input type="text" name="precio" id="precio" />
+      </div>
+      <div id="editorialSection">
+        <div>
+          <input type="text" id="editorial" />
+          <button id="addEditorial">AÑADIR EDITORIAL</button>
+        </div>
+        <label for="editorial">EDITORIAL</label
+        ><select name="editorialList" id="editorialList">
+          <option value="-1">No hay contenido para mostrar</option>
+        </select>
+      </div>
+      <div>
+        <h3>UBICACION</h3>
+        <button id="mas">+</button>
+        <button id="menos">-</button>
+      </div>
+      <ul id="direccion"></ul>
+    </form>
+  </body>
+</html>

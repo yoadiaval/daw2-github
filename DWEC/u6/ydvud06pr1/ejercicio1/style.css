@@ -1,0 +1,60 @@
+body {
+  background-color: rgb(235, 235, 235);
+}
+h1 {
+  padding-left: 30px;
+}
+form {
+  width: 40%;
+  margin: 0 auto;
+  background-color: white;
+  text-align: initial; /*evita que se herede el centrado de los elementos desde el body*/
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 2px 2px 10px rgb(192, 192, 192);
+}
+
+#editorialSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid rgb(198, 198, 198);
+  border-radius: 5px;
+  padding: 1rem;
+}
+#editorialSection input {
+  width: 50%;
+}
+h3 {
+  display: inline;
+}
+
+input {
+  width: 80%;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 5px;
+}
+input:focus {
+  box-shadow: 2px 2px 10px rgb(167, 77, 147);
+  outline: none;
+}
+
+button {
+  border: none;
+  padding: 0.1rem 0.5rem;
+  background-color: rgb(167, 77, 147);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+select {
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 5px;
+}
+select:focus {
+  outline: none;
+}
