@@ -1,0 +1,59 @@
+body {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+table,
+td {
+  border: 1px solid black;
+}
+#paleta {
+  display: flex;
+  justify-content: center;
+}
+#paleta_table tr > td {
+  width: 50px;
+  height: 20px;
+}
+
+/*----------AGREGA COLORES A LA PALETA DE COLORES-----------------*/
+#paleta_table tr:nth-child(1) td:nth-child(1) {
+  background-color: yellow;
+}
+
+#paleta_table tr:nth-child(1) td:nth-child(2) {
+  background-color: green;
+}
+
+#paleta_table tr:nth-child(1) td:nth-child(3) {
+  background-color: black;
+}
+
+#paleta_table tr:nth-child(1) td:nth-child(4) {
+  background-color: red;
+}
+
+#paleta_table tr:nth-child(1) td:nth-child(5) {
+  background-color: blue;
+}
+
+#paleta_table tr:nth-child(1) td:nth-child(6) {
+  background-color: white;
+}
+/*-----------------------------------------------------------------*/
+#estado_pincel {
+  text-align: center;
+}
+
+/*------------------ESTILOS ZONA DE DIBUJO-------------------------*/
+#zonadibujo {
+  width: fit-content;
+  height: fit-content;
+}
+#zonadibujo_table {
+  border: 2px solid red;
+}
+#zonadibujo_table td {
+  width: 10px;
+  height: 10px;
+}
