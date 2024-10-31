@@ -17,7 +17,7 @@ body{
 
 #header{
     width: 100%;
-    height: 5%;
+    height: 5vh;
     background-color: rgb(40, 187, 101);
 }
 #header p{
@@ -28,12 +28,12 @@ body{
     width: 20%;
     float: left; /*Se le indica aside que flote a la izquierda*/
     background-color: rgb(51, 196, 196);
-    height: 92%;
+    height: 92vh;
 }
 
 #main{
     width: 80%;
-    height: 92%;
+    height: 92vh;
     float: left; /*Se indica a main qu eflote a la izquierda*/
     background-color: rgb(233, 159, 233);
 }

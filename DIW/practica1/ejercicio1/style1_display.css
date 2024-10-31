@@ -36,7 +36,6 @@ p{
     background-color: rgb(211, 253, 177);
     height: var(--height-content);
     width: var(--width-page);
-    text-align: center;
     text-align: initial; /*Se restablece la propiedad text-align para evitar que herede se su padre, las secciones dentro de main
                           ya no estarán centradas, dentro de cada una si se especificará que se centre su contenido*/
 }
