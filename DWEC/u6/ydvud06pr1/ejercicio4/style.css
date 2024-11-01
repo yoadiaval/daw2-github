@@ -1,12 +1,20 @@
 table,
 td {
   border: solid 1px black;
+  border-collapse: collapse;
+  cursor: pointer;
 }
 
-td{
-    width: 20px;
-    height: 20px;
+td {
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  text-align: center;
 }
-.mina{
+/*.mina{
     background-color: red;
 }
+
+.textWhite{
+    color: white;
+}*/
