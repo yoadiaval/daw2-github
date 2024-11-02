@@ -44,3 +44,12 @@ for (let i = 0; i < imglist.length; i++) {
     "position"
   ).innerHTML += `<div class="positionItem"></div>`;
 }
+
+//Elimina el temporizador cuado el mouse está soobre el ícono de atrás o siguiente
+function clearTemp() {  
+  clearInterval(timer);
+}
+//Agrega el temporizador cuado se sale del ícono de atrás o siguiente
+function startTemp(){
+  timer = setInterval(next, 3000);
+};
