@@ -17,9 +17,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
   tablero.innerHTML = "";
   switch (this.elements[0].value) {
     case "1":
-      numFilas = ramdomValue(10, 20);
+      numFilas = 4;
+      numCeldas = 3;
+      totalMinas = 1;
+      /* numFilas = ramdomValue(10, 20);
       numCeldas = ramdomValue(10, 20);
-      totalMinas = 25;
+      totalMinas = 25;*/
       break;
     case "2":
       numFilas = ramdomValue(20, 40);
@@ -68,7 +71,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
         //cuento las bombas en las proximidades.
         for (let value of celdasProx) {
-          if (value == "b") {
+          if (matriz[value[0]][value[1]] == "b") {
             proximidad++;
           }
         }
@@ -77,7 +80,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
       }
     }
   }
-
+  console.table(matriz);
   creaeTablero(numFilas, numCeldas);
   arrayCeldas = document.querySelectorAll("#tablero td");
   timer = setInterval(reloj, 1000);
@@ -90,7 +93,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
       valorEnMatriz = matriz[filaSelected][celdaSelected];
 
       if (estadoJuego) {
-        if (valorEnMatriz !== "b") {
+        if (valorEnMatriz == 0) {
+          descubrir(this, filaSelected, celdaSelected, matriz);
+        } else if (valorEnMatriz !== "b") {
           //Al hacer click la casilla cambia de color y se le agrega como html el valor
           //correcpondiente en la matriz de valores
           this.style.backgroundColor = "green";
@@ -101,11 +106,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
           alert("Ha perdido");
           clearInterval(timer);
           seg = 0;
-
           estadoJuego = false;
-        } else {
-            descubrir(filaSelected, celdaSelected, matriz);
-         
         }
       }
     });
@@ -136,7 +137,7 @@ function creaeTablero(f, c) {
   for (let i = 0; i < f; i++) {
     tr = document.createElement("tr");
     for (let j = 0; j < c; j++) {
-      tr.innerHTML += `<td f=${i} c=${j} ></td>`;
+      tr.innerHTML += `<td id="celda_${i}_${j}" f=${i} c=${j} ></td>`;
     }
     document.getElementById("tablero").appendChild(tr);
   }
@@ -154,69 +155,104 @@ function updateContadorMinas(contadorMinas) {
   document.getElementById("contadorMinas").innerHTML = `${contadorMinas}`;
 }
 
-function ObtenerArrayProximidad(i, j, matriz) {
+function ObtenerArrayProximidad(i, j) {
   switch (true) {
     case i == 0 && j == 0:
-      celdasProx = [matriz[i][j + 1], matriz[i + 1][j], matriz[i + 1][j + 1]];
-      break;
-    case i == 0:
       celdasProx = [
-        matriz[i][j - 1],
-        matriz[i][j + 1],
-        matriz[i + 1][j - 1],
-        matriz[i + 1][j],
-        matriz[i + 1][j + 1],
+        [i, j + 1],
+        [i + 1, j],
+        [i + 1, j + 1],
       ];
       break;
     case i == 0 && j == numCeldas - 1:
-      celdasProx = [matriz[i][j - 1], matriz[i + 1][j - 1], matriz[i + 1][j]];
-      break;
-    case j == 0 && i == numFilas - 1:
-      celdasProx = [matriz[i - 1][j], matriz[i - 1][j + 1], matriz[i][j + 1]];
-      break;
-    case j == 0:
       celdasProx = [
-        matriz[i - 1][j],
-        matriz[i - 1][j + 1],
-        matriz[i][j + 1],
-        matriz[i + 1][j],
-        matriz[i + 1][j + 1],
+        [i, j - 1],
+        [i + 1, j - 1],
+        [i + 1, j],
       ];
       break;
     case i == numFilas - 1 && j == numCeldas - 1:
-      celdasProx = [matriz[i - 1][j - 1], matriz[i - 1][j], matriz[i][j - 1]];
+      celdasProx = [
+        [i - 1, j - 1],
+        [i - 1, j],
+        [i, j - 1],
+      ];
       break;
+    case j == numCeldas - 1:
+      celdasProx = [
+        [i - 1, j - 1],
+        [i - 1, j],
+        [i, j - 1],
+        [i + 1, j - 1],
+        [i + 1, j],
+      ];
+      break;
+    case i == 0:
+      celdasProx = [
+        [i, j - 1],
+        [i, j + 1],
+        [i + 1, j - 1],
+        [i + 1, j],
+        [i + 1, j + 1],
+      ];
+      break;
+
+    case j == 0 && i == numFilas - 1:
+      celdasProx = [
+        [i - 1, j],
+        [i - 1, j + 1],
+        [i, j + 1],
+      ];
+      break;
+    case j == 0:
+      celdasProx = [
+        [i - 1, j],
+        [i - 1, j + 1],
+        [i, j + 1],
+        [i + 1, j],
+        [i + 1, j + 1],
+      ];
+      break;
+
     case i == numFilas - 1:
       celdasProx = [
-        matriz[i - 1][j - 1],
-        matriz[i - 1][j],
-        matriz[i - 1][j + 1],
-        matriz[i][j - 1],
-        matriz[i][j + 1],
+        [i - 1, j - 1],
+        [i - 1, j],
+        [i - 1, j + 1],
+        [i, j - 1],
+        [i, j + 1],
       ];
       break;
     default:
       celdasProx = [
-        matriz[i - 1][j - 1],
-        matriz[i - 1][j],
-        matriz[i - 1][j + 1],
-        matriz[i][j - 1],
-        matriz[i][j + 1],
-        matriz[i + 1][j - 1],
-        matriz[i + 1][j],
-        matriz[i + 1][j + 1],
+        [i - 1, j - 1],
+        [i - 1, j],
+        [i - 1, j + 1],
+        [i, j - 1],
+        [i, j + 1],
+        [i + 1, j - 1],
+        [i + 1, j],
+        [i + 1, j + 1],
       ];
       break;
   }
   return celdasProx;
 }
 
-function descubrir(f,c,m){
-    arrCels = document.querySelectorAll("#tablero td")
-     arr = ObtenerArrayProximidad(filaSelected, celdaSelected, matriz);
-     for (let valuen of arr) {
-       if (value == 0) {
-        arrCels =  
-       }
-     }
+function descubrir(element, m) {
+  element.style.backgroundColor = "white";
+  f = parseInt(element.getAttribute("f"));
+  c = parseInt(element.getAttribute("c"));
+  matriz[f][c] = "X";
+  celdasProx = ObtenerArrayProximidad(f, c);
+  console.table(matriz);
+  for (let value of celdasProx) {
+    if (matriz[value[0]][value[1]] === 0) {
+      descubrir(document.querySelector(`#celda_${value[0]}_${value[1]}`), m);
+    } else if (matriz[value[0]][value[1]] > 0 || matriz[value[0]][value[1]] <= 8) {
+      document.querySelector(`#celda_${value[0]}_${value[1]}`).innerText =
+        matriz[value[0]][value[1]];
+        document.querySelector(`#celda_${value[0]}_${value[1]}`).style.backgroundColor = "green";
+    }
+  }
 }
