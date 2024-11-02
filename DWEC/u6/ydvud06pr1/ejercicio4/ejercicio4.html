@@ -8,18 +8,27 @@
     <title>Document</title>
   </head>
   <body>
-    <form>
-        <label for="dificultad">Seleccione la dificultad</label>
-        <select name="dificultad" id="dificultad">
+    <h1>JUEGO BUSCAMINAS</h1>
+    <div id="info_game">
+      <form>
+        <div>
+          <label for="dificultad">Seleccione la dificultad:</label>
+          <select name="dificultad" id="dificultad">
             <option value="1">Sencillo</option>
             <option value="2">Normal</option>
             <option value="3">Avanzado</option>
             <option value="4">Experto</option>
-        </select>
-        <button type="submit">ENVIAR</button>
-    </form>
-    <div id="reloj"></div>
-    <div id="contadorMinas"></div>
+          </select>
+        </div>
+        <button type="submit">COMENZAR</button>
+      </form>
+      <div id="info">
+        <div>SEGUNDOS:</div>
+        <div id="reloj">0</div>
+        <div>TOTAL MINAS:</div>
+        <div id="contadorMinas">0</div>
+      </div>
+    </div>
     <table id="tablero"></table>
   </body>
 </html>
