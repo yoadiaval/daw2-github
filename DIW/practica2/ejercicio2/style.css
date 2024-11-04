@@ -1,9 +1,12 @@
 body {
+  width: 80vw;
+  margin: 0 auto;
 }
 :root {
   --height-ppal: 70vh;
-  --height-header: 20vh;
+  --height-header: 15vh;
   --height-footer: 10vh;
+  --color-gray: rgb(212, 212, 212);
 }
 * {
   margin: 0;
@@ -12,32 +15,36 @@ body {
 
 /*--------------------------------ESTILOS HEADER----------------------------*/
 header {
-  background-color: red;
-  width: 100vw;
+  width: 100%;
   height: var(--height-header);
+  margin-bottom: 2vh;
+  border-bottom: 2px dotted rgb(177, 177, 177);
 }
 header nav {
   width: 60%;
   height: 50%;
-  margin-top: 30px;
-  background-color: aqua;
+  margin-top: 15px;
   float: left;
 }
 
 header .logo {
   width: 20%;
   height: 50%;
-  margin-top: 30px;
+  margin-top: 10px;
   float: left;
-  background-color: antiquewhite;
+
+}
+header .logo img {
+  width: 80%;
+  scale: 0.7;
 }
 
 header .search {
   width: 20%;
   height: 50%;
-  margin-top: 30px;
+  margin-top: 20px;
   float: left;
-  background-color: burlywood;
+ 
 }
 form {
   width: fit-content;
@@ -45,6 +52,11 @@ form {
 }
 form label {
   display: block;
+}
+form button{
+    border:1px solid rgb(194, 194, 194);
+    padding:  0.1rem 0.5rem;
+    float: right;
 }
 header ul {
   margin-top: 10px;
@@ -65,8 +77,8 @@ header ul li a {
 }
 /*----------------------------------ESTILOS secondary_nav---------------------------*/
 #secondary_nav {
-  background-color: rgb(38, 0, 255);
-  width: 20vw;
+  background-color: var(--color-gray);
+  width: 20%;
   height: var(--height-ppal);
   float: left;
 }
@@ -87,72 +99,105 @@ header ul li a {
 }
 /*----------------------------------ESTILOS MAIN---------------------------*/
 main {
-  background-color: rgb(255, 0, 157);
-  width: 60vw;
+  width: 60%;
   height: var(--height-ppal);
   float: left;
 }
 #content {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   padding-top: 30px;
 }
+
+#content * {
+  margin-top: 20px;
+} /*agrega espacio superior a  todos los elementos dentro de la caja content*/
 /*----------------------------------ESTILOS ASIDE---------------------------*/
 aside {
-  background-color: rgb(162, 201, 71);
-  width: 20vw;
+  background-color: var(--color-gray);
+  width: 20%;
   height: var(--height-ppal);
   float: left;
+  margin-bottom: 15px;
 }
-aside section{
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 10%;
+aside a {
+  color: black;
 }
-aside section h3{
-    margin-left: 1rem;
-    padding-top: 1rem;
+aside p,
+aside h4 {
+  width: 90%;
 }
-aside section:first-child{
-    height: 30%;
-    background-color: yellow;
+aside h4 {
+  padding-top: 10px;
+  padding-left: 5px;
+  text-decoration: underline; /*Coloca una línea bajo el elemento h4*/
+}
+aside p {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+aside section {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+aside section h3 {
+  margin-left: 1rem;
+  padding-top: 1rem;
+}
+aside section:first-child {
+  height: 30%;
 }
 
-aside section:nth-child(2){
-    height: 50%;
-    background-color: green;
+aside section:first-child ul {/*Modifica el ul del primer elemento section del aside*/
+  margin-left: 20px;
+  padding: 1rem;
 }
-aside section:nth-child(2) article{
-    width: 80%;
-    height: 30%;
-    margin-top: 15px;
-    margin-left: 10%;
-    background-color: blue;
+
+aside section:first-child div {
+  width: 82%;
+  margin-left: 10%;
+  margin-top: 20px;
+  background-color: white;
 }
+aside section:first-child ul li {
+  width: fit-content;
+  /* list-style: none;*/
+}
+aside section:nth-child(2) {
+  height: 50%;
+}
+aside section:nth-child(2) article {
+  width: 80%;
+  height: 30%;
+  margin-top: 15px;
+  margin-left: 10%;
+  background-color: white;
+}/*Estilos para el article de la segunda seccion dentro de aside */
+
 /*----------------------------------ESTILOS FOOTER---------------------------*/
 footer {
-  background-color: cadetblue;
-  width: 100vw;
+  /* background-color: cadetblue;*/
+  width: 100%;
   height: var(--height-footer);
-  clear: both;
-  
+  clear: both; /*evita que se ubique contenido a cualquiera de sus lados*/
+  border-top: 1px dotted black;
 }
-footer ul{
-    width: fit-content;
-    height: fit-content;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    padding-top: 20px;
+footer ul {
+  width: fit-content;
+  height: fit-content;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding-top: 25px;
 }
 
-footer ul li{
-    float: left;
-    width: fit-content;
-    list-style: none;
-    margin-left: 30px;
-    
+footer ul li {
+  float: left;
+  width: fit-content;
+  list-style: none;
+  margin-left: 30px;
 }
-footer ul li a{
-    text-decoration: none;
-    color: black;
+footer ul li a {
+  text-decoration: none;
+  color: black;
 }
