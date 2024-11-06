@@ -8,21 +8,23 @@
 }
 
 body{
-    width: 100vw;
-   
+    width: 100vw; /*Ajusta el ancho del body a un 100 del ancho de la pantalla*/
+    font-family: "Open Sans", sans-serif;
 }
 /*--------------------------------ELEMENTOS COMUNES----------------------*/
 h2 {
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 2rem;
-  width: 90%;
+  width: 95%;
 }
-h2:after {
+h2:after { /*agrega un punto con su respectivo estilo al final del elemento h2 */
   content: ".";
-  color: var(--primary-color);
+  color: var(--primary-color); 
+ /* float: right;*/
+
 }
 
-.btnAbrirCuenta {
+.btnAbrirCuenta { /*Estilos para los botones abrir cuenta de toda la página*/
   padding: 1rem 1rem;
   margin: 1rem 0 4rem 0;
   background-color: var(--primary-color);
@@ -31,14 +33,15 @@ h2:after {
   color: white;
 }
 
-/*---------------------------------BLOQUE_1------------------------------*/
-#container1 {
+/*---------------------------------SECTION_1------------------------------*/
+#container1 { /*contenedor izquierdo de la sección 1*/
   width: 40%;
   float: left;
   height: 100vh;
 }
+
 #logo {
-  font-weight: bolder;
+  font-weight: bolder; /*Título de la página*/
 }
 #container1 > div {
   width: 70%;
@@ -76,14 +79,14 @@ h2:after {
 }
 
 #enlacesApp > div:first-child {
-  margin-right: 2rem;
+  margin-right: 2rem; 
 }
 #enlacesApp div,
 i {
   float: left;
 }
 #enlacesApp div span {
-  display: block;
+  display: block;  /*se indica al elemento span que ocupe otra línea*/
   font-weight: bolder;
 }
 
@@ -92,10 +95,10 @@ i {
   margin-right: 1rem;
 }
 /*----------------ESTILOS CONTAINER 2-------------------------*/
-#container2 {
+#container2 {  /*contenedor derecho de la sección 1*/
   width: 60%;
   float: left;
-  height: 100vh;
+  height: 100vh; /*se le indica al contenedor que ocupe el 100% del alto de la pantalla*/
   background-color: var(--secondary-color);
 }
 #container2 ul {
@@ -122,10 +125,10 @@ i {
 #container2 img {
   margin-left: 50%;
   margin-top: 8%;
-  transform: translateX(-50%);
+  transform: translateX(-50%);/*aproxima el centrado de la imagen en el contenedor 2 desplazándola un -50% de su ancho */
 }
 
-/*---------------------------------BLOQUE_2------------------------------*/
+/*---------------------------------SECTION_2------------------------------*/
 #pasosCrearCuenta {
   height: 100vh;
 }
@@ -163,7 +166,7 @@ i {
   margin-right: 1.5rem;
   color: var(--primary-color);
 }
-/*---------------------------------BLOQUE_3------------------------------*/
+/*---------------------------------SECTION_3------------------------------*/
 #abrirCuenta {
   height: 100vh;
   clear: both;
@@ -177,7 +180,7 @@ i {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /*Desplaza -50% en el eje X y -50% en el eje Y*/
 }
 
 #abrirCuenta > div div {
@@ -188,8 +191,8 @@ i {
   top: 14%;
 }
 #abrirCuenta figure {
-  position: relative;
-  left: 50%;
+  position: relative;/*Posiciona el elemento segun su posición relativa*/
+  left: 50%;/*lo desplaza desde la izq hasta el  50% del ancho de su contenedor*/
   top: 30px;
   transform: translateX(-35%);
 }
@@ -198,11 +201,11 @@ i {
   font-size: 20px;
   margin-bottom: 2rem;
 }
-/*---------------------------------BLOQUE_4------------------------------*/
+/*---------------------------------SECTION_4------------------------------*/
 #blog {
   height: 100vh;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto;/*centra el elemento*/
 }
 #blog p {
   font-size: 1.5rem;
@@ -238,28 +241,32 @@ i {
   margin-bottom: 1rem;
   height: 2.5rem;
 }
+
 #blog a {
   text-decoration: none;
   margin-left: -30px;
   color: var(--primary-color);
   font-weight: bolder;
 }
+
 #formInfo {
   position: relative;
   height: 70vh;
   color: white;
 }
+
 #formInfo > div {
   position: absolute;
   width: 60%;
   height: 310px;
   top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--primary-color);
+  left: 50%; /*desplaza el elemento hacia la derecha */
+  transform: translateX(-50%); /*Desplaza -50% del ancho del propio elemento para centrarlo*/
+  background-color: var(--primary-color); 
   border-radius: 20px;
   text-align: center;
 }
+
 #formInfo > div p {
   font-size: 1.5rem;
 }
@@ -268,6 +275,7 @@ i {
   font-size: 65px;
   padding: 2rem 0;
 }
+
 #formInfo > div div {
   height: 4rem;
   background-color: white;
@@ -285,10 +293,10 @@ i {
 }
 #formInfo button {
   margin-top: 0.5rem;
-  margin-right: -0.55rem;
+  margin-right: -0.1rem;
 }
 
-/*---------------------------------BLOQUE_5------------------------------*/
+/*---------------------------------SECTION_5------------------------------*/
 footer{
     padding: 1rem 8rem 0 8rem;
 }
@@ -311,16 +319,16 @@ footer article ul li{
 }
 footer .piePag {
   clear: both;
-  
   padding: 1rem 0.5rem;
   margin: 2rem 4rem;
-  border-top: 1px solid rgb(224, 224, 224);
+  border-top: 1px solid rgb(224, 224, 224); /*simula la línea divisoria del footer*/
 }
 
 footer .piePag section:first-child{
    width: 70%;
     float: left;
 }
+
 footer .piePag section:nth-child(2){
     width: 30%;
     float: left;

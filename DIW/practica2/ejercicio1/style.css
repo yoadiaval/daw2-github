@@ -8,12 +8,10 @@
   --color-clear-gray: rgb(101, 101, 101);
   --border-width: 4px;
 } /*Definición de variables*/
-html {
-  /* background-color: white;*/
-}
+
 
 body {
-  width: 800px;
+  width: 900px;
   height: 100vh;
   margin: 0 auto;
   background: linear-gradient(
@@ -24,13 +22,14 @@ body {
 }
 h2{
     text-shadow: 2px 2px 2px gray;
+    font-size: 20px;
 }
 span {
   font-weight: bold; /*resalta los elementos span dandole peso a la fuente */
 }
 
 header {
-  width: 96%;
+  width: 96.4%;
   height: 9vh;
   background: linear-gradient(180deg, #0170b9, #27aade);
   padding: 1px 1rem;
@@ -41,22 +40,23 @@ header {
 #header_container {
   margin-top: 8px;
 }
-#header_container p {
+#header_container h1 {
   float: left; /*Flota a la izquierda el elemento p*/
-  /*margin-top: 0.5rem;
-  margin-left: 2rem;*/
-  font-size: xx-large;
+  /*margin-top: 0.5rem;*/
+  margin-left: 2rem;
+  
 }
 
 #header_container img {
   float: left; /*Flota a la izquierda la imagen*/
+
 }
 
 nav {
   width: 100%;
-  height: 100px;
+  height: 85px;
   background: linear-gradient(rgb(213, 186, 50), rgb(255, 218, 62));
-  padding-top: 1rem;
+  padding: 0.2rem 0;
   color: rgb(
     255,
     255,
@@ -76,30 +76,41 @@ nav > div {
   text-align: center;
   float: left; /*flota a la izquierda lo elementos div dentro del #nav*/
 }
-
+nav img{
+  scale: 0.8;
+}
 main {
   background-color: white;
-  height: 60vh;
-  padding-top: 2rem;
+  padding-top: 0.2rem;
+  height: 470px;
+  
 }
 
 main > article {
-  width: 25%; /*ancho de un 25% para los hijos directos de #main*/
+  width: 22%; /*ancho de un 25% para los hijos directos de #main*/
+  height: 70%;
   float: left;
   text-align: center;
   margin-left: 3.5%;
-  padding: 1rem;
+  margin-bottom: 10px;
+  padding: 0.56rem;
   background-color: white;
+  border-width: 68px 20px 70px 20px; /*Define bordes para el elemento*/
+  border-style: solid; 
+  border-image-source: url("./img/movil.png"); /*carga una imagen para el borde*/
+  border-image-slice: 68 20 70 20; /*realiza el recorte de la imagen arriba-derecha-abajo-izquierda*/
+  font-size: 12px;
 }
 
 .article_img {
   margin-left: -20px;
-  margin-top: -15px;
-  scale: 0.95;
+  margin-top: -20px;
+  scale: 0.9;
 }
 
 main > article > p {
   border-top: 1px solid gray; /*borde superior para los elementos p dentro del div de la seccion #main*/
+  height: 110px;
   margin-top: 1rem;
   padding-top: 1rem;
 }
@@ -109,6 +120,7 @@ footer {
   text-align: center;
   clear: both;
   padding-top: 1rem;
+  margin-top: 0.5rem;
   color: white;
   border-top: var(--border-width) solid var(--color-gray); /*define solo borde superior del footer */
   background-color: var(--color-clear-gray);

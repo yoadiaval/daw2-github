@@ -13,9 +13,11 @@ document
   .getElementById("addEditorial") //accede  al button que añade editoriales
   //se escucha al evento "click"
   .addEventListener("click", function (event) {
+    
     event.preventDefault(); //evita que se recargue la página al ejecutar el código
     if (editorial.value !== "") {
       //comprueba que no sea una cadena vacía antes de insertar un elemento
+      console.log(editorial.value )
       editoriales.push(editorial.value); //agrega el valor insertado en el input de id editorial
       editorial.value = ""; //se le pasa una cadena vacía a value para que limpie el imput previo a insertar otro elemento.
     }
