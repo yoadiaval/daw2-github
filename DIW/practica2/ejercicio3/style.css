@@ -1,15 +1,16 @@
 :root {
   --primary-color: #6a0de9;
-  --secondary-color: #f5f5f5;
+  --secondary-color: #f5f5f5; /*Color secundario para fondos y secciones*/
 }
+/* Reset de márgenes y padding para todos los elementos */
 * {
   margin: 0;
   padding: 0;
 }
 
-body{
-    width: 100vw; /*Ajusta el ancho del body a un 100 del ancho de la pantalla*/
-    font-family: "Open Sans", sans-serif;
+body {
+  width: 100vw; /*Ajusta el ancho del body a un 100 del ancho de la pantalla*/
+  font-family: "Open Sans", sans-serif;
 }
 /*--------------------------------ELEMENTOS COMUNES----------------------*/
 h2 {
@@ -17,14 +18,15 @@ h2 {
   margin-bottom: 2rem;
   width: 95%;
 }
-h2:after { /*agrega un punto con su respectivo estilo al final del elemento h2 */
+h2:after {
+  /*agrega un punto con su respectivo estilo al final del elemento h2 */
   content: ".";
-  color: var(--primary-color); 
- /* float: right;*/
-
+  color: var(--primary-color);
+  /* float: right;*/
 }
 
-.btnAbrirCuenta { /*Estilos para los botones abrir cuenta de toda la página*/
+.btnAbrirCuenta {
+  /*Estilos para los botones abrir cuenta de toda la página*/
   padding: 1rem 1rem;
   margin: 1rem 0 4rem 0;
   background-color: var(--primary-color);
@@ -34,7 +36,8 @@ h2:after { /*agrega un punto con su respectivo estilo al final del elemento h2 *
 }
 
 /*---------------------------------SECTION_1------------------------------*/
-#container1 { /*contenedor izquierdo de la sección 1*/
+#container1 {
+  /*contenedor izquierdo de la sección 1*/
   width: 40%;
   float: left;
   height: 100vh;
@@ -79,14 +82,14 @@ h2:after { /*agrega un punto con su respectivo estilo al final del elemento h2 *
 }
 
 #enlacesApp > div:first-child {
-  margin-right: 2rem; 
+  margin-right: 2rem;
 }
 #enlacesApp div,
 i {
   float: left;
 }
 #enlacesApp div span {
-  display: block;  /*se indica al elemento span que ocupe otra línea*/
+  display: block; /*se indica al elemento span que ocupe otra línea*/
   font-weight: bolder;
 }
 
@@ -95,7 +98,8 @@ i {
   margin-right: 1rem;
 }
 /*----------------ESTILOS CONTAINER 2-------------------------*/
-#container2 {  /*contenedor derecho de la sección 1*/
+#container2 {
+  /*contenedor derecho de la sección 1*/
   width: 60%;
   float: left;
   height: 100vh; /*se le indica al contenedor que ocupe el 100% del alto de la pantalla*/
@@ -125,7 +129,9 @@ i {
 #container2 img {
   margin-left: 50%;
   margin-top: 8%;
-  transform: translateX(-50%);/*aproxima el centrado de la imagen en el contenedor 2 desplazándola un -50% de su ancho */
+  transform: translateX(
+    -50%
+  ); /*aproxima el centrado de la imagen en el contenedor 2 desplazándola un -50% de su ancho */
 }
 
 /*---------------------------------SECTION_2------------------------------*/
@@ -135,13 +141,13 @@ i {
 #pasosCrearCuenta section {
   width: 50%;
   float: left;
-  height: 100vh;
+  height: 100vh; /* Ocupa 100% del alto de la pantalla */
 }
 #pasosCrearCuenta section figure {
   width: 60%;
   margin-top: 10%;
-  margin-left: 50%;
-  transform: translateX(-30%);
+  margin-left: 50%; /* Centro horizontal */
+  transform: translateX(-30%); /* Corrección de centrado */
 }
 
 #pasosCrearCuenta section figure img {
@@ -158,7 +164,7 @@ i {
   margin: 1rem 0.5rem;
   width: 60%;
 }
-
+/*estilo a plicado a los elementos p dentro de #pasosCrearCuenta menos el último*/
 #pasosCrearCuenta p:not(:last-child) {
   border-left: 1px solid gray;
 }
@@ -180,7 +186,10 @@ i {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /*Desplaza -50% en el eje X y -50% en el eje Y*/
+  transform: translate(
+    -50%,
+    -50%
+  ); /*Desplaza -50% en el eje X y -50% en el eje Y*/
 }
 
 #abrirCuenta > div div {
@@ -191,8 +200,8 @@ i {
   top: 14%;
 }
 #abrirCuenta figure {
-  position: relative;/*Posiciona el elemento segun su posición relativa*/
-  left: 50%;/*lo desplaza desde la izq hasta el  50% del ancho de su contenedor*/
+  position: relative; /*Posiciona el elemento segun su posición relativa*/
+  left: 50%; /*lo desplaza desde la izq hasta el  50% del ancho de su contenedor*/
   top: 30px;
   transform: translateX(-35%);
 }
@@ -205,7 +214,7 @@ i {
 #blog {
   height: 100vh;
   width: 80%;
-  margin: 0 auto;/*centra el elemento*/
+  margin: 0 auto; /*centra el elemento*/
 }
 #blog p {
   font-size: 1.5rem;
@@ -218,6 +227,7 @@ i {
   width: 30%;
   float: left;
 }
+/*Agrega margen a la izquierda en los artículos excepto al primero*/
 #blog div article:not(:first-child) {
   margin-left: 5%;
 }
@@ -227,6 +237,7 @@ i {
 #blog .infoBlog div {
   display: inline-block;
 }
+/*estilos al último elemento div dentro de .infoBlog*/
 #blog .infoBlog div:last-child {
   float: right;
 }
@@ -261,8 +272,10 @@ i {
   height: 310px;
   top: 30%;
   left: 50%; /*desplaza el elemento hacia la derecha */
-  transform: translateX(-50%); /*Desplaza -50% del ancho del propio elemento para centrarlo*/
-  background-color: var(--primary-color); 
+  transform: translateX(
+    -50%
+  ); /*Desplaza -50% del ancho del propio elemento para centrarlo*/
+  background-color: var(--primary-color);
   border-radius: 20px;
   text-align: center;
 }
@@ -282,14 +295,13 @@ i {
   width: 45%;
   border-radius: 10px;
   margin-top: 2rem;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  margin-left: 50%; /*aproximación de centrado horizontal*/
+  transform: translateX(-50%); /*corrección de centrado*/
 }
 #formInfo span {
   color: rgb(158, 157, 157);
   margin-right: 1rem;
   font-size: 1.2rem;
-  
 }
 #formInfo button {
   margin-top: 0.5rem;
@@ -297,8 +309,8 @@ i {
 }
 
 /*---------------------------------SECTION_5------------------------------*/
-footer{
-    padding: 1rem 8rem 0 8rem;
+footer {
+  padding: 1rem 8rem 0 8rem;
 }
 footer article {
   width: 10%;
@@ -306,35 +318,35 @@ footer article {
   margin-left: 10%;
   margin-bottom: 2rem;
 }
-footer article p{
-margin-bottom: 0.5rem;
-font-weight: bolder;
+footer article p {
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
 }
-footer article i{
-    font-size: 20px;
+footer article i {
+  font-size: 20px;
 }
-footer article ul li{
-    list-style: none;
-    padding: 0.5rem 0;
+footer article ul li {
+  list-style: none;
+  padding: 0.5rem 0;
 }
 footer .piePag {
-  clear: both;
+  clear: both; /* Limpia las flotaciones anteriores */
   padding: 1rem 0.5rem;
   margin: 2rem 4rem;
   border-top: 1px solid rgb(224, 224, 224); /*simula la línea divisoria del footer*/
 }
 
-footer .piePag section:first-child{
-   width: 70%;
-    float: left;
+footer .piePag section:first-child {
+  width: 70%; /* Ancho del primer section dentro de .piePag */
+  float: left;
 }
 
-footer .piePag section:nth-child(2){
-    width: 30%;
-    float: left;
+footer .piePag section:nth-child(2) {
+  width: 30%; /* Ancho del segundo section dentro de .piePag */
+  float: left;
 }
-footer .piePag section div{
-    width: 50%;
-    float: left;
-    text-align: end;
+footer .piePag section div {
+  width: 50%;
+  float: left;
+  text-align: end;
 }
