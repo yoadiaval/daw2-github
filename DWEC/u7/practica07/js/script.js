@@ -70,9 +70,10 @@ function getData() {
 
 function actionPost(nuevoEmpleado) {
   var peticion = new XMLHttpRequest();
-  peticion.onload = function () {
-    if (peticion.status === 201) {
+  peticion.onreadystatechange = function () {
+    if (peticion.readyState == 4 && peticion.status == 201) {
       console.log("Empleado agregado exitosamente");
+      getData();
     } else {
       console.error("Error al agregar el empleado:", peticion.responseText);
     }
@@ -81,16 +82,16 @@ function actionPost(nuevoEmpleado) {
   peticion.setRequestHeader("Content-Type", "application/json");
   peticion.send(nuevoEmpleado);
 
-  getData();
+  
 }
 
 function modificarEmpleado(element) {
   var peticion = new XMLHttpRequest();
   peticion.onload = function () {
-    if (
+    if (peticion.readyState == 4 && (
       peticion.status === 200 ||
       peticion.status === 201 ||
-      peticion.status === 204
+      peticion.status === 204)
     ) {
       //Agrega los valores del empleado seleccionado a los imputs correspondientes
       empleado = JSON.parse(peticion.responseText)[0];
@@ -119,6 +120,7 @@ function actionPut() {
   var peticion = new XMLHttpRequest();
   peticion.onload = function () {
     if (peticion.status === 200 || peticion.status === 201) {
+      getData();
       document.getElementById("section3").classList.add("ocultar");
       document.getElementById("section1").classList.remove("ocultar");
     } else {
@@ -142,7 +144,7 @@ function actionPut() {
   });
 
   peticion.send(datosJson);
-  getData();
+  
 }
 
 //Funcion par aeliminar empleado a partir del id que se pasa en la clase
