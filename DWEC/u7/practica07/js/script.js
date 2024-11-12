@@ -11,7 +11,8 @@ window.onload = function () {
   });
 };
 
-//Lógica para mostrar y ocualtar secciones
+
+//-------------------LÓGICA OCULTAR Y MOSTAR SECCIONES--------------------// 
 document.getElementById("add").addEventListener("click", function () {
   document.getElementById("section1").classList.add("ocultar");
   document.getElementById("section2").classList.remove("ocultar");
@@ -27,10 +28,10 @@ document.getElementById("cancelar2").addEventListener("click", function () {
   document.getElementById("section1").classList.remove("ocultar");
 });
 
-//función que actualiza el DOM
+//------------------------FUNCIONES CRUD------------------------------//
+//Obtiene los datos y actualiza el DOM
 function getData() {
   var peticion = new XMLHttpRequest();
-
   //actúa en función del estado de la petición
   peticion.onreadystatechange = function () {
     if (peticion.readyState == 4 && peticion.status == 200) {
@@ -67,15 +68,13 @@ function getData() {
   peticion.setRequestHeader("Content-Type", "application/json");
   peticion.send();
 }
-
+//agrega al empleado pasado por parámetro
 function actionPost(nuevoEmpleado) {
   var peticion = new XMLHttpRequest();
   peticion.onreadystatechange = function () {
     if (peticion.readyState == 4 && peticion.status == 201) {
       console.log("Empleado agregado exitosamente");
       getData();
-    } else {
-      console.error("Error al agregar el empleado:", peticion.responseText);
     }
   };
   peticion.open("POST", "http://test-api.jtarrega.es/api/empleados", true);
@@ -84,53 +83,19 @@ function actionPost(nuevoEmpleado) {
 
   
 }
-
-function modificarEmpleado(element) {
-  var peticion = new XMLHttpRequest();
-  peticion.onload = function () {
-    if (peticion.readyState == 4 && (
-      peticion.status === 200 ||
-      peticion.status === 201 ||
-      peticion.status === 204)
-    ) {
-      //Agrega los valores del empleado seleccionado a los imputs correspondientes
-      empleado = JSON.parse(peticion.responseText)[0];
-      formModificar[1].value = empleado.nombre;
-      formModificar[2].value = empleado.edad;
-      formModificar[3].value = empleado.cargo;
-      formModificar[4].checked = empleado.contratado == 1 ? true : false;
-      formModificar[5].value = empleado.id;
-      //muestro el fomulario de modificacion de empleados
-      document.getElementById("section1").classList.add("ocultar");
-      document.getElementById("section3").classList.remove("ocultar");
-    } else {
-      console.error("Error al obtener el empleado:", peticion.responseText);
-    }
-  };
-  peticion.open(
-    "GET",
-    `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
-    true
-  );
-  peticion.setRequestHeader("Content-Type", "application/json");
-  peticion.send();
-}
-
+//Mofifica el empleado a partir de los datos recogidos del formModificar
 function actionPut() {
   var peticion = new XMLHttpRequest();
-  peticion.onload = function () {
-    if (peticion.status === 200 || peticion.status === 201) {
+  peticion.onreadystatechange = function () {
+    if (peticion.readyState == 4 || peticion.status === 201) {     
       getData();
       document.getElementById("section3").classList.add("ocultar");
       document.getElementById("section1").classList.remove("ocultar");
-    } else {
-      console.error("Error al modificar el empleado:", peticion.responseText);
-      console.log(peticion.status);
     }
   };
   peticion.open(
     "PUT",
-    `http://test-api.jtarrega.es/api/empleados/${formModificar[5].value}`,
+    `http://test-api.jtarrega.es/api/empleados/${formModificar[5].value}`, //recoge el id en el campo oculto de este formulario
     true
   );
   peticion.setRequestHeader("Content-Type", "application/json");
@@ -146,19 +111,73 @@ function actionPut() {
   peticion.send(datosJson);
   
 }
+//elimina al empleado a partir del id que se pasa en la clase en la clase del elemento que lanza la accion
+function actionDelete(element) {
 
-//Funcion par aeliminar empleado a partir del id que se pasa en la clase
-//del elemento borrar desde el cual se llamó a la función
+ var peticion = new XMLHttpRequest();
+ peticion.onreadystatechange = function () {
+   if (peticion.readyState == 4 && (
+     peticion.status === 200 ||
+     peticion.status === 201 ||
+     peticion.status === 204)
+   ) {
+     console.log("Empleado eliminado exitosamente");
+     getData();
+   } 
+ };
+ peticion.open(
+   "DELETE",
+   `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
+   true
+ );
+ peticion.setRequestHeader("Content-Type", "application/json");
+ peticion.send();
 
+}
+
+//--------------------------OTRAS FUNCIONES--------------------------//
+function modificarEmpleado(element) {
+  var peticion = new XMLHttpRequest();
+  peticion.onreadystatechange = function () {
+    if (peticion.readyState == 4 && (
+      peticion.status === 200 ||
+      peticion.status === 201 ||
+      peticion.status === 204)
+    ) {
+      //Agrega los valores del empleado seleccionado a los imputs correspondientes
+      empleado = JSON.parse(peticion.responseText)[0];
+      formModificar[1].value = empleado.nombre;
+      formModificar[2].value = empleado.edad;
+      formModificar[3].value = empleado.cargo;
+      formModificar[4].checked = empleado.contratado == 1 ? true : false;
+      formModificar[5].value = empleado.id;
+      //muestro el fomulario de modificacion de empleados
+      document.getElementById("section1").classList.add("ocultar");
+      document.getElementById("section3").classList.remove("ocultar");
+    }
+  };
+  peticion.open(
+    "GET",
+    `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
+    true
+  );
+  peticion.setRequestHeader("Content-Type", "application/json");
+  peticion.send();
+}
+
+//Obtiene la cantidad de elementos de la base de datos para evitar eliminar el último elemento
 function obtenerLongitud(){
  var peticion = new XMLHttpRequest();
 
- peticion.onload = function () {
-   if (peticion.status === 200 || peticion.status === 201) {
-     console.log(JSON.parse(peticion.responseText).length);
-   } else {
-     console.error("Error al modificar el empleado:", peticion.responseText);
-   }
+ peticion.onreadystatechange = function () {
+  if (peticion.readyState == 4 ){
+    if(peticion.status === 200 || peticion.status === 201){
+      return JSON.parse(peticion.responseText).length;
+    } else {
+      console.error("Error al obtener datos:", peticion.responseText);
+      console.log(peticion.status);
+    }
+  }
  };
 
  //actúa en función del estado de la petición
@@ -166,33 +185,8 @@ function obtenerLongitud(){
  peticion.setRequestHeader("Content-Type", "application/json");
  peticion.send();
 }
-function actionDelete(element) {
-   console.log(obtenerLongitud());
 
-  var peticion = new XMLHttpRequest();
-  peticion.onload = function () {
-    if (
-      peticion.status === 200 ||
-      peticion.status === 201 ||
-      peticion.status === 204
-    ) {
-      console.log("Empleado eliminado exitosamente");
-      console.log(peticion.status);
-    } else {
-      console.error("Error al modificar el empleado:", peticion.responseText);
-    }
-  };
-  peticion.open(
-    "DELETE",
-    `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
-    true
-  );
-  peticion.setRequestHeader("Content-Type", "application/json");
-  peticion.send();
-
-  getData();
-}
-
+//---------------CAPTURA DE EVENTOS DE LOS FORMULARIOS------------------------//
 //Formulario nuevo empleado
 formulario.addEventListener("submit", function (event) {
   event.preventDefault();
