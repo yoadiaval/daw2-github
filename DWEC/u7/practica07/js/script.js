@@ -1,68 +1,42 @@
 const table = document.getElementById("list");
 const formulario = document.getElementById("formulario");
-const formModificar = document.getElementById("formModificar");
-
+const btnAdd = document.getElementById("add");
+const btnCancelar = document.getElementById("cancelar");
 const legend = document.querySelector("legend");
+
+
+//Variables de control de eventos
 var modificando = false;
 var creando = false;
+var restantes;
 
 //Obtengo los datos al cargar la página y actualizo el DOM
 window.onload = function () {
   getData();
-  //oculta los formularios al cargar la página
-  [...document.querySelectorAll("#section2, #section3")].forEach((element) => {
-    element.classList.add("ocultar");
-  });
+  //oculta el formulario al cargar la página
+  formulario.classList.add("ocultar");
 };
 
 //------------------MANEJO DE EVENTOS EN LA PÁGINA---------------------------------//
 //Agrega evento al button que añade empleados
-document.getElementById("add").addEventListener("click", function () {
+btnAdd.addEventListener("click", function () {
+  btnAdd.disabled = true;
   creando = true;
-  legend.innerHTML = "Inserte los datos de nuevo empleado";
-  document.getElementById("section1").classList.add("ocultar");
-  document.getElementById("section2").classList.remove("ocultar");
+  legend.innerHTML = "Inserte los datos del nuevo empleado";
+  table.classList.add("ocultar");
+  formulario.classList.remove("ocultar");
 });
 //Agrega eventos al button cancelar
-document.getElementById("cancelar").addEventListener("click", function () {
-  //Pongo a false las acciones para evitar que se afecte la lógica de envío de datos del formulario.
+btnCancelar.addEventListener("click", function () {
+  //Restablezco valores y oculto los elementos necesarios.
+  btnAdd.disabled = false;
   modificando = false;
   creando = false;
-  document.getElementById("section1").classList.remove("ocultar");
-  document.getElementById("section2").classList.add("ocultar");
+  formulario.reset();
+  table.classList.remove("ocultar");
+  formulario.classList.add("ocultar");
 });
-//function que maneja el evento de cada uno de los buttons de modificar
-function prepararModificado(element) {
-  var peticion = new XMLHttpRequest();
-  peticion.onreadystatechange = function () {
-    if (
-      peticion.readyState == 4 &&
-      (peticion.status === 200 ||
-        peticion.status === 201 ||
-        peticion.status === 204)
-    ) {
-      modificando = true;
-      //Agrega los valores del empleado seleccionado a los imputs correspondientes
-      empleado = JSON.parse(peticion.responseText)[0];
-      formulario[1].value = empleado.nombre;
-      formulario[2].value = empleado.edad;
-      formulario[3].value = empleado.cargo;
-      formulario[4].checked = empleado.contratado == 1 ? true : false;
-      formulario[5].value = empleado.id;
-      //muestro el fomulario de modificacion de empleados
-      legend.innerHTML = "Modifique los datos necesarios";
-      document.getElementById("section1").classList.add("ocultar");
-      document.getElementById("section2").classList.remove("ocultar");
-    }
-  };
-  peticion.open(
-    "GET",
-    `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
-    true
-  );
-  peticion.setRequestHeader("Content-Type", "application/json");
-  peticion.send();
-}
+
 
 //------------------- EVENTO SUBMIT FORMULARIO-------------------------//
 //Formulario que agrega y modifica empleados
@@ -78,63 +52,36 @@ formulario.addEventListener("submit", function (event) {
     updated_at: "",
   });
 
-  //llamo a la función que crea el formulario o a la que lo modifica en 
+  //llamo a la función que crea el formulario o a la que lo modifica en
   //función del estado de "creando" y "modificando".
   switch (true) {
     case creando:
       creando = false;
-      actionPost(datosJson); 
+      actionPost(datosJson);
       formulario.reset();
       break;
     case modificando:
-      console.log(formulario[4]);
+      modificando = false;
       var id = formulario[5].value;
       actionPut(datosJson, id);
       formulario.reset();
-      modificando = false;
       break;
     default:
       break;
   }
 });
 
+
 //---------------------------FUNCIONES CRUD---------------------------//
 //Obtiene los datos y actualiza el DOM
 function getData() {
   var peticion = new XMLHttpRequest();
-  //actúa en función del estado de la petición
   peticion.onreadystatechange = function () {
     if (peticion.readyState == 4 && peticion.status == 200) {
-      document.getElementById("list").innerHTML = `<thead>
-                                                     <th>Id</th>
-                                                     <th>Nombre</th>
-                                                     <th>Edad</th> 
-                                                     <th>Cargo</th>
-                                                     <th>Contratado</th>
-                                                     <th>Acciones</th>
-                                                    </thead>`;
       var datosJson = JSON.parse(peticion.responseText);
-      empleadosRecibidos = datosJson;
-      for (var i = 0; i < empleadosRecibidos.length; i++) {
-        var idEmpleado = empleadosRecibidos[i].id;
-        var nombreEmpleado = empleadosRecibidos[i].nombre;
-        var edadEmpleado = empleadosRecibidos[i].edad;
-        var cargoEmpleado = empleadosRecibidos[i].cargo;
-        var estadoContratado = empleadosRecibidos[i].contratado;
-        document.getElementById("list").innerHTML += `<tr>
-                                                        <td>${idEmpleado}</td>
-                                                        <td>${nombreEmpleado}</td>
-                                                        <td>${edadEmpleado}</td>
-                                                        <td>${cargoEmpleado}</td>
-                                                        <td>${estadoContratado}</td>
-                                                        <td class="acciones"><button class="${idEmpleado}" onclick="prepararModificado(this)">Modificar</button><button onclick="actionDelete(this)" class="${idEmpleado} btnBorrar">Borar</button></td>
-                                                      </tr>`;
-      }
-      document.getElementById("section1").classList.remove("ocultar");
-      document.getElementById("section2").classList.add("ocultar");
+      actualizarDOM(datosJson);
     }
   };
-
   // Establezco la comunicación
   peticion.open("GET", "http://test-api.jtarrega.es/api/empleados", true);
   peticion.setRequestHeader("Content-Type", "application/json");
@@ -168,64 +115,112 @@ function actionPut(datos, id) {
   peticion.setRequestHeader("Content-Type", "application/json");
   peticion.send(datos);
 }
-//elimina al empleado a partir del id que se pasa en la clase en la clase del elemento que lanza la acción
+//Elimina al empleado a partir del id que se pasa en la clase del elemento que lanza la acción
 function actionDelete(element) {
-
- var peticion = new XMLHttpRequest();
- peticion.onreadystatechange = function () {
-   if (peticion.readyState == 4 && (
-     peticion.status === 200 ||
-     peticion.status === 201 ||
-     peticion.status === 204)
-   ) {
-     getData();
-   } 
- };
- peticion.open(
-   "DELETE",
-   `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
-   true
- );
- peticion.setRequestHeader("Content-Type", "application/json");
- peticion.send();
-
-}
-
-
-//agrega al empleado pasado por parámetro
-/*
-
-//--------------------------OTRAS FUNCIONES--------------------------//
-
-
-//Obtiene la cantidad de elementos de la base de datos para evitar eliminar el último elemento
-function obtenerLongitud(){
- var peticion = new XMLHttpRequest();
-
- peticion.onreadystatechange = function () {
-  if (peticion.readyState == 4 ){
-    if(peticion.status === 200 || peticion.status === 201){
-      return JSON.parse(peticion.responseText).length;
-    } else {
-      console.error("Error al obtener datos:", peticion.responseText);
-      console.log(peticion.status);
+  var peticion = new XMLHttpRequest();
+  peticion.onreadystatechange = function () {
+    if (
+      peticion.readyState == 4 &&
+      (peticion.status === 200 ||
+        peticion.status === 201 ||
+        peticion.status === 204)
+    ) {
+      getData();
     }
-  }
- };
-
- //actúa en función del estado de la petición
- peticion.open("GET", "http://test-api.jtarrega.es/api/empleados", true);
- peticion.setRequestHeader("Content-Type", "application/json");
- peticion.send();
+  };
+  peticion.open(
+    "DELETE",
+    `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
+    true
+  );
+  peticion.setRequestHeader("Content-Type", "application/json");
+  peticion.send();
 }
 
-//---------------CAPTURA DE EVENTOS DE LOS FORMULARIOS------------------------//
 
+//--------------------------FUNCIONES AUXILIARES---------------------------------//
 
-//formulario para modificar empleado
-formModificar.addEventListener("submit", function (event) {
-  event.preventDefault();
-  actionPut();
-  this.reset();
-});
-*/
+function actualizarDOM(datos) {
+  document.getElementById("list").innerHTML = `<thead>
+                                                     <th>Id</th>
+                                                     <th>Nombre</th>
+                                                     <th>Edad</th> 
+                                                     <th>Cargo</th>
+                                                     <th>Contratado</th>
+                                                     <th>Acciones</th>
+                                                    </thead>`;
+
+  empleadosRecibidos = datos;
+  for (var i = 0; i < empleadosRecibidos.length; i++) {
+    var idEmpleado = empleadosRecibidos[i].id;
+    var nombreEmpleado = empleadosRecibidos[i].nombre;
+    var edadEmpleado = empleadosRecibidos[i].edad;
+    var cargoEmpleado = empleadosRecibidos[i].cargo;
+    var estadoContratado = empleadosRecibidos[i].contratado;
+    document.getElementById("list").innerHTML += `<tr>
+                                                        <td>${idEmpleado}</td>
+                                                        <td>${nombreEmpleado}</td>
+                                                        <td>${edadEmpleado}</td>
+                                                        <td>${cargoEmpleado}</td>
+                                                        <td>${estadoContratado}</td>
+                                                        <td class="acciones">
+                                                          <button class="${idEmpleado}" onclick="prepararModificado(this)">Modificar</button>
+                                                          <button onclick="actionDelete(this)" class="${idEmpleado} btnBorrar">Borrar</button>
+                                                        </td>
+                                                      </tr>`;
+  }
+  btnAdd.disabled = false;
+  table.classList.remove("ocultar");
+  formulario.classList.add("ocultar");
+  comprobarSiEliminarMas();
+}
+
+//Deshabilita el button "borrar" si quedara solo un empleado por eliminar.
+//Esta función se llama cada vez que se obtienen los datos y se actualiza el DOM
+function comprobarSiEliminarMas() {
+  restantes = [...document.querySelectorAll(".btnBorrar")]; //guarda todos los elementos borrar en un array
+  //comprueba la cantidad y deshabilita si solo queda uno
+  if (restantes.length <= 1) {
+    [...restantes].forEach((element) => {
+      element.disabled = true;
+    });
+  } else {
+    [...restantes].forEach((element) => {
+      element.disabled = false;
+    });
+  }
+}
+
+//function que maneja el evento de cada uno de los buttons de modificar
+function prepararModificado(element) {
+  var peticion = new XMLHttpRequest();
+  peticion.onreadystatechange = function () {
+    if (
+      peticion.readyState == 4 &&
+      (peticion.status === 200 ||
+        peticion.status === 201 ||
+        peticion.status === 204)
+    ) {
+      modificando = true;
+      btnAdd.disabled = true;
+      //Agrega los valores del empleado seleccionado a los imputs correspondientes
+      empleado = JSON.parse(peticion.responseText)[0];
+      formulario[1].value = empleado.nombre;
+      formulario[2].value = empleado.edad;
+      formulario[3].value = empleado.cargo;
+      formulario[4].checked = empleado.contratado == 1 ? true : false;
+      formulario[5].value = empleado.id;
+      //muestro el fomulario de modificacion de empleados
+      legend.innerHTML = "Modifique los datos necesarios";
+      table.classList.add("ocultar");
+      formulario.classList.remove("ocultar");
+    }
+  };
+  peticion.open(
+    "GET",
+    `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
+    true
+  );
+  peticion.setRequestHeader("Content-Type", "application/json");
+  peticion.send();
+}
