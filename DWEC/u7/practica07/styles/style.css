@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 :root {
   --primary-color: black;
   --secondary-color: rgb(37, 37, 37);
@@ -9,7 +10,9 @@
   margin: 0;
   padding: 0;
 }
-
+body {
+  font-family: "Lato", sans-serif;
+}
 section {
   position: relative;
   background: url("../img/bg.jpg");
@@ -23,8 +26,9 @@ section {
   justify-content: center;
 }
 table {
-  background-color: rgba(0, 0, 0, 0.521);
+  background-color: rgba(0, 0, 0, 0.575);
   padding: 1rem;
+  border-radius: 10px;
 }
 
 thead {
@@ -82,13 +86,14 @@ button:disabled {
 /*formularios*/
 form {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.473);
+  background-color: rgba(0, 0, 0, 0.575);
   flex-direction: column;
   height: fit-content;
   width: 30%;
   gap: 1rem;
   color: var(--text-color);
   padding: 3rem;
+  border-radius: 10px;
 }
 
 fieldset {
@@ -122,14 +127,14 @@ label {
 .ocultar {
   display: none;
 }
-/*#alert-section {
+#alert-section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.541);
-  display: none;
+  /*display: none;*/
 }
 .alert {
   width: fit-content;
@@ -138,19 +143,20 @@ label {
   flex-direction: column;
   gap: 1rem;
   padding: 2rem 6rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 5px black;
+  border-radius: 10px;
 }
 i {
   font-size: 100px;
   color: var(--contrast-color);
 }
 
-.cancelar:hover,
+#cancelarDel:hover,
 .btnBorrar:hover {
   background-color: red;
 }
-*/

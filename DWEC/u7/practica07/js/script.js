@@ -2,8 +2,10 @@ const table = document.getElementById("list");
 const formulario = document.getElementById("formulario");
 const btnAdd = document.getElementById("add");
 const btnCancelar = document.getElementById("cancelar");
+const btnCancelarDel = document.getElementById("cancelarDel");
+const btnContinuar = document.getElementById("btnContinuar");
+const alert = document.getElementById("alert-section");
 const legend = document.querySelector("legend");
-
 
 //Variables de control de eventos
 var modificando = false;
@@ -37,7 +39,9 @@ btnCancelar.addEventListener("click", function () {
   formulario.classList.add("ocultar");
 });
 
-
+btnCancelarDel.addEventListener("click", function () {
+  document.getElementById("alert-section").classList.add("ocultar");
+});
 //------------------- EVENTO SUBMIT FORMULARIO-------------------------//
 //Formulario que agrega y modifica empleados
 formulario.addEventListener("submit", function (event) {
@@ -70,7 +74,6 @@ formulario.addEventListener("submit", function (event) {
       break;
   }
 });
-
 
 //---------------------------FUNCIONES CRUD---------------------------//
 //Obtiene los datos y actualiza el DOM
@@ -126,6 +129,7 @@ function actionDelete(element) {
         peticion.status === 204)
     ) {
       getData();
+      alert.classList.add("ocultar");
     }
   };
   peticion.open(
@@ -136,7 +140,6 @@ function actionDelete(element) {
   peticion.setRequestHeader("Content-Type", "application/json");
   peticion.send();
 }
-
 
 //--------------------------FUNCIONES AUXILIARES---------------------------------//
 
@@ -151,12 +154,14 @@ function actualizarDOM(datos) {
                                                     </thead>`;
 
   empleadosRecibidos = datos;
+  //Por cada empleado se agregauna fila a la tabla
   for (var i = 0; i < empleadosRecibidos.length; i++) {
     var idEmpleado = empleadosRecibidos[i].id;
     var nombreEmpleado = empleadosRecibidos[i].nombre;
     var edadEmpleado = empleadosRecibidos[i].edad;
     var cargoEmpleado = empleadosRecibidos[i].cargo;
     var estadoContratado = empleadosRecibidos[i].contratado;
+    //Se agregan los datos de los empleados existentes al DOM
     document.getElementById("list").innerHTML += `<tr>
                                                         <td>${idEmpleado}</td>
                                                         <td>${nombreEmpleado}</td>
@@ -165,12 +170,12 @@ function actualizarDOM(datos) {
                                                         <td>${estadoContratado}</td>
                                                         <td class="acciones">
                                                           <button class="${idEmpleado}" onclick="prepararModificado(this)">Modificar</button>
-                                                          <button onclick="actionDelete(this)" class="${idEmpleado} btnBorrar">Borrar</button>
+                                                          <button onclick="confirmarDel(this)" class="${idEmpleado} btnBorrar">Borrar</button>
                                                         </td>
                                                       </tr>`;
   }
   btnAdd.disabled = false;
-  table.classList.remove("ocultar");
+  table.classList.remove("ocultar"); 
   formulario.classList.add("ocultar");
   comprobarSiEliminarMas();
 }
@@ -191,7 +196,9 @@ function comprobarSiEliminarMas() {
   }
 }
 
-//function que maneja el evento de cada uno de los buttons de modificar
+//function que maneja el evento de cada uno de los buttons modificar
+//Envía al formulario los datos del empleado desde el cual se lanzó la acción de modificación
+//El id del empleado viaje la clase del elemento desde la cual se lanzó la acción de modificación
 function prepararModificado(element) {
   var peticion = new XMLHttpRequest();
   peticion.onreadystatechange = function () {
@@ -223,4 +230,12 @@ function prepararModificado(element) {
   );
   peticion.setRequestHeader("Content-Type", "application/json");
   peticion.send();
+}
+
+//Se pide confirmación para continuar eliminando y se transfiere la clase (id del empleado a eliminar) del elemento borrar que lanzó el evento al button continuar
+function confirmarDel(element) {
+  btnContinuar.classList = ""; //se elimina el contenido de las clases si hubiera
+  btnContinuar.classList.add(element.classList[0]); //Se agrega la clase del button borrar que lanzó el evento
+  console.log(btnContinuar.classList);
+  alert.classList.remove("ocultar");
 }
