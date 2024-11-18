@@ -36,7 +36,7 @@ header .logo {
 }
 header .logo img {
   width: 80%;
-  scale: 0.7;
+  scale: 0.7;/*escalado de la imagen*/
 }
 
 header .search {
