@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}/*establece a 0 todos los margenes y paddings de la página*/
+:root{
+    --total-width: 980px; /*variable que almacena ancho total de la pagina*/
+    --color-rojo:red;
+    --color-azul: blue;
+    --color-verde:rgb(40, 187, 101);
+    --color-verdeAzulado: rgb(51, 196, 196);
+    --color-morado: rgb(233, 159, 233);
+    --color-naranja: rgb(221, 138, 124);
+}
+
+body{
+    width: var(--total-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+#header{
+    width: 100%;
+    background-color: var(--color-verde);
+    padding: 0.5vh 0;
+
+}
+#aside{
+    width: 30%;
+    background-color: var(--color-verdeAzulado);
+}
+
+#body-content{
+    display: flex;
+    height: 92vh;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    height: 100%;
+    width: 90%;
+    background-color: var(--color-morado);
+    align-items: center;
+}
+
+#main > div{
+height: 45%;
+width: 95%;
+border: solid 2px var(--color-rojo);
+}
+#cajaSuperior{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+#cajaSuperior > div{
+  border: solid 2px var(--color-azul);
+  width: 45%;
+  height: 90%;
+}
+#cajaInferior{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+#cajaInferior > div{
+   width: 31%;
+   border: 2px solid var(--color-azul);
+   height: 90%;
+}
+
+
+
+
+#footer{
+    width: 100%;
+    background-color: var(--color-naranja);
+    padding: 0.5vh 0;
+}
