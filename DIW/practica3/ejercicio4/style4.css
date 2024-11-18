@@ -3,82 +3,89 @@
     padding: 0;
 }
 :root{
-    --total-width: 980px;
+    --color-rojo:red;
+    --color-azul: blue;
+    --color-verde:rgb(40, 187, 101);
+    --color-verdeAzulado: rgb(51, 196, 196);
+    --color-morado: rgb(233, 159, 233);
+    --color-naranja: rgb(221, 138, 124);
 }
 
 body{
     margin: 0 auto;
     color: white;
     height: 100vh;
-    text-align: center; /*centra todos sus hijos*/
+   
 }
 
-#header{
+
+header{
     width: 100%;
-    height: 5%;
-    background-color: rgb(40, 187, 101);
-    padding-top: 1%;
-    text-align: initial; /*se restablece valor inicial de text-align para que no herede de body*/
+    background-color: var(--color-verde);
+    padding: 1vh 0;
+
 }
 #menuHeader li{
     display: inline; /*pone en linea todos los elementos li dentro del ul*/
     margin-left: 2rem; /*el margin izquierdo será doveces el valor el tamaño de fuente definido en este caso por defecto 16px*/
 }
 #menuHeader li:first-child{
-    color: blue; 
+    color: var(--color-azul); 
 }/*estilo para el primer elemento de la lista*/
-#aside{
-    width: 20%;
-    float: left; /*Se indica a aside que flote a la izquierda*/
-    background-color: rgb(51, 196, 196);
-    height: 90%;
+aside{
+    width: 30%;
+    background-color: var(--color-verdeAzulado);
 }
-
 #menuAside li{
-margin-top: 20%;
-font-size: 2rem;
+    margin-top: 20%;
+    font-size: 2rem;
+    text-align: center;   
 }/*estilo para los elementos li dentro de menuAside*/
+    
+    
 
-
-#main{
-    width: 80%;
-    height: 90%;
-    float: left; /*se indica a main que flote a la izquierda de aside*/
-    background-color: rgb(233, 159, 233);
+#body-content{
+    display: flex;
+    height: 92vh;
 }
-
-#main > div{
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    height: 100%;
     width: 90%;
-    height: 42%;
-    border: 2px solid red;
-    margin: 1% 5%; 
-} /*estilos de las cajas rojas superior e inferior denrto de main*/
-
-#cajaSuperior > div{
-    width: 45%;
-    height: 80%;
-    float: left; /*Se indica a los elementos div dentro de la caja superior que floten a la izquierda*/
-    margin-top: 2%;
-    margin-left: 3%;
-    border: 2px solid blue;
-
+    background-color: var(--color-morado);
+    align-items: center;
 }
 
-#cajaSuperior > div:nth-child(2){
-float: right;
-margin-right: 3%;
-margin-left: initial;/*se restablece valor de margin para este elemento*/
-} /*estilos segundo hijo de la caja superior en main*/
+main > div{
+height: 45%;
+width: 95%;
+border: solid 2px var(--color-rojo);
+}
+#cajaSuperior{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+#cajaSuperior > div{
+  border: solid 2px var(--color-azul);
+  width: 45%;
+  height: 90%;
+}
+#cajaInferior{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+#cajaInferior > div{
+   width: 31%;
+   border: 2px solid var(--color-azul);
+   height: 90%;
+}
 
- #cajaInferior > div{
-    width: 29%;
-    height: 80%;
-    float: left;
-    margin-top: 2%;
-    margin-left: 2%;
-    border: 2px solid blue;
-}/*estilos  de los elementos div dentro de la caja inferior */
 
-#footer{
-    background-color: rgb(221, 138, 124);
+footer{
+    background-color: var(--color-naranja);
+    text-align: center;
 }

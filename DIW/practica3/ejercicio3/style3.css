@@ -18,13 +18,13 @@ body{
     text-align: center;
 }
 
-#header{
+header{
     width: 100%;
     background-color: var(--color-verde);
     padding: 0.5vh 0;
 
 }
-#aside{
+aside{
     width: 30%;
     background-color: var(--color-verdeAzulado);
 }
@@ -33,7 +33,7 @@ body{
     display: flex;
     height: 92vh;
 }
-#main {
+main {
     display: flex;
     flex-direction: column;
     gap: 2%;
@@ -68,11 +68,7 @@ border: solid 2px var(--color-rojo);
    border: 2px solid var(--color-azul);
    height: 90%;
 }
-
-
-
-
-#footer{
+footer{
     width: 100%;
     background-color: var(--color-naranja);
     padding: 0.5vh 0;
