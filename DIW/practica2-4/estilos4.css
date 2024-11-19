@@ -1,9 +1,15 @@
+:root{
+    --gap-lg:6rem; 
+    --margin-left-list: 2.5rem; 
+} /*almaceno en variables valores que se repiten y dan equidad a mi estilo*/
+
 *{
     margin: 0;
     padding: 0;
 }
 
-body{
+main{
+    margin-top: 2rem; /*separa el titulo del contenido principal*/
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -26,14 +32,48 @@ strong{
     display: block;
 }
 
+/*ESTILOS PANTALLA SIPERIOR A 600px*/
 @media screen and (min-width: 600px) {
-    body{
-        background-color: red;
+    h2{
+       border-bottom: none; /*elimina el borde inferior*/
+       margin-bottom: 1.5rem;
+    }
+    main{
+        flex-direction: row; /*cambia la direccion del flex de column a row*/
+        gap: 6rem; /*separacion entre las secciones del main*/
+    }
+    #section2{
+        display: flex; /*Establece propiedades flex a la segunda seccion*/
+        flex-direction: column;
+        gap: 2rem; /*separación entre los elementos de la segunda sección*/
+        
+    }
+    #section2 ul li{
+        padding: 0; /*elimina el padding para los elementos li de la segunda seccion*/
+        margin-left: var(--margin-left-list)
+    }
+    #section2 strong{
+        display: inline; /*indica a los elementos stron que se vuelvan a mostrar en línea*/
     }
 }
 
+
+/*ESTILOS PANTALLA SIPERIOR A 1200px*/
 @media screen and (min-width: 1200px) {
-    body{
-        background-color: blue;
+   main{
+    gap: var(--gap-lg);
+   }
+   #section2{
+     flex-direction: row; /*permite que los elementos se muestren en fila en lugar de columna*/
+   gap:var(--gap-lg);
+    }
+
+    #section1 ul li{
+       list-style: disc;
+       padding: 0;
+       margin-left: var(--margin-left-list); /*permite que se vea el estilo de la lista*/
+    }
+    #section1 strong{
+        display: inline;
     }
 }
