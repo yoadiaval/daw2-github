@@ -21,7 +21,7 @@ body{
 header{
     width: 100%;
     background-color: var(--color-verde);
-    padding: 0.5vh 0;
+    padding: 0.9vh 0;
 
 }
 aside{
@@ -30,14 +30,14 @@ aside{
 }
 
 #body-content{
-    display: flex;
+    display: flex; /*Define un comportamiento flex para el contenedor de main y aside */
     height: 92vh;
 }
 main {
     display: flex;
     flex-direction: column;
     gap: 2%;
-    height: 100%;
+    height: 100%; /*ocupa el 100% de la altura de su contenedor*/
     width: 90%;
     background-color: var(--color-morado);
     align-items: center;
@@ -49,8 +49,8 @@ width: 95%;
 border: solid 2px var(--color-rojo);
 }
 #cajaSuperior{
-    display: flex;
-    justify-content: space-around;
+    display: flex; /*define un comportamiento flex para la caja superior de main*/
+    justify-content: space-around; /*distribuye el espacio entre los hijos de este contenedor*/
     align-items: center; 
 }
 #cajaSuperior > div{
@@ -59,14 +59,14 @@ border: solid 2px var(--color-rojo);
   height: 90%;
 }
 #cajaInferior{
-    display: flex;
-    justify-content: space-around;
+    display: flex; /*define un comportamiento flex para la caja inferior de main*/
+    justify-content: space-around; /*distribuye el espacio entre los hijos de este contenedor*/
     align-items: center; 
 }
 #cajaInferior > div{
    width: 31%;
    border: 2px solid var(--color-azul);
-   height: 90%;
+   height: 90%; /*Ocupa el 90% de la altura de su contenedor */
 }
 footer{
     width: 100%;

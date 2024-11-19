@@ -26,7 +26,7 @@ header{
 
 }
 #menuHeader li{
-    display: inline; /*pone en linea todos los elementos li dentro del ul*/
+    display: inline; /*pone en línea todos los elementos li dentro del ul*/
     margin-left: 2rem; /*el margin izquierdo será doveces el valor el tamaño de fuente definido en este caso por defecto 16px*/
 }
 #menuHeader li:first-child{
@@ -49,7 +49,7 @@ aside{
     height: 92vh;
 }
 main {
-    display: flex;
+    display: flex; /*Define un comportamiento flex para el contenedor de main y aside */
     flex-direction: column;
     gap: 2%;
     height: 100%;
@@ -65,7 +65,7 @@ border: solid 2px var(--color-rojo);
 }
 #cajaSuperior{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /*distribuye el espacio entre los hijos de este contenedor*/
     align-items: center; 
 }
 #cajaSuperior > div{
@@ -75,7 +75,7 @@ border: solid 2px var(--color-rojo);
 }
 #cajaInferior{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /*distribuye el espacio entre los hijos de este contenedor*/
     align-items: center; 
 }
 #cajaInferior > div{
@@ -88,4 +88,5 @@ border: solid 2px var(--color-rojo);
 footer{
     background-color: var(--color-naranja);
     text-align: center;
+    padding: 0.2rem;
 }

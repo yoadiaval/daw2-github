@@ -1,0 +1,32 @@
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center; /*centrado del elemento h1*/
+    width: 100%;
+}
+
+#content{
+    display: flex; /*define un comportamiento flex para esta caja*/
+}
+
+aside{
+    width: 25%; /*ancho del contenedor aside*/
+}
+
+main{
+    width: 75%; /*ancho del contenedor main*/
+}
+
+main ul{
+    display: flex;
+    gap: 0.5rem; /*agrega un pequeño espacio entre los elementos hijos*/
+    padding: 0;
+}
+
+main ul li{
+    width: 33%;
+    list-style: none;
+}
