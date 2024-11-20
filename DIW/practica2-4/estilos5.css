@@ -1,12 +1,70 @@
-
-
-
-@media screen and (min-width: 600px) {
-   
+:root {
+  /*variable que define separacion entre elementos hijos en contenedores flex*/
+  --gap-md: 1rem;
 }
-
+aside ul {
+  padding-left: 0;
+}
+aside ul li {
+  list-style: none;
+  display: inline;
+}
+aside ul li::after {
+  content: ";";
+}
+/*ESTILOS PANTALLA SIPERIOR A 600px*/
+@media screen and (min-width: 600px) {
+  #content {
+    display: flex;
+    gap: var(--gap-md);
+  }
+  aside {
+    width: 25%;
+  }
+  main {
+    width: 75%;
+  }
+  /*--se restablecen estilos del la lista del aside--*/
+  aside ul {
+    padding-left: 2rem;
+  }
+  aside ul li {
+    list-style: disc;
+    display: block;
+    background-color: redgit ;
+  }
+  aside ul li::after {
+    content: " ";
+  }
+  /*---------------------------------------------------*/
+  main ul {
+    display: flex;
+    gap: var(--gap-md);
+    margin: 0;
+    padding: 0;
+  }
+  main ul li {
+    list-style: none;
+    width: 33%;
+  }
+}
 
 /*ESTILOS PANTALLA SIPERIOR A 1200px*/
 @media screen and (min-width: 1200px) {
-  
+  body {
+    width: 80%;
+    margin: 0 auto;
+  }
+  main {
+    display: flex;
+    gap: var(--gap-md);
+  }
+  main ul {
+    flex-direction: column;
+  }
+  main ul li {
+    width: 90%; /*ajuste del anchopara que no sobresalga de la caja*/
+    list-style: disc;
+    margin-left: 2rem;
+  }
 }
