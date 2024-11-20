@@ -7,7 +7,7 @@ const imglist = [
   "./imgs/5.jpg",
 ];
 
-let pos = 0;
+let pos = 0; //posicion del array de imágenes
 const img = document.querySelector("img");
 const positionItems = document.getElementsByClassName("positionItem");
 let timer = setInterval(next, 3000); //ejecuta la funcion next cada 3segundos
@@ -15,13 +15,13 @@ let timer = setInterval(next, 3000); //ejecuta la funcion next cada 3segundos
 //funcion que muestra la imagen siguiente
 function next() {
   cambiarImagen(pos);
-  pos == imglist.length - 1 ? (pos = 0) : pos++;
+  pos == imglist.length - 1 ? (pos = 0) : pos++; //reinicia el array
 }
 
 //funcion que muestra la imagen anterior
 function backward(element) {
   cambiarImagen(pos);
-  pos == 0 ? (pos = imglist.length - 1) : pos--;
+  pos == 0 ? (pos = imglist.length - 1) : pos--;// si pos==0 le asigna la ultima posicion del array
 }
 
 //cambia la imagen que se muestra
@@ -33,7 +33,7 @@ function cambiarImagen(pos) {
     if (i == pos) {
       positionItems[pos].style.backgroundColor = "white";
     } else {
-      positionItems[i].style.backgroundColor = " rgba(255, 255, 255, 0.338)";
+      positionItems[i].style.backgroundColor = "rgba(255, 255, 255, 0.338)";
     }
   }
 }

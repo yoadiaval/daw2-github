@@ -32,7 +32,7 @@ strong{
     display: block;
 }
 
-/*ESTILOS PANTALLA SIPERIOR A 600px*/
+/*ESTILOS PANTALLA SUPERIOR A 600px*/
 @media screen and (min-width: 600px) {
     h2{
        border-bottom: none; /*elimina el borde inferior*/
@@ -58,7 +58,7 @@ strong{
 }
 
 
-/*ESTILOS PANTALLA SIPERIOR A 1200px*/
+/*ESTILOS PANTALLA SUPERIOR A 1200px*/
 @media screen and (min-width: 1200px) {
    main{
     gap: var(--gap-lg);

@@ -45,7 +45,8 @@ setInterval(revisarEstadoPincel, 100); //revisa el estado del pincel y lo actual
 
 function revisarEstadoPincel() {
   document.getElementById("estado_pincel").innerHTML = `${
-    nclick === 0 ? "PINCEL DESACTIVADO" : "PINCEL ACTIVADO"
+    nclick === 0 ? "
+    bhO" : "PINCEL ACTIVADO"
   }`;
 }
 
