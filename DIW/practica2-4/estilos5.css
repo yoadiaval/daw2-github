@@ -4,14 +4,15 @@
 }
 aside ul {
   padding-left: 0;
+  display: flex;
   list-style: none;
+  flex-wrap: wrap;
+  
 }
-aside ul li {
-  display: inline;
-}
+
 /*agrega el punto y coma exceptuando el último elemento li*/
 aside ul li:not(:last-child):after { 
-  content: ";";
+  content: "; ";
 }
 /*ESTILOS PANTALLA SUPERIOR A 600px*/
 @media screen and (min-width: 600px) {
@@ -29,10 +30,10 @@ aside ul li:not(:last-child):after {
   aside ul {
     padding-left: 2rem;
     list-style-type: disc;
+    flex-direction: column;
+    list-style-type: disc;
   }
-  aside ul li {
-    display: block;
-  }
+ 
   aside ul li:not(:last-child):after {
     content: " ";
   }
@@ -67,8 +68,7 @@ aside ul li:not(:last-child):after {
     list-style: disc;
     margin-left: 2rem;
   }
-}
-main {
+  main {
   display: flex;
   gap: var(--gap-md);
 }
@@ -79,4 +79,5 @@ main ul li {
   width: 90%; /*ajuste del anchopara que no sobresalga de la caja*/
   list-style: disc;
   margin-left: 2rem;
+}
 }
