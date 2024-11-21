@@ -10,9 +10,10 @@ include "estudiante.inc.php";
     <title>Document</title>
 </head>
 <body>
-    <?php
-
-        $est = new Estudiante("1405", "yoannet", "adf@", "dsfgh");
-   ?>
+<?php
+$e = new Estudiante("1254873", "yoannet", "y@nauta.com", "13227810");
+$e->__set("numExpediente", "2")->__set("numExpediente", "3");
+echo $e->__get("numExpediente");
+?>
 </body>
 </html>

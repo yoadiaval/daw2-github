@@ -1,47 +1,45 @@
 <?php
-class Persona{
+class Persona
+{
     private $dni;
     private $nombre;
     private $email;
 
-    public function __construct($dni, $nombre, $email){
-        $this-> dni = $dni;
-        $this-> nombre = $nombre;
-        $this-> email = $email;
+    public function __construct($dni, $nombre, $email)
+    {
+        $this->dni = $dni;
+        $this->nombre = $nombre;
+        $this->email = $email;
     }
-    public function __get($nombre_att){
+    public function __get($prop)
+    {
         switch (true) {
-            case $nombre_att=="dni":
-                return $this -> dni;
-                break;
-            case $nombre_att=="nombre":
-                return $this -> nombre;
-                break;
-            case $nombre_att=="email":
-                return $this -> email;
-                break;
-                default:
-                alert("El valor insertado es incorrecto");
-                break;
-        }
-    }
-    public function  __set($nombre_att, $valor){
-        switch (true) {
-            case $nombre_att == "dni":
-                $this -> dni = $valor;
-                break;
-            case $nombre_att == "nombre":
-                $this -> nombre = $valor;
-                break;
-            case $nombre_att == "email":
-                $this -> email = $valor;
-                break;
-            
+            case $prop == 'dni':
+                return $this->dni;
+            case $prop == 'nombre':
+                return $this->nombre;
+            case $prop == 'email':
+                return $this->email;
             default:
-                alert("El valor insertado es incorrecto");
-                break;
+                return null;
         }
     }
-
+    public function __set($prop, $newValue)
+    {
+        switch (true) {
+            case $prop == 'dni':
+                $this->dni = $newValue;
+            case $prop == 'nombre':
+                $this->nombre = $newValue;
+            case $prop == 'email':
+                $this->email = $newValue;
+        }
+        return $this;
+    }
+    public function mostrar()
+    {
+        return "$this->nombre-" . "$this->dni-" . "$this->email";
+    }
 }
+
 ?>
