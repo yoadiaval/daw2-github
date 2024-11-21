@@ -151,7 +151,8 @@ function actualizarDOM(datos) {
                                                      <th>Cargo</th>
                                                      <th>Contratado</th>
                                                      <th>Acciones</th>
-                                                    </thead>`;
+                                                    </thead>
+                                                    `;
 
   empleadosRecibidos = datos;
   //Por cada empleado se agregauna fila a la tabla

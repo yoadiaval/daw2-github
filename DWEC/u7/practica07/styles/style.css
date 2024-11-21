@@ -25,6 +25,11 @@ section {
   align-items: center;
   justify-content: center;
 }
+#bg-table{
+height: 70vh;
+overflow-y: auto;
+border-radius: 10px;
+}
 table {
   background-color: rgba(0, 0, 0, 0.575);
   padding: 1rem;
@@ -159,4 +164,24 @@ i {
 #cancelarDel:hover,
 .btnBorrar:hover {
   background-color: red;
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 5px; /* Ancho de la barra de desplazamiento */
+height: 80%;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--contrast-color); /* Color del pulgar (parte que se mueve) */
+  border-radius: 10px; /* Bordes redondeados del pulgar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color cuando se pasa el ratón por encima */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color del fondo de la barra de desplazamiento */
+  border-radius: 10px; /* Bordes redondeados del fondo */
 }
