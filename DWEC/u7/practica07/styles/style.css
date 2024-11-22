@@ -25,15 +25,20 @@ section {
   align-items: center;
   justify-content: center;
 }
+#info{
+  background-color: rgba(0, 0, 0, 0.575);
+  height: fit-content;
+  padding: 1rem ;
+  border-radius: 10px;
+}
 #bg-table{
-height: 70vh;
+max-height: 400px;
 overflow-y: auto;
-border-radius: 10px;
+
 }
 table {
-  background-color: rgba(0, 0, 0, 0.575);
+ /* background-color: rgba(0, 0, 0, 0.575);*/
   padding: 1rem;
-  border-radius: 10px;
 }
 
 thead {
@@ -82,7 +87,9 @@ button:disabled {
   opacity: 0.6;
   cursor: default;
 }
-
+button:disabled:hover{
+  background-color: #c0c0c0;  /*Quita el hover del elemento cuando está desactivado*/
+}
 .acciones {
   display: flex;
   justify-content: space-around;
