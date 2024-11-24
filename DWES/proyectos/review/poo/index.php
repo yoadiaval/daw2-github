@@ -1,6 +1,6 @@
 <?php
-include "./clase.php";
-?>
+include "clase.php"
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +12,10 @@ include "./clase.php";
 
 <body>
     <?php
-    $e = new Estudiante("1254873", "laura", "y@nauta.com", "1546");
-    $e->mostrar();
+    $e = new Estudiante("1254873", "yoannet", "y@nauta.com", "13227810");
+    $e->__set("numExpediente", "2")->__set("numExpediente", "3");
+    echo $e->__get("numExpediente");
+    $e->test();
     ?>
 </body>
 
