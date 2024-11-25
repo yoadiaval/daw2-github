@@ -55,8 +55,7 @@ class Empresa
 
     public static function toJson()
     {
-        foreach (self::$arrayTrabajadores as $trabajador => $values) {
-        }
+        
     }
 }
 ?>
