@@ -25,10 +25,20 @@ section {
   align-items: center;
   justify-content: center;
 }
-table {
+#info{
   background-color: rgba(0, 0, 0, 0.575);
-  padding: 1rem;
+  height: fit-content;
+  padding: 1rem ;
   border-radius: 10px;
+}
+#bg-table{
+max-height: 400px;
+overflow-y: auto;
+
+}
+table {
+ /* background-color: rgba(0, 0, 0, 0.575);*/
+  padding: 1rem;
 }
 
 thead {
@@ -77,7 +87,9 @@ button:disabled {
   opacity: 0.6;
   cursor: default;
 }
-
+button:disabled:hover{
+  background-color: #c0c0c0;  /*Quita el hover del elemento cuando está desactivado*/
+}
 .acciones {
   display: flex;
   justify-content: space-around;
@@ -159,4 +171,24 @@ i {
 #cancelarDel:hover,
 .btnBorrar:hover {
   background-color: red;
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 5px; /* Ancho de la barra de desplazamiento */
+height: 80%;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--contrast-color); /* Color del pulgar (parte que se mueve) */
+  border-radius: 10px; /* Bordes redondeados del pulgar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color cuando se pasa el ratón por encima */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color del fondo de la barra de desplazamiento */
+  border-radius: 10px; /* Bordes redondeados del fondo */
 }

@@ -1,4 +1,5 @@
 const table = document.getElementById("list");
+const infoEmpleados = document.getElementById("info");
 const formulario = document.getElementById("formulario");
 const btnAdd = document.getElementById("add");
 const btnCancelar = document.getElementById("cancelar");
@@ -10,7 +11,7 @@ const legend = document.querySelector("legend");
 //Variables de control de eventos
 var modificando = false;
 var creando = false;
-var restantes;
+var restantes; //cantidad de empleados restantes
 
 //Obtengo los datos al cargar la página y actualizo el DOM
 window.onload = function () {
@@ -25,7 +26,7 @@ btnAdd.addEventListener("click", function () {
   btnAdd.disabled = true;
   creando = true;
   legend.innerHTML = "Inserte los datos del nuevo empleado";
-  table.classList.add("ocultar");
+  infoEmpleados.classList.add("ocultar");
   formulario.classList.remove("ocultar");
 });
 //Agrega eventos al button cancelar
@@ -35,7 +36,7 @@ btnCancelar.addEventListener("click", function () {
   modificando = false;
   creando = false;
   formulario.reset();
-  table.classList.remove("ocultar");
+  infoEmpleados.classList.remove("ocultar");
   formulario.classList.add("ocultar");
 });
 
@@ -74,6 +75,38 @@ formulario.addEventListener("submit", function (event) {
       break;
   }
 });
+
+
+//función para actualizar el DOM
+function actualizarDOM(datos) {
+  document.getElementById("list").innerHTML = `<thead></thead>`;
+  empleadosRecibidos = datos;
+  //Por cada empleado se agregauna fila a la tabla
+  for (var i = 0; i < empleadosRecibidos.length; i++) {
+    var idEmpleado = empleadosRecibidos[i].id;
+    var nombreEmpleado = empleadosRecibidos[i].nombre;
+    var edadEmpleado = empleadosRecibidos[i].edad;
+    var cargoEmpleado = empleadosRecibidos[i].cargo;
+    var estadoContratado = empleadosRecibidos[i].contratado;
+    //Se agregan los datos de los empleados existentes al DOM
+    document.getElementById("list").innerHTML += `<tr>
+                                                        <td>${idEmpleado}</td>
+                                                        <td>${nombreEmpleado}</td>
+                                                        <td>${edadEmpleado}</td>
+                                                        <td>${cargoEmpleado}</td>
+                                                        <td>${estadoContratado}</td>
+                                                        <td class="acciones">
+                                                          <button class="${idEmpleado}" onclick="prepararModificado(this)">Modificar</button>
+                                                          <button onclick="confirmarDel(this)" class="${idEmpleado} btnBorrar">Borrar</button>
+                                                        </td>
+                                                      </tr>`;
+  }
+  btnAdd.disabled = false;
+  infoEmpleados.classList.remove("ocultar"); //muestra el lisatdo de formularios
+  formulario.classList.add("ocultar"); //oculta el formulario
+  comprobarSiEliminarMas();
+}
+
 
 //---------------------------FUNCIONES CRUD---------------------------//
 //Obtiene los datos y actualiza el DOM
@@ -118,7 +151,8 @@ function actionPut(datos, id) {
   peticion.setRequestHeader("Content-Type", "application/json");
   peticion.send(datos);
 }
-//Elimina al empleado a partir del id que se pasa en la clase del elemento que lanza la acción
+//(La accion se llama desde el HTML desde el btnContinuar de la alerta de eliminación) 
+//Elimina al empleado a partir del id que se pasa en la clase del elemento que lanza la acción (el evento se recoge en el html)
 function actionDelete(element) {
   var peticion = new XMLHttpRequest();
   peticion.onreadystatechange = function () {
@@ -143,43 +177,6 @@ function actionDelete(element) {
 
 //--------------------------FUNCIONES AUXILIARES---------------------------------//
 
-function actualizarDOM(datos) {
-  document.getElementById("list").innerHTML = `<thead>
-                                                     <th>Id</th>
-                                                     <th>Nombre</th>
-                                                     <th>Edad</th> 
-                                                     <th>Cargo</th>
-                                                     <th>Contratado</th>
-                                                     <th>Acciones</th>
-                                                    </thead>`;
-
-  empleadosRecibidos = datos;
-  //Por cada empleado se agregauna fila a la tabla
-  for (var i = 0; i < empleadosRecibidos.length; i++) {
-    var idEmpleado = empleadosRecibidos[i].id;
-    var nombreEmpleado = empleadosRecibidos[i].nombre;
-    var edadEmpleado = empleadosRecibidos[i].edad;
-    var cargoEmpleado = empleadosRecibidos[i].cargo;
-    var estadoContratado = empleadosRecibidos[i].contratado;
-    //Se agregan los datos de los empleados existentes al DOM
-    document.getElementById("list").innerHTML += `<tr>
-                                                        <td>${idEmpleado}</td>
-                                                        <td>${nombreEmpleado}</td>
-                                                        <td>${edadEmpleado}</td>
-                                                        <td>${cargoEmpleado}</td>
-                                                        <td>${estadoContratado}</td>
-                                                        <td class="acciones">
-                                                          <button class="${idEmpleado}" onclick="prepararModificado(this)">Modificar</button>
-                                                          <button onclick="confirmarDel(this)" class="${idEmpleado} btnBorrar">Borrar</button>
-                                                        </td>
-                                                      </tr>`;
-  }
-  btnAdd.disabled = false;
-  table.classList.remove("ocultar"); 
-  formulario.classList.add("ocultar");
-  comprobarSiEliminarMas();
-}
-
 //Deshabilita el button "borrar" si quedara solo un empleado por eliminar.
 //Esta función se llama cada vez que se obtienen los datos y se actualiza el DOM
 function comprobarSiEliminarMas() {
@@ -195,6 +192,7 @@ function comprobarSiEliminarMas() {
     });
   }
 }
+
 
 //function que maneja el evento de cada uno de los buttons modificar
 //Envía al formulario los datos del empleado desde el cual se lanzó la acción de modificación
@@ -219,7 +217,7 @@ function prepararModificado(element) {
       formulario[5].value = empleado.id;
       //muestro el fomulario de modificacion de empleados
       legend.innerHTML = "Modifique los datos necesarios";
-      table.classList.add("ocultar");
+      infoEmpleados.classList.add("ocultar");
       formulario.classList.remove("ocultar");
     }
   };
@@ -232,10 +230,11 @@ function prepararModificado(element) {
   peticion.send();
 }
 
+
+
 //Se pide confirmación para continuar eliminando y se transfiere la clase (id del empleado a eliminar) del elemento borrar que lanzó el evento al button continuar
 function confirmarDel(element) {
-  btnContinuar.classList = ""; //se elimina el contenido de las clases si hubiera
-  btnContinuar.classList.add(element.classList[0]); //Se agrega la clase del button borrar que lanzó el evento
-  console.log(btnContinuar.classList);
-  alert.classList.remove("ocultar");
+  btnContinuar.classList = ""; //se elimina el contenido de las clases si hubiera para que no se acumulen
+  btnContinuar.classList.add(element.classList[0]); //Se agrega la clase del button "borrar" que lanzó el evento.
+  alert.classList.remove("ocultar"); //muestro la alerta para que el usuario decida si eliminar o no
 }
