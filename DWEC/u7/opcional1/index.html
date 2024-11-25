@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>SISTEMA GESTION DE PACIENTES</h1>
+    <section>
+      <h2>Qué deseas hacer</h2>
+      <div class="pociones">
+        <button id="btn-introducir">Introducir datos</button>
+        <button id="btn-borrar-todo">Borrar todos los datos</button>
+      </div>
+    </section>
+    <section>
+      <h2>Introducir un paciente</h2>
+      <form id="formNuevoPaciente">
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Inserte su nombre"
+        />
+        <input
+          type="text"
+          name="apellidos"
+          id="apellidos"
+          placeholder="Inserte sus apellido"
+        />
+        <label for="datetime">Fecha y hora:</label>
+        <input type="datetime-local" name="datetime" id="datetime" />
+        <button class="btn-guardar">GUARDAR</button>
+      </form>
+    </section>
+    <section>
+      <h2>Listado de pacientes</h2>
+      <table class="lista-pacientes-editar"></table>
+    </section>
+  </body>
+</html>
