@@ -4,7 +4,9 @@ listaTable = document.getElementById("lista-pacientes-editar");
 
 // Event listener para el formulario
 window.onload = function(){
+  if(sessionStorage.length > 0){
   listarpacientes();
+  }
 }
 
 //captura del formulario.
@@ -41,6 +43,7 @@ function listarpacientes(){
     <td>Apellidos</td>
     <td>Fecha</td>
     <td>Hora</td>
+    <td>Acciones</td>
 </tr>
 `;
 for (var i = 1; i <= sessionStorage.length; i++) {
@@ -52,9 +55,15 @@ listaTable.innerHTML += `<tr>
 <td>${pacienteObj.apellidos}</td>
 <td>${pacienteObj.fecha}</td>
 <td>${pacienteObj.hora}</td> 
+<td><button class="${paciente}" onclick = "borrarItem(this)">Borrar</button></td>
 </tr>`;
 }
 
   
   
+}
+
+function borrarItem(element){
+  sessionStorage.removeItem(element.classList[0]);
+  listarpacientes();
 }
