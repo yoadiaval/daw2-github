@@ -41,7 +41,7 @@ btnCancelar.addEventListener("click", function () {
 });
 
 btnCancelarDel.addEventListener("click", function () {
-  document.getElementById("alert-section").classList.add("ocultar");
+  document.getElementById("alert-section").classList.add("ocultar"); //oculta el alert
 });
 //------------------- EVENTO SUBMIT FORMULARIO-------------------------//
 //Formulario que agrega y modifica empleados
@@ -209,7 +209,7 @@ function prepararModificado(element) {
       modificando = true;
       btnAdd.disabled = true;
       //Agrega los valores del empleado seleccionado a los imputs correspondientes
-      empleado = JSON.parse(peticion.responseText)[0];
+      empleado = JSON.parse(peticion.responseText)[0];//guarda en una  variable eel empleado solicitado
       formulario[1].value = empleado.nombre;
       formulario[2].value = empleado.edad;
       formulario[3].value = empleado.cargo;
@@ -217,8 +217,8 @@ function prepararModificado(element) {
       formulario[5].value = empleado.id;
       //muestro el fomulario de modificacion de empleados
       legend.innerHTML = "Modifique los datos necesarios";
-      infoEmpleados.classList.add("ocultar");
-      formulario.classList.remove("ocultar");
+      infoEmpleados.classList.add("ocultar"); //oculta el listado
+      formulario.classList.remove("ocultar"); //muestra formulario con lo datos del empleado a modificar
     }
   };
   peticion.open(
