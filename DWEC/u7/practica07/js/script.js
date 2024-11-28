@@ -76,7 +76,6 @@ formulario.addEventListener("submit", function (event) {
   }
 });
 
-
 //función para actualizar el DOM
 function actualizarDOM(datos) {
   document.getElementById("list").innerHTML = `<thead></thead>`;
@@ -107,7 +106,6 @@ function actualizarDOM(datos) {
   comprobarSiEliminarMas();
 }
 
-
 //---------------------------FUNCIONES CRUD---------------------------//
 //Obtiene los datos y actualiza el DOM
 function getData() {
@@ -132,7 +130,7 @@ function actionPost(datos) {
     }
   };
   peticion.open("POST", "http://test-api.jtarrega.es/api/empleados", true);
-  peticion.setRequestHeader("Content-Type", "application/json");
+
   peticion.send(datos);
 }
 //Mofifica el empleado
@@ -148,10 +146,10 @@ function actionPut(datos, id) {
     `http://test-api.jtarrega.es/api/empleados/${id}`, //recoge el id en el campo oculto de este formulario
     true
   );
-  peticion.setRequestHeader("Content-Type", "application/json");
+
   peticion.send(datos);
 }
-//(La accion se llama desde el HTML desde el btnContinuar de la alerta de eliminación) 
+//(La accion se llama desde el HTML desde el btnContinuar de la alerta de eliminación)
 //Elimina al empleado a partir del id que se pasa en la clase del elemento que lanza la acción (el evento se recoge en el html)
 function actionDelete(element) {
   var peticion = new XMLHttpRequest();
@@ -171,7 +169,7 @@ function actionDelete(element) {
     `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
     true
   );
-  peticion.setRequestHeader("Content-Type", "application/json");
+
   peticion.send();
 }
 
@@ -193,7 +191,6 @@ function comprobarSiEliminarMas() {
   }
 }
 
-
 //function que maneja el evento de cada uno de los buttons modificar
 //Envía al formulario los datos del empleado desde el cual se lanzó la acción de modificación
 //El id del empleado viaje la clase del elemento desde la cual se lanzó la acción de modificación
@@ -209,7 +206,7 @@ function prepararModificado(element) {
       modificando = true;
       btnAdd.disabled = true;
       //Agrega los valores del empleado seleccionado a los imputs correspondientes
-      empleado = JSON.parse(peticion.responseText)[0];//guarda en una  variable eel empleado solicitado
+      empleado = JSON.parse(peticion.responseText)[0]; //guarda en una  variable eel empleado solicitado
       formulario[1].value = empleado.nombre;
       formulario[2].value = empleado.edad;
       formulario[3].value = empleado.cargo;
@@ -226,11 +223,9 @@ function prepararModificado(element) {
     `http://test-api.jtarrega.es/api/empleados/${element.classList[0]}`,
     true
   );
-  peticion.setRequestHeader("Content-Type", "application/json");
+
   peticion.send();
 }
-
-
 
 //Se pide confirmación para continuar eliminando y se transfiere la clase (id del empleado a eliminar) del elemento borrar que lanzó el evento al button continuar
 function confirmarDel(element) {
