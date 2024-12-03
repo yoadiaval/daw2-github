@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 :root {
     --fuente-principal: 'Pacifico';
     --fuente-alternativa: sans-serif;
+
     --tam-fuente-xs: 12px;
     --tam-fuente-sm: 13px;
     --tam-fuente-md: 15px;
     --tam-fuente-lg: 17px;
     --tam-fuente-xl: 17px;
+
     --tam-max-contenedor-x: 1200px;
     --tam-alto-encabezado-xs: 8vh;
+
     --negro: #000;
     --blanco: #FFF;
     --fondo-encabezado: #B8D2F4;
@@ -47,6 +51,70 @@ body {
 }
 
 /* Media queries sm */
+header{
+    height: var(--tam-alto-encabezado-xs);
+    display: flex;
+    align-items: center;  
+    background-color: var(--fondo-encabezado);
+}
+img{
+    width: 100px;
+    height: 100px;
+    scale: 0.8;
+    
+}
+nav{ height: 30vh;}
+nav ul{
+    height: 100%; /*Ocupa el 100% de la altura del contenedor*/
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around; /*distribuye elementos li verticalmente al cambiar la direccion a column*/
+    background-color: var(--fondo-menu);
+}
+ nav ul li a{
+    text-decoration: none;
+    color: var(--color-enlace); 
+}
+
+nav ul li{
+    display: flex;
+    align-items: center; /*centrado vertical*/
+    justify-content: center; /*centrado horizontal*/
+    width: 100%;
+    height: 100%;
+}
+/*Borde inferior para todos los elementos li excepto el último*/
+nav ul li:not(:last-child){
+    border-bottom: solid 1px black;
+}
+#intro{
+    height: 62vh; /*Ajuste de altura para completar 100vh*/
+    display: flex;
+    justify-content: center; /*Centra ele elemneto horizontalmente*/
+    align-items: center;/*Centra el elemento verticalmente*/
+    background-image:url("./images/casa-bosque-xs.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#intro div{
+    display: flex;
+    height: 35vh;
+    width: 70%;
+    padding: 0 2rem ;
+    border-radius: 10px;
+    background-color: var();
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-transparencia);
+    border: 1px solid var(--color-titulos-claro);
+    color: var(--color-titulos-claro);
+
+}
+#intro div h2{
+    font-size: x-large;
+}
 
 @media (min-width: 576px) {
 }
