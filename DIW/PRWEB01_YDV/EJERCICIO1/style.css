@@ -178,12 +178,16 @@ text-align: center;
  width: 90vw;
  border-radius: 10px;
  margin-top: 1.5rem;
+ border: 1px solid rgb(99, 99, 99);
 
 }
 #contacto{
     background-image: url("./images/contacto-xs.jpg");
     background-position: center center;
     color: var(--blanco);
+}
+#contacto h2{
+    text-align: center;
 }
 #contacto-form-container{
     width: 80%;
