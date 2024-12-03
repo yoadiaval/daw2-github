@@ -188,26 +188,43 @@ text-align: center;
 }
 #contacto h2{
     text-align: center;
+    padding-top: 1rem;
 }
 #contacto-form-container{
     width: 80%;
     background-color: var(--color-transparencia);
     border-radius: 10px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    padding: 4rem 1rem;
+    position: relative;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+   padding: 2rem 0.5rem 4rem 0.5rem;
+    
 }
+#contacto-form-container div{
+    text-align: center;
+}
+
 #contacto form{
     width: 80%;
     margin: 0 auto;
 }
+
 label, input, textarea, button{
     display: block;
     width: 100%;
 
 }
-label, button{
+button{
     margin-top: 0.5rem;
+}
+
+
+footer{
+    text-align: center;
+    background-color: var(--color-opuesto-primario);
+    color: var(--blanco);
+    padding: 2rem 0;
 }
 @media (min-width: 576px) {
 }
