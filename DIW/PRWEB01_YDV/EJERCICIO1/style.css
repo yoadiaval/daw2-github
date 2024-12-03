@@ -11,7 +11,8 @@
 
     --tam-max-contenedor-x: 1200px;
     --tam-alto-encabezado-xs: 8vh;
-
+    --margen-elementos-p: 2rem;
+    
     --negro: #000;
     --blanco: #FFF;
     --fondo-encabezado: #B8D2F4;
@@ -32,7 +33,7 @@
 html {
     font-family: var(--fuente-principal), var(--fuente-alternativa);
     font-size: var(--tam-fuente-xs);
-    background-color: var(--fondo-todo);
+   /* background-color: var(--fondo-todo);*/
     color: var(--color-texto);
 }
 
@@ -49,7 +50,18 @@ body {
     width: 100%;
     height: 100vh;
 }
-
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+p{
+    font-size: 1.2rem;
+}
+a{
+    font-size: 1.5rem;
+}
 /* Media queries sm */
 header{
     height: var(--tam-alto-encabezado-xs);
@@ -57,7 +69,7 @@ header{
     align-items: center;  
     background-color: var(--fondo-encabezado);
 }
-img{
+header img{
     width: 100px;
     height: 100px;
     scale: 0.8;
@@ -94,6 +106,7 @@ nav ul li:not(:last-child){
     align-items: center;/*Centra el elemento verticalmente*/
     background-image:url("./images/casa-bosque-xs.jpg") ;
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 }
 
@@ -114,8 +127,84 @@ nav ul li:not(:last-child){
 }
 #intro div h2{
     font-size: x-large;
+   
 }
 
+#nosotros{
+    height: 100vh;
+    background-image: url("./images/texture-1674066_640.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   
+}
+
+#nosotros h2{
+padding: 0.4rem 0;
+text-align: center;
+}
+#nosotros p{
+    padding: 0 var(--margen-elementos-p) ;
+    min-width: 330px;
+}
+#nosotros img{
+    width: 80%;
+    min-width: 330px;
+    height: 40vh;
+    border-radius: 10px;
+    border: solid black 1px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1rem;
+    
+}
+#modelos img{
+    width: 100vw;
+    
+}
+#modelos h2, #modelos h3{
+    margin-top: 2rem;
+    text-align: center;
+}
+#modelos p{
+    padding:0 var(--margen-elementos-p);
+}
+#galeria{
+    text-align: center;
+    background-image: url("./images/texture-1674066_640.jpg");
+    background-size: 100% 100%;
+    padding-bottom: 1rem;
+}
+.galeria-img{
+ width: 90vw;
+ border-radius: 10px;
+ margin-top: 1.5rem;
+
+}
+#contacto{
+    background-image: url("./images/contacto-xs.jpg");
+    background-position: center center;
+    color: var(--blanco);
+}
+#contacto-form-container{
+    width: 80%;
+    background-color: var(--color-transparencia);
+    border-radius: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 4rem 1rem;
+}
+#contacto form{
+    width: 80%;
+    margin: 0 auto;
+}
+label, input, textarea, button{
+    display: block;
+    width: 100%;
+
+}
+label, button{
+    margin-top: 0.5rem;
+}
 @media (min-width: 576px) {
 }
 /* Media queries md */
