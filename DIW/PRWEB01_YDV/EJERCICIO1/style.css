@@ -138,8 +138,8 @@ nav ul li:not(:last-child){
 
 #nosotros{
     background-image: url("./images/texture-1674066_640.jpg");
-    background-repeat: no-repeat; /*Evita que la imagen de fondo se repita*/
-    background-size: 100% 100%;
+    background-repeat: repeat; /*Evita que la imagen de fondo se repita*/
+    background-size: 60% 100%;
     padding-top: 1.5rem;
    
 }
@@ -180,7 +180,8 @@ text-align: center;
 #galeria{
     text-align: center;
     background-image: url("./images/texture-1674066_640.jpg");
-    background-size: 100% 100%; /*Se ajusta el ancho y la altura para ocupar el 100% del elemento*/
+    background-size: 60% 100%; 
+    background-repeat: repeat;
     padding: 2rem 0 ;
 }
 
@@ -265,7 +266,21 @@ footer{
    padding-bottom: 2rem;
    }
   }
+
+
 @media (min-width: 576px) {
+    #nosotros p{
+        padding: 0 5rem;
+    }
+    #modelos p{
+        padding: 0 5rem;
+    }
+    #contacto{
+        background-size: 200% 100%;
+    }
+    #contacto-form-container{
+        margin-top:6rem;
+    }
 }
 /* Media queries md */
 
