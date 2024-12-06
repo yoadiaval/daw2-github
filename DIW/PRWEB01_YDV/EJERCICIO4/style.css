@@ -154,25 +154,23 @@ nav ul li:not(:last-child) {
 }
 #nosotros p {
   padding: 0 var(--margen-elementos-p);
-  margin-bottom: 2rem;
   color: var(--color-texto);
 }
 #nosotros img {
   width: 80%;
-
   height: 40%;
   border-radius: 10px;
   border: solid black 1px;
   margin-left: 50%; /*Desplaza desde la izquierda 50%*/
   transform: translateX(-50%); /*Ajuste centrado horizontal*/
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 #modelos img {
   width: 100%;
 }
 #modelos h2,
 #modelos h3 {
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
   color: var(--color-secundario);
 }
 #modelos p {
@@ -258,6 +256,7 @@ footer {
   opacity: 0;
 }
 
+/* Media queries apaisado */
 @media (min-width: 576px) and (orientation: landscape) {
   #inicio,
   #nosotros,
@@ -271,7 +270,7 @@ footer {
     padding-bottom: 2rem;
   }
 }
-
+/* Media queries sm */
 @media (min-width: 576px) {
   #nosotros p {
     padding: 0 5rem;
@@ -286,15 +285,120 @@ footer {
     margin-top: 6rem;
   }
 }
+
 /* Media queries md */
 @media (min-width: 768px) {
-
+  #intro {
+    background-image: url("./images/casa-bosque-md.jpg");
+  }
 }
-/* Media queries lg */
 
+/* Media queries lg */
 @media (min-width: 992px) {
+  h1,
+  a {
+    font-size: 2.3rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  #nosotros p,
+  #modelos p {
+    font-size: 2rem;
+    padding: 0 10rem;
+  }
+
+  #intro {
+    background-image: url("./images/casa-bosque-lg.jpg");
+  }
+  /*Estilos div hijo directo de #inicio*/
+  #inicio > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    padding: 1rem;
+    background-color: var(--fondo-encabezado);
+  }
+  nav {
+    height: 10vh;
+  }
+  nav ul {
+    flex-direction: row;
+    background-color: var(--fondo-encabezado);
+  }
+  nav ul li {
+    padding: 0 1rem;
+  }
+  /*Se elimina el borde inferior de los elementos li */
+  nav ul li:not(:last-child) {
+    border-bottom: none;
+  }
+  #intro {
+    height: 90vh;
+  }
+  #intro div {
+    width: 60%;
+  }
+  #galeria div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+
+  #galeria img {
+    margin-top: 1rem;
+    width: 40vw; /*define un ancho para la imagen*/
+  }
 }
 /* Media queries xl */
 
 @media (min-width: 1200px) {
+  body {
+    max-width: 1200px;
+    background-color: var(--fondo-encabezado);
+    margin: 0 auto;
+  }
+  nav ul li a:hover {
+    color: var(--color-enlace-hover);
+    transition: all ease-in-out 0.3s;
+  }
+  #modelos p {
+    padding: 0 2rem;
+    font-size: 1.2rem;
+  }
+  #modelos {
+    background-color: var(--blanco);
+  }
+  
+  #modelos article {
+    height: 75vh; /*define un alto para este elemento*/
+    position: relative;
+    padding: 1.5rem;
+  }
+  /*Estilos contenedores elementos h3 y p dentro de article*/
+  #modelos article div { 
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--blanco);
+    padding: 0 1rem;
+  }
+  #modelos article img {
+    width: 70%;
+  }
+
+  /*Estilos aplicados a elementos internos dentro de contenedores article inpares*/
+  #modelos > div article:nth-child(odd) div {
+    left: 0;
+  }
+  #modelos > div article:nth-child(odd) img {
+    float: right;
+  }
+
+  #galeria img {
+    width: 30vw;
+  }
 }

@@ -154,18 +154,16 @@ nav ul li:not(:last-child) {
 }
 #nosotros p {
   padding: 0 var(--margen-elementos-p);
-  margin-bottom: 2rem;
   color: var(--color-texto);
 }
 #nosotros img {
   width: 80%;
-
   height: 40%;
   border-radius: 10px;
   border: solid black 1px;
   margin-left: 50%; /*Desplaza desde la izquierda 50%*/
   transform: translateX(-50%); /*Ajuste centrado horizontal*/
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 #modelos img {
   width: 100%;
@@ -286,13 +284,67 @@ footer {
     margin-top: 6rem;
   }
 }
+
 /* Media queries md */
 @media (min-width: 768px) {
-
+  #intro {
+    background-image: url("./images/casa-bosque-md.jpg");
+  }
 }
-/* Media queries lg */
 
+/* Media queries lg */
 @media (min-width: 992px) {
+  h1,
+  a {
+    font-size: 2.3rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  #nosotros p,
+  #modelos p {
+    font-size: 2rem;
+    padding: 0 10rem;
+  }
+
+  #intro {
+    background-image: url("./images/casa-bosque-lg.jpg");
+  }
+  /*Estilos div hijo directo de #inicio*/
+  #inicio > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    padding: 1rem;
+    background-color: var(--fondo-encabezado);
+  }
+  nav {
+    height: 10vh;
+  }
+  nav ul {
+    flex-direction: row;
+    background-color: var(--fondo-encabezado);
+  }
+  nav ul li {
+    padding: 0 1rem;
+  }
+  /*Se elimina el borde inferior de los elementos li */
+  nav ul li:not(:last-child) {
+    border-bottom: none;
+  }
+  #intro {
+    height: 90vh;
+  }
+  #galeria div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #galeria img {
+    width: 40vw;
+  }
 }
 /* Media queries xl */
 
