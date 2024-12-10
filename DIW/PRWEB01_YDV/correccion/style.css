@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+:root {
+  --fuente-principal: "Pacifico";
+  --fuente-alternativa: sans-serif;
+
+  --tam-fuente-xs: 12px;
+  --tam-fuente-sm: 13px;
+  --tam-fuente-md: 15px;
+  --tam-fuente-lg: 17px;
+  --tam-fuente-xl: 17px;
+
+  --tam-max-contenedor-x: 1200px;
+  --tam-alto-encabezado-xs: 8vh;
+  --margen-elementos-p: 2rem;
+
+  --negro: #000;
+  --blanco: #fff;
+  --fondo-encabezado: #b8d2f4;
+  --fondo-menu: var(--blanco);
+  --fondo-todo: var(--fondo-encabezado);
+  --color-texto: #517104;
+  --color-titulos-claro: #2cda1c;
+  --color-titulos-oscuro: #1f411c;
+  --color-primario: #517104;
+  --color-secundario: #83a705;
+  --color-opuesto-primario: #894b26;
+  --color-opuesto-secundario: #f58a03;
+  --color-enlace: var(--color-opuesto-primario);
+  --color-enlace-hover: var(--color-opuesto-secundario);
+  --color-transparencia: rgba(0, 0, 0, 0.5);
+}
+html{
+    font-family: var(--fuente-principal), var(--fuente-alternativa);
+    font-size: var(--tam-fuente-xs);
+    /* background-color: var(--fondo-todo);*/
+    color: var(--color-texto);
+    scroll-behavior: smooth; /*comportamineto suave del scroll*/
+}
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+#inicio,
+#nosotros,
+#contacto {
+  height: 100vh;
+}
+
+
+#nosotros img {
+    width: 80%;
+  
+    height: 40%;
+    border-radius: 10px;
+    border: solid black 1px;
+    margin-left: 50%; /*Desplaza desde la izquierda 50%*/
+    transform: translateX(-50%); /*Ajuste centrado horizontal*/
+    margin-top: 1rem;
+  }
+
+
+
+
+#volver {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    cursor: pointer;
+  }
+  /*Este selector aplica a los elementos que tienen la clase flotante pero no la clase .is-visible*/
+  .flotante:not(.is-visible) {
+    pointer-events: none;
+    opacity: 0;
+  }
