@@ -115,6 +115,10 @@ nav ul li {
 nav ul li:not(:last-child) {
   border-bottom: solid 1px black;
 }
+nav ul li a:hover {
+  color: var(--color-enlace-hover);
+  transition: all ease-in-out 0.3s;
+}
 #intro {
   height: 62vh; /*Ajuste de altura para completar 100vh*/
   display: flex;
@@ -146,6 +150,10 @@ nav ul li:not(:last-child) {
   background-repeat: repeat; /*Evita que la imagen de fondo se repita*/
   background-size: 60% 100%;
   padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+
 }
 
 #nosotros h2 {
@@ -161,12 +169,13 @@ nav ul li:not(:last-child) {
  justify-content: center;
 }
 #nosotros picture img {
- width: 85%;
- height: auto;
+  width: 85%;
+  height: auto;
+  max-height: 400px;
   border-radius: 10px;
   border: solid black 1px;
-  margin-top: 6rem;
 }
+
 #modelos img {
   width: 100%;
 }
@@ -198,9 +207,13 @@ nav ul li:not(:last-child) {
   background-position: center center; /*define posicion horizontal y vertical de la imagen de fondo, respectivamente */
   background-repeat: no-repeat;
   background-size: 300% 100%; /*Ajusta la imagen de fondo para que se muestre de forma correcta en el background*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 #contacto h2 {
-  padding-top: 3rem;
+ 
   color: var(--color-opuesto-primario);
 }
 #contacto-form-container {
@@ -209,9 +222,7 @@ nav ul li:not(:last-child) {
   background-color: var(--color-transparencia);
   border-radius: 10px;
   padding: 3rem 0.5rem 5rem 0.5rem;
-  margin-left: 50%;
-  margin-top: 6rem;
-  transform: translateX(-50%); /*Ajuste centrado horizontal*/
+ 
 }
 #contacto-form-container div {
   text-align: center;
@@ -367,7 +378,9 @@ footer {
     margin-top: 1rem;
     /*width: 40vw; /*define un ancho para la imagen*/
   }
-
+#contacto{
+  height: 100vh;
+}
   
 }
 /* Media queries xl */
@@ -378,29 +391,26 @@ footer {
     background-color: var(--fondo-encabezado);
     margin: 0 auto;
   }
-  nav ul li a:hover {
-    color: var(--color-enlace-hover);
-    transition: all ease-in-out 0.3s;
-  }
+ #modelos{
+  background-color: var(--blanco);
+  height: fit-content;
+  padding-bottom: 2rem;
+ }
   #modelos p {
     padding: 0 2rem;
     font-size: 1.2rem;
   }
  
-  #modelos {
-    background-color: var(--blanco);
-  }
-
   #modelos article:first-child{ margin-top: 50px;}
   #modelos article:first-child div{
     top: -50px;
    
   }
   #modelos article:nth-child(2){
-    height: 50vh;
+    height: 60vh;
   }
   #modelos article {
-    height: 60vh; /*define un alto para este elemento*/
+    height: 75vh; /*define un alto para este elemento*/
     position: relative;
     padding: 1.5rem;
   }
@@ -424,7 +434,8 @@ footer {
   #modelos > div article:nth-child(odd) img {
     float: right;
   }
-
+    
+  
   #galeria img {
     width: 30vw;
     max-width: 530px;
