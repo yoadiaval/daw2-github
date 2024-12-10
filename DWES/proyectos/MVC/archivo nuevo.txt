@@ -1,0 +1,21 @@
+create table cliente(
+	id int AUTO_INCREMENT,
+    nombre varchar(255),
+    constraint pk_cliente primary key (id)
+);
+
+create table producto(
+ 	cod int AUTO_INCREMENT,
+    descripcion varchar(255),
+    precio float,
+    constraint pk_producto primary key (cod)
+);
+create table pedido(
+	cod_pedido int AUTO_INCREMENT,
+    cod_producto int,
+    id_cliente int,
+    fecha date,
+    constraint pk_pedido primary key (cod_pedido),
+    constraint fk_producto foreign key (cod_producto) references producto(cod),
+    constraint fk_cliente foreign key (id_cliente) references cliente(id)
+);
