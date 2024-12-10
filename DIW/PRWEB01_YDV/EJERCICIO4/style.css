@@ -188,7 +188,7 @@ nav ul li:not(:last-child) {
 }
 
 .galeria-img {
- 
+ width: 85%;
   border-radius: 10px;
   margin-top: 1.5rem;
   border: 1px solid rgb(99, 99, 99);
@@ -274,6 +274,9 @@ footer {
 }
 /* Media queries sm */
 @media (min-width: 576px) {
+  #nosotros picture img {
+    max-height: 400px;
+  }
   #nosotros p {
     padding: 0 5rem;
   }
@@ -286,6 +289,7 @@ footer {
   #contacto-form-container {
     margin-top: 6rem;
   }
+
 }
 
 /* Media queries md */
@@ -294,11 +298,11 @@ footer {
     background-image: url("./images/casa-bosque-md.jpg");
   }
   p{
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 
   #nosotros picture img {
-    max-height: 500px;
+    max-height: 400px;
   }
 }
 
@@ -349,6 +353,9 @@ footer {
   #intro div {
     width: 60%;
   }
+  #nosotros picture img {
+    margin-top: 3rem;
+  }
   #galeria div {
     display: flex;
     flex-wrap: wrap;
@@ -379,6 +386,7 @@ footer {
     padding: 0 2rem;
     font-size: 1.2rem;
   }
+ 
   #modelos {
     background-color: var(--blanco);
   }

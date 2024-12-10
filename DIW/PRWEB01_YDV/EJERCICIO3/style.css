@@ -11,7 +11,7 @@
 
   --tam-max-contenedor-x: 1200px;
   --tam-alto-encabezado-xs: 8vh;
-  --margen-elementos-p: 2rem;
+  --margen-elementos-p: 2.8rem;
 
   --negro: #000;
   --blanco: #fff;
@@ -123,7 +123,7 @@ nav ul li:not(:last-child) {
   background-image: url("./images/casa-bosque-xs.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size:cover;
 }
 
 #intro div {
@@ -156,21 +156,23 @@ nav ul li:not(:last-child) {
   padding: 0 var(--margen-elementos-p);
   color: var(--color-texto);
 }
-#nosotros img {
-  width: 80%;
-  height: 40%;
+#nosotros picture{
+ display: flex;
+ justify-content: center;
+}
+#nosotros picture img {
+ width: 85%;
+ height: auto;
   border-radius: 10px;
   border: solid black 1px;
-  margin-left: 50%; /*Desplaza desde la izquierda 50%*/
-  transform: translateX(-50%); /*Ajuste centrado horizontal*/
-  margin-top: 2rem;
+  margin-top: 6rem;
 }
 #modelos img {
   width: 100%;
 }
 #modelos h2,
 #modelos h3 {
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
   color: var(--color-secundario);
 }
 #modelos p {
@@ -186,7 +188,7 @@ nav ul li:not(:last-child) {
 }
 
 .galeria-img {
-  width: 90%;
+ width: 85%;
   border-radius: 10px;
   margin-top: 1.5rem;
   border: 1px solid rgb(99, 99, 99);
@@ -206,9 +208,9 @@ nav ul li:not(:last-child) {
   width: 80%;
   background-color: var(--color-transparencia);
   border-radius: 10px;
-  padding: 2rem 0.5rem 4rem 0.5rem;
+  padding: 3rem 0.5rem 5rem 0.5rem;
   margin-left: 50%;
-  margin-top: 1rem;
+  margin-top: 6rem;
   transform: translateX(-50%); /*Ajuste centrado horizontal*/
 }
 #contacto-form-container div {
@@ -245,9 +247,9 @@ footer {
 /*Estilos img del enlace para volver*/
 #volver {
   position: fixed;
-  bottom: 1rem;
+  bottom: 1.5rem;
   right: 1rem;
-  width: 50px;
+  width: 45px;
   cursor: pointer;
 }
 /*Este selector aplica a los elementos que tienen la clase flotante pero no la clase .is-visible*/
@@ -256,6 +258,7 @@ footer {
   opacity: 0;
 }
 
+/* Media queries apaisado */
 @media (min-width: 576px) and (orientation: landscape) {
   #inicio,
   #nosotros,
@@ -269,8 +272,11 @@ footer {
     padding-bottom: 2rem;
   }
 }
-
+/* Media queries sm */
 @media (min-width: 576px) {
+  #nosotros picture img {
+    max-height: 400px;
+  }
   #nosotros p {
     padding: 0 5rem;
   }
@@ -283,12 +289,20 @@ footer {
   #contacto-form-container {
     margin-top: 6rem;
   }
+
 }
 
 /* Media queries md */
 @media (min-width: 768px) {
   #intro {
     background-image: url("./images/casa-bosque-md.jpg");
+  }
+  p{
+    font-size: 1.5rem;
+  }
+
+  #nosotros picture img {
+    max-height: 400px;
   }
 }
 
@@ -336,15 +350,25 @@ footer {
   #intro {
     height: 90vh;
   }
+  #intro div {
+    width: 60%;
+  }
+  #nosotros picture img {
+    margin-top: 3rem;
+  }
   #galeria div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 2rem;
   }
 
   #galeria img {
-    width: 40vw;
+    margin-top: 1rem;
+    /*width: 40vw; /*define un ancho para la imagen*/
   }
+
+  
 }
 /* Media queries xl */
 
