@@ -37,11 +37,12 @@
 :before {
   padding: 0;
   margin: 0;
-}
+} /*Se establecen los valores de margin y padding a cero para controlarlos mejor*/
+
+
 html {
-  font-family: var(--fuente-principal), var(--fuente-alternativa);
+  font-family: var(--fuente-principal), var(--fuente-alternativa);/*tipo de fuente principal y alternativa para el documento*/
   font-size: var(--tam-fuente-xs);
-  /* background-color: var(--fondo-todo);*/
   color: var(--color-texto);
   scroll-behavior: smooth; /*comportamineto suave del scroll*/
 }
@@ -77,6 +78,7 @@ p {
 a {
   font-size: 1.5rem;
 }
+
 /* Media queries sm */
 header {
   height: var(--tam-alto-encabezado-xs);
@@ -96,7 +98,7 @@ nav ul {
   height: 100%; /*Ocupa el 100% de la altura del contenedor*/
   display: flex;
   flex-direction: column;
-  justify-content: space-around; /*distribuye elementos li verticalmente al cambiar la direccion a column*/
+  justify-content: space-around; /*distribuye elementos li verticalmente al cambiar la dirección a column*/
   background-color: var(--fondo-menu);
 }
 nav ul li a {
@@ -113,29 +115,31 @@ nav ul li {
 }
 /*Borde inferior para todos los elementos li excepto el último*/
 nav ul li:not(:last-child) {
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--color-opuesto-primario);
+}
+nav ul li a:hover {
+  color: var(--color-enlace-hover);
+  transition: all ease-in-out 0.3s;
 }
 #intro {
   height: 62vh; /*Ajuste de altura para completar 100vh*/
   display: flex;
   justify-content: center; /*Centra ele elemneto horizontalmente*/
   align-items: center; /*Centra el elemento verticalmente*/
-  background-image: url("./images/casa-bosque-xs.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+  background-image: url("./images/casa-bosque-xs.jpg"); /*Se establece una imagen de fondo*/
+  background-repeat: no-repeat; /*Se indica que no se repita*/
+  background-position: center; /*Se posiciona centralmente*/
+  background-size:cover; /*se ajusta para cubrir toda la caja disponible*/
 }
 
 #intro div {
-  display: flex;
+  display: flex; /*Se define el contenedor como flex para central su elemento hijo horizontal y verticalmente*/
+  align-items: center; /*centrado vertical*/
+  justify-content: center;/*centrado horizontal*/
   height: 35vh;
   width: 70%;
   padding: 0 2rem;
   border-radius: 10px;
-  background-color: var();
-  text-align: center;
-  align-items: center;
-  justify-content: center;
   background-color: var(--color-transparencia);
   border: 1px solid var(--color-titulos-claro);
   color: var(--color-titulos-claro);
@@ -146,6 +150,11 @@ nav ul li:not(:last-child) {
   background-repeat: repeat; /*Evita que la imagen de fondo se repita*/
   background-size: 60% 100%;
   padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  gap: 1rem;
+
 }
 
 #nosotros h2 {
@@ -161,12 +170,13 @@ nav ul li:not(:last-child) {
  justify-content: center;
 }
 #nosotros picture img {
- width: 85%;
- height: auto;
+  width: 80%;
+  height: auto;
+  max-height: 700px; /*Se define una altura maxima para evitar que crezca demaciado la imagen*/
   border-radius: 10px;
-  border: solid black 1px;
-  margin-top: 6rem;
+  border: solid black 1px; /*Estilos del borde de la imagen*/
 }
+
 #modelos img {
   width: 100%;
 }
@@ -182,8 +192,8 @@ nav ul li:not(:last-child) {
 #galeria {
   text-align: center;
   background-image: url("./images/texture-1674066_640.jpg");
-  background-size: 60% 100%;
-  background-repeat: repeat;
+  background-size: 60% 100%; /*Ajuste del tamaño de la imagen de fondo*/
+  background-repeat: repeat; /*Se indica que se repita*/
   padding: 2rem 0;
 }
 
@@ -198,23 +208,26 @@ nav ul li:not(:last-child) {
   background-position: center center; /*define posicion horizontal y vertical de la imagen de fondo, respectivamente */
   background-repeat: no-repeat;
   background-size: 300% 100%; /*Ajusta la imagen de fondo para que se muestre de forma correcta en el background*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 #contacto h2 {
-  padding-top: 3rem;
   color: var(--color-opuesto-primario);
 }
+
+/*caja que contiene el formulario*/
 #contacto-form-container {
   color: var(--blanco);
   width: 80%;
   background-color: var(--color-transparencia);
   border-radius: 10px;
   padding: 3rem 0.5rem 5rem 0.5rem;
-  margin-left: 50%;
-  margin-top: 6rem;
-  transform: translateX(-50%); /*Ajuste centrado horizontal*/
 }
+
 #contacto-form-container div {
-  text-align: center;
+  text-align: center; /*centra los elementos dentro del div del contenedor del formulario*/
 }
 
 #contacto form {
@@ -229,7 +242,7 @@ label,
 input,
 textarea,
 button {
-  display: block;
+  display: block; /*Se indica al elemento que ocupe toda su línea*/
   width: 100%;
 }
 #contacto button {
@@ -263,7 +276,7 @@ footer {
   #inicio,
   #nosotros,
   #contacto {
-    height: unset;
+    height: fit-content;
   }
   #nosotros {
     padding-bottom: 1rem;
@@ -274,9 +287,7 @@ footer {
 }
 /* Media queries sm */
 @media (min-width: 576px) {
-  #nosotros picture img {
-    max-height: 400px;
-  }
+ 
   #nosotros p {
     padding: 0 5rem;
   }
@@ -295,15 +306,13 @@ footer {
 /* Media queries md */
 @media (min-width: 768px) {
   #intro {
-    background-image: url("./images/casa-bosque-md.jpg");
+    background-image: url("./images/casa-bosque-md.jpg"); /*Cambio de imagen para pantallas mayores a 768px*/
   }
   p{
     font-size: 1.5rem;
   }
 
-  #nosotros picture img {
-    max-height: 400px;
-  }
+ 
 }
 
 /* Media queries lg */
@@ -315,6 +324,21 @@ footer {
   h2 {
     font-size: 4rem;
   }
+
+   /*Estilos div hijo directo de #inicio*/
+   #inicio > div {
+    display: flex; 
+    justify-content: space-between; /* Distribuye los elementos de manera que haya el máximo espacio posible entre ellos. */
+    align-items: center; /* Alinea verticalmente los elementos al centro del contenedor. */
+    height: fit-content; /* Ajusta la altura del contenedor de manera que se adapte al contenido. */
+    padding: 1rem; 
+    background-color: var(--fondo-encabezado); 
+    }
+
+  #nosotros picture img{
+    width: 75%;
+    height: 60vh;
+  }
   #nosotros p,
   #modelos p {
     font-size: 2rem;
@@ -322,17 +346,9 @@ footer {
   }
 
   #intro {
-    background-image: url("./images/casa-bosque-lg.jpg");
-  }
-  /*Estilos div hijo directo de #inicio*/
-  #inicio > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: fit-content;
-    padding: 1rem;
-    background-color: var(--fondo-encabezado);
-  }
+    background-image: url("./images/casa-bosque-lg.jpg"); /*Cambio de imagen para pantallas mayores a 768px*/
+  } 
+
   nav {
     height: 10vh;
   }
@@ -353,9 +369,7 @@ footer {
   #intro div {
     width: 60%;
   }
-  #nosotros picture img {
-    margin-top: 3rem;
-  }
+ 
   #galeria div {
     display: flex;
     flex-wrap: wrap;
@@ -363,13 +377,12 @@ footer {
     gap: 2rem;
   }
 
-  #galeria img {
-    margin-top: 1rem;
-    /*width: 40vw; /*define un ancho para la imagen*/
+  #contacto{
+   height: 100vh;
   }
-
   
 }
+ 
 /* Media queries xl */
 
 @media (min-width: 1200px) {
