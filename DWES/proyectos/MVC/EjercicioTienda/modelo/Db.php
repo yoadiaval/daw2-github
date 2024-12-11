@@ -3,11 +3,11 @@ class Db{
     private $db;
 
     function __construct($servidor, $usuario, $clave, $dbname) {
-        $db = new mysqli($servidor, $usuario, $clave, $dbname);
-        if($db->connect_errno) {
-            echo "Error de conexión: " . $db->connect_errno;
+        $this->db = new mysqli($servidor, $usuario, $clave, $dbname);
+        if( $this->db->connect_errno) {
+            echo "Error de conexión: " .  $this->db->connect_errno;
             } 
-        return $db;
+        return $this->db;
       }
     
       function closeConnection() {
@@ -18,7 +18,7 @@ class Db{
         $respuesta = $this->db->query($sql);
         $resArray = array();
         if ($respuesta) {
-             $resArray = $respuesta->fetch_all();
+             $resArray = $respuesta->fetch_all(MYSQLI_ASSOC);
         }
         return $resArray;
     }  

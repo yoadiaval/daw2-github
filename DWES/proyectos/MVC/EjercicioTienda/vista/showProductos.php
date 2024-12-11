@@ -7,16 +7,13 @@
 </head>
 <body>
 <h1>Listado de Productos</h1>
-<table>
-     <tr> <th>id</th> <th>Descripción</th> </tr>
+<select>
+   <form action="" method="post"></form>
      <?php 
-     foreach($productosas $producto) {
-        echo "<tr>
-           <td>".$producto['id']."</td>
-           <td>".$producto['descripcion']."</td>
-        </tr>";
+     foreach($productos as $producto) {
+        echo "<option>".$producto['descripcion']."</option>";
      }
      ?>
-</table>
+</select>
 </body>
 </html>
