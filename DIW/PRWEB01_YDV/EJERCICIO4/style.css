@@ -37,11 +37,12 @@
 :before {
   padding: 0;
   margin: 0;
-}
+} /*Se establecen los valores de margin y padding a cero para controlarlos mejor*/
+
+
 html {
-  font-family: var(--fuente-principal), var(--fuente-alternativa);
+  font-family: var(--fuente-principal), var(--fuente-alternativa);/*tipo de fuente principal y alternativa para el documento*/
   font-size: var(--tam-fuente-xs);
-  /* background-color: var(--fondo-todo);*/
   color: var(--color-texto);
   scroll-behavior: smooth; /*comportamineto suave del scroll*/
 }
@@ -77,6 +78,7 @@ p {
 a {
   font-size: 1.5rem;
 }
+
 /* Media queries sm */
 header {
   height: var(--tam-alto-encabezado-xs);
@@ -96,7 +98,7 @@ nav ul {
   height: 100%; /*Ocupa el 100% de la altura del contenedor*/
   display: flex;
   flex-direction: column;
-  justify-content: space-around; /*distribuye elementos li verticalmente al cambiar la direccion a column*/
+  justify-content: space-around; /*distribuye elementos li verticalmente al cambiar la dirección a column*/
   background-color: var(--fondo-menu);
 }
 nav ul li a {
@@ -124,22 +126,20 @@ nav ul li a:hover {
   display: flex;
   justify-content: center; /*Centra ele elemneto horizontalmente*/
   align-items: center; /*Centra el elemento verticalmente*/
-  background-image: url("./images/casa-bosque-xs.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+  background-image: url("./images/casa-bosque-xs.jpg"); /*Se establece una imagen de fondo*/
+  background-repeat: no-repeat; /*Se indica que no se repita*/
+  background-position: center; /*Se posiciona centralmente*/
+  background-size:cover; /*se ajusta para cubrir toda la caja disponible*/
 }
 
 #intro div {
-  display: flex;
+  display: flex; /*Se define el contenedor como flex para central su elemento hijo horizontal y verticalmente*/
+  align-items: center; /*centrado vertical*/
+  justify-content: center;/*centrado horizontal*/
   height: 35vh;
   width: 70%;
   padding: 0 2rem;
   border-radius: 10px;
-  background-color: var();
-  text-align: center;
-  align-items: center;
-  justify-content: center;
   background-color: var(--color-transparencia);
   border: 1px solid var(--color-titulos-claro);
   color: var(--color-titulos-claro);
@@ -153,6 +153,7 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   height: fit-content;
+  gap: 1rem;
 
 }
 
@@ -169,9 +170,9 @@ nav ul li a:hover {
  justify-content: center;
 }
 #nosotros picture img {
-  width: 85%;
+  width: 80%;
   height: auto;
-  max-height: 400px;
+  max-height: 700px;
   border-radius: 10px;
   border: solid black 1px;
 }
@@ -213,9 +214,9 @@ nav ul li a:hover {
   align-items: center;
 }
 #contacto h2 {
- 
   color: var(--color-opuesto-primario);
 }
+
 #contacto-form-container {
   color: var(--blanco);
   width: 80%;
@@ -274,7 +275,7 @@ footer {
   #inicio,
   #nosotros,
   #contacto {
-    height: unset;
+    height: fit-content;
   }
   #nosotros {
     padding-bottom: 1rem;
@@ -285,9 +286,7 @@ footer {
 }
 /* Media queries sm */
 @media (min-width: 576px) {
-  #nosotros picture img {
-    max-height: 400px;
-  }
+ 
   #nosotros p {
     padding: 0 5rem;
   }
@@ -312,9 +311,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  #nosotros picture img {
-    max-height: 400px;
-  }
+ 
 }
 
 /* Media queries lg */
@@ -325,6 +322,11 @@ footer {
   }
   h2 {
     font-size: 4rem;
+  }
+
+  #nosotros picture img{
+    width: 75%;
+    height: 60vh;
   }
   #nosotros p,
   #modelos p {
@@ -364,9 +366,7 @@ footer {
   #intro div {
     width: 60%;
   }
-  #nosotros picture img {
-    margin-top: 3rem;
-  }
+ 
   #galeria div {
     display: flex;
     flex-wrap: wrap;
@@ -374,10 +374,6 @@ footer {
     gap: 2rem;
   }
 
-  #galeria img {
-    margin-top: 1rem;
-    /*width: 40vw; /*define un ancho para la imagen*/
-  }
 #contacto{
   height: 100vh;
 }
