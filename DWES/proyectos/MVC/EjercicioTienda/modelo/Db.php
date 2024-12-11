@@ -2,7 +2,7 @@
 class Db{
     private $db;
 
-    function createConnection($servidor, $usuario, $clave, $dbname) {
+    function __construct($servidor, $usuario, $clave, $dbname) {
         $db = new mysqli($servidor, $usuario, $clave, $dbname);
         if($db->connect_errno) {
             echo "Error de conexión: " . $db->connect_errno;
