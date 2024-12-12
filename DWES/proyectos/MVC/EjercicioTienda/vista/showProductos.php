@@ -7,13 +7,26 @@
 </head>
 <body>
 <h1>Listado de Productos</h1>
-<select>
-   <form action="" method="post"></form>
-     <?php 
+<form action="./gestionPedidos.php" method="post">
+
+<select name='prodSeleccionado'>
+   <?php 
      foreach($productos as $producto) {
-        echo "<option>".$producto['descripcion']."</option>";
+        echo "<option value='".$producto['cod']."'>".$producto['descripcion']."</option>";
      }
-     ?>
+   ?>
 </select>
+<input type="submit" name="enviar" value="enviar">
+</form>
+
+<h2>Pedidios del producto seleccionado</h2>
+<?php
+/*Comprueba que la variable esté definida y que no devuelva un valor nulo*/ 
+if (isset($pedidos) && $pedidos !== null) {
+   var_dump($pedidos);
+}
+
+?>
+
 </body>
 </html>

@@ -18,7 +18,7 @@ class Db{
         $respuesta = $this->db->query($sql);
         $resArray = array();
         if ($respuesta) {
-             $resArray = $respuesta->fetch_all(MYSQLI_ASSOC);
+             $resArray = $respuesta->fetch_all(MYSQLI_ASSOC); //devuelve todo en un array asociativo
         }
         return $resArray;
     }  
