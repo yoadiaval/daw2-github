@@ -24,7 +24,7 @@
 /*Comprueba que la variable esté definida y que no devuelva un valor nulo*/ 
 if (isset($pedidos) && $pedidos !== null) {
    var_dump($pedidos);
-}
+},
 
 ?>
 
