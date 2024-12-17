@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  background-color: rgb(94, 158, 161);
+  color: white;
+  padding: 1rem 0;
+}
+h2 {
+  margin-bottom: 1rem;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+table {
+  margin-top: 1rem;
+}
+table,
+th,
+td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0.5rem;
+  text-align: center;
+}
+a {
+  padding: 0.2rem;
+  background-color: rgb(94, 158, 161);
+  color: white;
+  text-decoration: none;
+}
+
+form {
+  padding: 1rem;
+  border: 1px solid rgb(202, 202, 202);
+}
+
+input {
+  padding: 0.5rem 0.5rem;
+  border: 1px solid rgb(218, 218, 218);
+  margin-top: 0.5rem;
+}
+
+select,
+label {
+  display: block;
+  width: 100%;
+}
+label {
+  margin-top: 0.5rem;
+}
+select {
+  border: 1px solid rgb(218, 218, 218);
+}

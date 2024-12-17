@@ -11,11 +11,11 @@ class ModeloController
     public function mostrar()
     {
         $productos = $this->modelo->obtenerdatos("producto", 1);
-        include_once "vista/main.php";
+        return $productos;
     }
     public function agregar()
     {
-        include_once "vista/agregar.php";
+        include_once "vista/agregarProducto.php";
 
     }
     public function insertar()
@@ -32,7 +32,7 @@ class ModeloController
         $cod = $_GET['cod'];
         $condicion = "cod = $cod";
         $productoSelec = $this->modelo->obtenerdatos("producto", $condicion);
-        require_once "vista/modificar.php";
+        require_once "vista/modificarProducto.php";
     }
 
     public function actualizar()
