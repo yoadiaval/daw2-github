@@ -7,10 +7,10 @@ class Modelo
     public function __construct()
     {
 
-        $this->db = new mysqli("127.0.0.1", "root", "", "tienda");
-        /* if ($this->db->connect_errno) {
+        $this->db = new mysqli("127.0.0.1", "phpmyadmin", "1234", "tienda");
+         if ($this->db->connect_errno) {
              echo "Error de conexión: " . $this->db->connect_errno;
-         }*/
+         }
     }
 
     public function insertar($tabla, $data)

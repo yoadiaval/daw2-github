@@ -1,38 +1,62 @@
 <?php
-include
+include_once "modelo/DataBase.php";
 include_once "controlador/gestorPedidos.php";
 
 //Se reciben las acciones por GET y se llama a la funcion correspondiente del controlador
-$modeloProducto = new ModeloController();
-$modeloCliente = new GestorClientes();
 $modeloPedido = new GestorPedidos();
 
 
 $pedidos = $modeloPedido->consultarPedido();
-$clientes = $modeloCliente ->
-$productos = $modeloProducto ->
-var_dump($pedidos);
+$clientes = new Modelo();
+$productos = new Modelo();
+$clientesList =  $clientes->obtenerdatos("cliente", 1);
+$productosList = $productos->obtenerdatos("producto",1);
+
+
+if(isset($_GET['enviar']) && $_GET['enviar']){
+    $cliente = $_GET['id_cliente'];
+    $producto = $_GET['id_producto'];
+    $fecha = $_GET['fecha'];
+    $datos = "null,'$cliente', '$producto', '$fecha'";
+    $modeloPedido->insertar($datos);
+   
+}
 
 include "vista/layouts/header.php";
 ?>
 <div>
     <h2>Nuevo Pedido</h2>
-    <form action="">
+    <form action="" method="GET">
         <label for="">Seleccione Cliente</label>
-        <select name="" id="">
-            <option value="">pedidio1</option>
-            <option value="">pedidio1</option>
-            <option value="">pedidio1</option>
+        <select name="id_cliente">
+           <?php
+           if(!empty($clientesList)){
+            foreach($clientesList as $cliente){?>
+                <option value="<?php echo $cliente['id']?>"><?php echo $cliente['nombre']?></option>
+          <?php }
+           }else{ ?>
+            <option value="0">No hay clientes para mostrar</option>
+           <?php } 
+          
+           ?>
         </select>
         <label for="">Seleccione Producto</label>
-        <select name="" id="">
-            <option value="">pedidio1</option>
-            <option value="">pedidio1</option>
-            <option value="">pedidio1</option>
+        <select name="cod_porducto">
+           <?php
+           if(!empty($productosList)){
+            foreach($productosList as $producto){?>
+                <option value="<?php echo $producto['cod']?>"><?php echo $producto['descripcion']?></option>
+          <?php }
+           }else{ ?>
+            <option value="0">No hay productos para mostrar</option>
+           <?php } 
+          
+           ?>
         </select>
-        <input type="date">
+        <input type="date" name="date">
+        <input type="submit" name="enviar" value="enviar">
     </form>
-    <a href="">Nuevo Pedido</a>
+    
 </div>
 <div>
     <h2>Listado de pedidos</h2>

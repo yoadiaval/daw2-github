@@ -46,6 +46,12 @@ class GestorClientes
         $this->modeloCliente->actualizar("cliente", $data, $condicion);
         header("Location: index.php");
     }
+    public function eliminar(){
+        $id = $_GET['id'];
+        $condicion = "id='". $id. "'";
+        $this->modeloCliente->eliminar("cliente", $condicion);
+        header("Location: index.php");
+    }
 }
 
 ?>
