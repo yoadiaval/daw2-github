@@ -10,16 +10,21 @@ create table producto(
     precio float,
     constraint pk_producto primary key (cod)
 );
-create table pedido(
-	cod_pedido int AUTO_INCREMENT,
-    cod_producto int,
-    id_cliente int,
-    fecha date,
-    constraint pk_pedido primary key (cod_pedido),
-    constraint fk_producto foreign key (cod_producto) references producto(cod),
-    constraint fk_cliente foreign key (id_cliente) references cliente(id)
+CREATE TABLE pedido (
+    cod_pedido INT AUTO_INCREMENT,
+    cod_producto INT,
+    id_cliente INT,
+    fecha DATE,
+    CONSTRAINT pk_pedido PRIMARY KEY (cod_pedido),
+    CONSTRAINT fk_producto FOREIGN KEY (cod_producto) 
+        REFERENCES producto(cod)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) 
+        REFERENCES cliente(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
-
 
 //-------------------------------------Insert
 -- Insertar datos en la tabla cliente

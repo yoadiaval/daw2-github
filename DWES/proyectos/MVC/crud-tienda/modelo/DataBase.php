@@ -7,7 +7,7 @@ class Modelo
     public function __construct()
     {
 
-        $this->db = new mysqli("127.0.0.1", "root", "", "tienda");
+        $this->db = new mysqli("127.0.0.1", "phpmyadmin", "1234", "tienda");
          if ($this->db->connect_errno) {
              echo "Error de conexión: " . $this->db->connect_errno;
          }
@@ -33,6 +33,7 @@ class Modelo
         if ($resultado) {
             $resArray = $resultado->fetch_all(MYSQLI_ASSOC); //devuelve todo en un array asociativo
         }
+        
         return $resArray;
     }
 

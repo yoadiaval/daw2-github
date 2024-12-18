@@ -6,9 +6,14 @@ if (isset($_GET['accion'])) {
     $modelo->{$_GET['accion']}();
 }
 
-if (isset($_GET['enviar']) && $_GET['enviar'] = 'enviar') {
-    $modelo->insertar();
+if (isset($_GET['enviar'])){
+    if($_GET['enviar'] == 'consultar'){
+     $modelo->consultar();
+    }else if($_GET['enviar'] == 'enviar'){
+        $modelo->insertar();
+    }
 }
+
 class GestorPedidos
 {
     private $modeloPedido;
@@ -20,13 +25,20 @@ class GestorPedidos
 
     public function mostrarGestionPedido()
     {
-        header('Location:../vista/gestionPedidos.php');
+        include('../vista/gestionPedidos.php');
     }
 
     public function consultarPedido(): array
     {
         $pedidos = $this->modeloPedido->obtenerdatos('pedido', 1);
         return $pedidos;
+    }
+
+    public function consultar(){
+        $condicion = "cod_producto = '" . $_GET['cod_producto'] . "'";
+        $pedidosConsultados = $this->modeloPedido->obtenerdatos('pedido', $condicion);  
+       include('../vista/gestionPedidos.php');
+   
     }
 
     public function insertar()
@@ -39,7 +51,7 @@ class GestorPedidos
 
         $this->modeloPedido->insertar('pedido', $datos);
         $this->mostrarGestionPedido();
-        /*header( 'Location: index.php?accion=mostrarGestionPedido&modelo=pedido' );*/
+    
     }
 }
 
