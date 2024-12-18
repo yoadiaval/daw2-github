@@ -2,10 +2,10 @@
 include_once "layouts/header.php";
 ?>
 <div>
-   <a href="index.php?modelo=pedido&accion=mostrarGestionPedido">Gestionar pedidos</a>
+   <a href="./controlador/gestorPedidos.php?accion=mostrarGestionPedido">Gestionar pedidos</a>
    <h2>Gestión de productos</h2>
 
-   <a href="index.php?accion=agregar&modelo=producto">Agregar producto</a>
+   <a href="index.php?modelo=producto&accion=agregar">Agregar producto</a>
    <table>
       <tr>
          <th>Código</th>

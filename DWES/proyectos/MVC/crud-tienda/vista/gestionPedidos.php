@@ -1,6 +1,6 @@
 <?php
-include_once "modelo/DataBase.php";
-include_once "controlador/gestorPedidos.php";
+include_once "../modelo/DataBase.php";
+include_once "../controlador/gestorPedidos.php";
 
 //Se reciben las acciones por GET y se llama a la funcion correspondiente del controlador
 $modeloPedido = new GestorPedidos();
@@ -9,54 +9,47 @@ $modeloPedido = new GestorPedidos();
 $pedidos = $modeloPedido->consultarPedido();
 $clientes = new Modelo();
 $productos = new Modelo();
-$clientesList =  $clientes->obtenerdatos("cliente", 1);
-$productosList = $productos->obtenerdatos("producto",1);
+$clientesList = $clientes->obtenerdatos("cliente", 1);
+$productosList = $productos->obtenerdatos("producto", 1);
 
 
-if(isset($_GET['enviar']) && $_GET['enviar']){
-    $cliente = $_GET['id_cliente'];
-    $producto = $_GET['id_producto'];
-    $fecha = $_GET['fecha'];
-    $datos = "null,'$cliente', '$producto', '$fecha'";
-    $modeloPedido->insertar($datos);
-   
-}
 
-include "vista/layouts/header.php";
+include "layouts/header.php";
 ?>
+<link rel="stylesheet" href="estilos/style.css">
 <div>
     <h2>Nuevo Pedido</h2>
-    <form action="" method="GET">
+    <form action="../controlador/gestorPedidos.php" method="GET">
         <label for="">Seleccione Cliente</label>
         <select name="id_cliente">
-           <?php
-           if(!empty($clientesList)){
-            foreach($clientesList as $cliente){?>
-                <option value="<?php echo $cliente['id']?>"><?php echo $cliente['nombre']?></option>
-          <?php }
-           }else{ ?>
-            <option value="0">No hay clientes para mostrar</option>
-           <?php } 
-          
-           ?>
+            <?php
+            if (!empty($clientesList)) {
+                foreach ($clientesList as $cliente) { ?>
+                    <option value="<?php echo $cliente['id'] ?>"><?php echo $cliente['nombre'] ?></option>
+                <?php }
+            } else { ?>
+                <option value="0">No hay clientes para mostrar</option>
+            <?php }
+
+            ?>
         </select>
         <label for="">Seleccione Producto</label>
-        <select name="cod_porducto">
-           <?php
-           if(!empty($productosList)){
-            foreach($productosList as $producto){?>
-                <option value="<?php echo $producto['cod']?>"><?php echo $producto['descripcion']?></option>
-          <?php }
-           }else{ ?>
-            <option value="0">No hay productos para mostrar</option>
-           <?php } 
-          
-           ?>
+        <select name="cod_producto">
+            <?php
+            if (!empty($productosList)) {
+                foreach ($productosList as $producto) { ?>
+                    <option value="<?php echo $producto['cod'] ?>"><?php echo $producto['descripcion'] ?></option>
+                <?php }
+            } else { ?>
+                <option value="0">No hay productos para mostrar</option>
+            <?php }
+
+            ?>
         </select>
         <input type="date" name="date">
         <input type="submit" name="enviar" value="enviar">
     </form>
-    
+
 </div>
 <div>
     <h2>Listado de pedidos</h2>
@@ -90,6 +83,6 @@ include "vista/layouts/header.php";
 </div>
 
 <?php
-include "vista/layouts/footer.php";
+include "layouts/footer.php";
 
 ?>
