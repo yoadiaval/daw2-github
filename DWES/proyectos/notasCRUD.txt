@@ -1,0 +1,26 @@
+1-Crear el sistema de carpetas
+  
+  >controller
+     mainontroller.php
+  >model
+     conexionDB.php
+     productos.php
+     cliente.php
+     pedido.php
+  >views
+    showOpciones.php
+    showProductos.php
+    showAddProducto.php
+    showModificarProducto.php
+    >layout
+       header.php
+       footer.php
+    >styles
+       style.css
+  index.php
+
+2-Crear modelos 
+  conexionDB.php
+  producto.php
+  cliente.php
+  pedido.php
