@@ -1,0 +1,45 @@
+table,
+th,
+td {
+  border: solid 1px gray;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 1rem;
+}
+
+div {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+}
+
+.edit,
+.del {
+  background-color: rgb(59, 143, 143);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.del {
+  background-color: rgb(168, 56, 52);
+}
+
+fieldset,
+input,
+select {
+  border: 1px solid rgb(181, 181, 181);
+}
+
+legend {
+  color: rgb(59, 143, 143);
+}
+

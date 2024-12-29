@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-align: center;
+  height: 100vh;
+}
+h1 {
+  padding-top: 100px;
+}
+.linkOpciones {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  position: absolute;
+  margin-left: 50vw;
+  margin-top: 20vh;
+  transform: translate(-50%, -50%);
+}
+.linkOpciones a {
+  color: white;
+  background-color: rgb(59, 143, 143);
+  padding: 2rem;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.linkOpciones a:hover {
+  background-color: rgb(134, 103, 108);
+}
