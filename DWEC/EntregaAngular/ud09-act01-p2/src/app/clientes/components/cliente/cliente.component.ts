@@ -17,19 +17,8 @@ export class ClienteComponent {
     new Cliente(3654, 'Juan', true, 5000),
   ];
   public generarNumeroAleatorio(): number {
-    let randomNum = Math.floor(Math.random() * 50001);
-    /* let randomNum: number;
-    let cliente: Cliente | undefined;
-    let existeNumero: boolean = false;
-
-    do {
-      randomNum = Math.floor(1000 + Math.random() * 9000);
-      cliente = this.clientes.find((element) => {
-        return element['ncliente'] == randomNum;
-      });
-    } while (cliente !== undefined);
-*/
-    return randomNum;
+    let randomNum = (Math.random() * 50001);
+    return Math.round(randomNum * 100) / 100; //devuelve el valor redondeado a dos decimales 
   }
 
   public nuevoEmpleado() {

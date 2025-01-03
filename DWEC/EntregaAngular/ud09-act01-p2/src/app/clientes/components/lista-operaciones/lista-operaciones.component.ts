@@ -10,13 +10,14 @@ import { Cliente } from '../../cliente';
 export class ListaOperacionesComponent {
   @Input() clientes: Cliente[] = [];
   public operaciones: Operacion[] = [];
-  
+
   //Calculo el saldo total del Banco
   public saldoTotalBanco = this.clientes.reduce((acumulado, elemento) => {
     return acumulado + elemento.saldo;
   }, 0);
-  
+
   generarOperaciones(totalOperaciones: number) {
+    this.operaciones = []; //Se inicializa el array de operaciones para que borre las operaciones anteriores y solo muestre el bloque actual de operaciones.
     for (let i = 0; i < totalOperaciones; i++) {
       //Compruebo que el saldo total no sea cero
       if (this.saldoTotalBanco < 0) {
@@ -28,15 +29,15 @@ export class ListaOperacionesComponent {
       //Se elige una operacion aleatoria
       const esIngreso = Math.random() < 0.5;
       //Se obtiene un importe aleatorio
-      const importe = Math.random() * 5001;
-     
+      const importe = Math.round(Math.random() * 5001 * 100) / 100;
+
       if (esIngreso) {
         clienteAleatorio.ingresar(importe);
       } else {
         clienteAleatorio.extraer(importe);
       }
-      
-      let numOperacion: number = i+1;
+
+      let numOperacion: number = i + 1;
       this.operaciones.push(
         new Operacion(
           numOperacion,
