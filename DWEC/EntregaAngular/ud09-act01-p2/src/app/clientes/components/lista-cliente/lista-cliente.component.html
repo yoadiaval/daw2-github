@@ -1,0 +1,30 @@
+<h3>Listado Clientes</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Posición</th>
+      <th>Número</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Saldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let cliente of clientes; let i = index"
+      [ngStyle]="{
+        'background-color': cliente.activo ? colorActivo : colorInactivo,
+        color: 'white'
+      }"
+    >
+      <td>{{ i }}</td>
+      <td>{{ cliente.ncliente }}</td>
+      <td>{{ cliente.nombre }}</td>
+      <div *ngIf="cliente.activo; then activo; else inactivo"></div>
+      <td>{{ cliente.saldo }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #activo><td>ACTIVO</td></ng-template>
+<ng-template #inactivo><td>INACTIVO</td></ng-template>

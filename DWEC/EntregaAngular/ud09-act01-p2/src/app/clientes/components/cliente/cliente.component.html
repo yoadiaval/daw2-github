@@ -1,0 +1,41 @@
+<section>
+  <h3>Gestión de empleado-{{ seleccionado }}</h3>
+
+  <label>Número cliente:</label>
+  <input
+    type="number"
+    [(ngModel)]="clientes[seleccionado].ncliente"
+    readonly
+  /><br /><br />
+  <label>Nombre:</label>
+  <input type="text" [(ngModel)]="clientes[seleccionado].nombre" /><br /><br />
+  <label>Activo:</label>
+  <input
+    type="text"
+    placeholder="ACTIVO"
+    [(ngModel)]="clientes[seleccionado].activo"
+    readonly
+  /><br /><br />
+  <label>Saldo:</label>
+  <input
+    type="text"
+    [(ngModel)]="clientes[seleccionado].saldo"
+    readonly
+  /><br /><br />
+
+  <label>Cambiar al Cliente: </label>
+  <input
+    type="text"
+    [(ngModel)]="seleccionado"
+    min="0"
+    max="{{ clientes.length - 1 }}"
+  /><br /><br />
+  <button (click)="nuevoEmpleado()">Nuevo Cliente</button>
+</section>
+<hr />
+<section>
+  <app-lista-cliente
+    [clientes]="clientes"
+    (clientesActualizados)="actualizarClientes($event)"
+  ></app-lista-cliente>
+</section>
