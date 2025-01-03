@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+section {
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 10px;
+  border: solid 1px black;
+}

@@ -1,0 +1,19 @@
+<h3>Listado de operaciones</h3>
+<table>
+  <thead>
+    <th>Posición</th>
+    <th>Núm Operacion</th>
+    <th>Num Cliente</th>
+    <th>Descripción</th>
+    <th>Importe</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let operacion of operaciones; let i = index">
+      <td>{{ i }}</td>
+      <td>{{ operacion.noperacion }}</td>
+      <td>{{ operacion.ncliente }}</td>
+      <td>Aquí va la descripcion</td>
+      <td>{{ operacion.importe }}</td>
+    </tr>
+  </tbody>
+</table>

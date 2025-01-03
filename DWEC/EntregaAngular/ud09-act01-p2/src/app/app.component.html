@@ -1,2 +1,16 @@
-<app-reloj></app-reloj>
-<app-cliente></app-cliente>
+<header>
+  <h1>GESTION DEL BANCO</h1>
+  <app-reloj></app-reloj>
+</header>
+<hr />
+
+<section>
+  <p>Saldo actual del banco:</p>
+  <div>
+    <button (click)="generarOperaciones(1)">Generar 1 Operación</button>
+    <button (click)="generarOperaciones(5)">generar 5 Operaciones</button>
+    <button (click)="generarOperaciones(100)">Generar 100 operaciones</button>
+  </div>
+</section>
+
+<app-cliente #clienteComponent></app-cliente>

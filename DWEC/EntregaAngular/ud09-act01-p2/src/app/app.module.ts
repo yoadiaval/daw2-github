@@ -3,20 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientesModule } from './clientes/clientes.module';
-import { RelojComponent } from './reloj/reloj.component';
+import { RelojModule } from './reloj/reloj.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RelojComponent,
-  
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ClientesModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, ClientesModule, RelojModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

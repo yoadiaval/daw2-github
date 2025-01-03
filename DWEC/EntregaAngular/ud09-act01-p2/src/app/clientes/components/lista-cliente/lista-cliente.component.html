@@ -21,7 +21,10 @@
       <td>{{ cliente.ncliente }}</td>
       <td>{{ cliente.nombre }}</td>
       <div *ngIf="cliente.activo; then activo; else inactivo"></div>
-      <td>{{ cliente.saldo }}</td>
+      <td [ngStyle]="{
+        'background-color': (cliente.saldo < 0) ? 'red' : '',
+        'color': (cliente.saldo < 0) ? 'white' : ''
+      }">{{ cliente.saldo }}</td>
     </tr>
   </tbody>
 </table>
