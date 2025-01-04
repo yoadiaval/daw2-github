@@ -29,12 +29,12 @@ export class ListaOperacionesComponent {
       //Se elige una operacion aleatoria
       const esIngreso = Math.random() < 0.5;
       //Se obtiene un importe aleatorio
-      const importe = Math.round(Math.random() * 5001 * 100) / 100;
+      const importe = Math.round((Math.random() * 10001 - 5000) * 100) / 100;
 
       if (esIngreso) {
-        clienteAleatorio.ingresar(importe);
+        clienteAleatorio.ingresar(Math.abs(importe)); //se llama al método ingresar y se le pasa por parámetro el valor absoluto del importe
       } else {
-        clienteAleatorio.extraer(importe);
+        clienteAleatorio.extraer(Math.abs(importe)); //se llama al método extraer y se le pasa por parámetro el valor absoluto del importe
       }
 
       let numOperacion: number = i + 1;
