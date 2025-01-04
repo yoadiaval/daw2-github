@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Cliente } from '../../cliente';
 import { ListaOperacionesComponent } from '../lista-operaciones/lista-operaciones.component';
-
+import { Operacion } from '../../operacion';
 
 @Component({
   selector: 'app-cliente',
@@ -11,21 +11,25 @@ import { ListaOperacionesComponent } from '../lista-operaciones/lista-operacione
 export class ClienteComponent {
   @ViewChild('listOperaciones') listOperaciones!: ListaOperacionesComponent;
   public seleccionado: number = 0;
-  public clientes: Cliente[] = [
-    new Cliente(1262, 'Pedro', true, 5000),
-    new Cliente(1254, 'Luis', true, 5000),
-    new Cliente(3654, 'Juan', true, 5000),
-  ];
+
   public generarNumeroAleatorio(): number {
-    let randomNum = (Math.random() * 50001);
-    return Math.round(randomNum * 100) / 100; //devuelve el valor redondeado a dos decimales 
+    let randomNum = Math.random() * 50001;
+    return Math.round(randomNum * 100) / 100; //devuelve el valor redondeado a dos decimales
   }
+
+  public clientes: Cliente[] = [
+    new Cliente(1262, 'Pedro', true, this.generarNumeroAleatorio()),
+    new Cliente(1254, 'Luis', true, this.generarNumeroAleatorio()),
+    new Cliente(3654, 'Juan', true, this.generarNumeroAleatorio()),
+  ];
+
 
   public nuevoEmpleado() {
     let ncliente: number = Math.floor(10 + Math.random() * 90);
     let saldo: number = this.generarNumeroAleatorio();
     this.clientes.push(new Cliente(ncliente, '', true, saldo));
     this.seleccionado = this.clientes.length - 1;
+    
   }
 
   actualizarClientes(clientesActualizados: Cliente[]) {

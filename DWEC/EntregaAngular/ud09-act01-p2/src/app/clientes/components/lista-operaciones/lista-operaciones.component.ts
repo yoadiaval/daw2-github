@@ -18,6 +18,7 @@ export class ListaOperacionesComponent {
 
   generarOperaciones(totalOperaciones: number) {
     this.operaciones = []; //Se inicializa el array de operaciones para que borre las operaciones anteriores y solo muestre el bloque actual de operaciones.
+    console.log('generando operaciones....');
     for (let i = 0; i < totalOperaciones; i++) {
       //Compruebo que el saldo total no sea cero
       if (this.saldoTotalBanco < 0) {
@@ -26,6 +27,8 @@ export class ListaOperacionesComponent {
       //Obtengo un cliente aleatorio
       let clienteAleatorio =
         this.clientes[Math.floor(Math.random() * this.clientes.length)];
+
+      console.log(clienteAleatorio);
       //Se elige una operacion aleatoria
       const esIngreso = Math.random() < 0.5;
       //Se obtiene un importe aleatorio

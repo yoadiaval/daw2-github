@@ -12,8 +12,20 @@
       <td>{{ i }}</td>
       <td>{{ operacion.noperacion }}</td>
       <td>{{ operacion.ncliente }}</td>
-      <td>Aquí va la descripcion</td>
-      <td>{{ operacion.importe }}</td>
+      <td>
+        <span *ngIf="operacion.importe < 0"
+          >Pago realizado por el cliente {{ operacion.ncliente }}({{
+            operacion.nombreCliente
+          }})</span
+        >
+        <span *ngIf="operacion.importe >= 0">Ingreso realizado por el cliente {{ operacion.ncliente }}({{
+            operacion.nombreCliente
+          }})</span>
+        <span></span>
+      </td>
+      <td [ngStyle]="{ color: operacion.importe < 0 ? 'red' : '' }">
+        {{ operacion.importe }}
+      </td>
     </tr>
   </tbody>
 </table>
