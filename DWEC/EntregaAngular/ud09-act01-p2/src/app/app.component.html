@@ -1,11 +1,15 @@
 <header>
-  <h1>GESTION DEL BANCO</h1>
+  <h1>GESTIÓN DEL BANCO</h1>
   <app-reloj></app-reloj>
 </header>
 <hr />
 
 <section>
-  <p>Saldo actual del banco:</p>
+  <h3>Saldo actual del banco: {{saldoTotal}}&euro;</h3>
+  <p *ngIf="saldoTotal<0" [ngStyle]="{
+        'background-color': 'red' ,
+        'color': 'white' 
+      }">EL BANCO SE ENCUENTRA EN QUIEBRA</p>
   <div>
     <button (click)="generarOperaciones(1)">Generar 1 Operación</button>
     <button (click)="generarOperaciones(5)">generar 5 Operaciones</button>

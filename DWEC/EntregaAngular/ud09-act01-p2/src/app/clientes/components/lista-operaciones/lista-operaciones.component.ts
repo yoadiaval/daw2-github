@@ -1,6 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { Operacion } from '../../operacion';
 import { Cliente } from '../../cliente';
+import { EstadoService } from '../../../estado.service';
 
 @Component({
   selector: 'app-lista-operaciones',
@@ -11,14 +12,21 @@ export class ListaOperacionesComponent {
   @Input() clientes: Cliente[] = [];
   public operaciones: Operacion[] = [];
 
+  constructor(private estadoService: EstadoService) {}
   //Calculo el saldo total del Banco
-  public saldoTotalBanco = this.clientes.reduce((acumulado, elemento) => {
-    return acumulado + elemento.saldo;
-  }, 0);
+  public saldoTotalBanco = 0
+
+  //Inicializo los valores de saldoTotal del banco y lo actualizo en el Servicio de estado
+  ngOnInit() {
+    this.saldoTotalBanco = this.clientes.reduce((acumulado, elemento) => {
+      return acumulado + elemento.saldo;
+    }, 0);
+    this.estadoService.actualizarSaldoTotal(this.saldoTotalBanco);
+  }
 
   generarOperaciones(totalOperaciones: number) {
     this.operaciones = []; //Se inicializa el array de operaciones para que borre las operaciones anteriores y solo muestre el bloque actual de operaciones.
-    
+
     for (let i = 0; i < totalOperaciones; i++) {
       //Compruebo que el saldo total no sea cero
       if (this.saldoTotalBanco < 0) {
@@ -53,5 +61,6 @@ export class ListaOperacionesComponent {
     this.saldoTotalBanco = this.clientes.reduce((acumulado, elemento) => {
       return acumulado + elemento.saldo;
     }, 0);
+    this.estadoService.actualizarSaldoTotal(this.saldoTotalBanco);
   }
 }
