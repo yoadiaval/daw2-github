@@ -4,22 +4,21 @@
   <label>Número cliente:</label>
   <input
     type="number"
-    [(ngModel)]="clientes[seleccionado].ncliente"
+    [value]="clientes[seleccionado].ncliente"
     readonly
   /><br /><br />
   <label>Nombre:</label>
   <input type="text" [(ngModel)]="clientes[seleccionado].nombre" /><br /><br />
   <label>Activo:</label>
   <input
-    type="text"
-    placeholder="ACTIVO"
-    [(ngModel)]="clientes[seleccionado].activo"
-    readonly
-  /><br /><br />
+  type="text"
+  [value]="clientes[seleccionado].activo ? 'ACTIVO' : 'INACTIVO'"
+  readonly
+/><br /><br />
   <label>Saldo:</label>
   <input
     type="text"
-    [(ngModel)]="clientes[seleccionado].saldo"
+    [value]="clientes[seleccionado].saldo"
     readonly
   /><br /><br />
 
