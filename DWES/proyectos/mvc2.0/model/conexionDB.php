@@ -1,9 +1,9 @@
 <?php
 class ConexionDB{
     private static $hostname = "127.0.0.1";
-    private static $database = "tienda";
-    private static $user = "root";
-    private static $password = "";
+    private static $database = "tienda2";
+    private static $user = "phpmyadmin";
+    private static $password = "1234";
 
     public static function conectar(){
         try {

@@ -1,0 +1,25 @@
+<div id="principal">
+    <h3>Gestión del cliente-{{ seleccionado }}</h3>
+    <div id="form">
+    <label>Número Cliente: </label>
+    <input type="text"
+    value="{{clientes[seleccionado].ncliente}}" readonly><br>
+     <label>Nombre: </label>
+     <input type="text"[(ngModel)]="clientes[seleccionado].nombre"><br>
+     <label>Activo: </label>
+     <input type="text" value="{{clientes[seleccionado].activo ?
+    'ACTIVO' : 'INACTIVO'}}" readonly><br>
+     <label>Saldo: </label>
+     <input type="number"
+    value="{{clientes[seleccionado].saldo.toFixed(2)}}"
+    readonly><br><br>
+     </div>
+     <label>Cambiar al cliente: </label>
+     <input type="number" [(ngModel)]="seleccionado" min="0" max="{{clientes.length-1 }}"><br>
+     <button (click)="creaCliente('')">Nuevo cliente</button>
+    </div>
+    <hr>
+    <app-listaclientes [clientes]="clientes"></app-listaclientes>
+    <hr>
+    <app-listaoperaciones [operaciones]="operaciones"></app-listaoperaciones>
+    

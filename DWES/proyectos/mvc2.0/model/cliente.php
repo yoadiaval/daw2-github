@@ -19,7 +19,6 @@ class Cliente
     {
         $conexion = ConexionDB::conectar();
         $sql = "insert into clientes values (null, " . $datos . ");";
-        echo $sql;
         $respuesta = $conexion->query($sql);
         $mensaje = $respuesta ? "Cliente agregado correctamente" : "Algo fue mal";
         ConexionDB::cerrarCx($conexion);

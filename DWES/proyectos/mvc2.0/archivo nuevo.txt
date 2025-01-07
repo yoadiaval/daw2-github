@@ -1,0 +1,49 @@
+create table clientes(
+	id int AUTO_INCREMENT,
+    nombre varchar(255),
+    constraint pk_clientes primary key (id)
+);
+
+create table productos(
+ 	cod int AUTO_INCREMENT,
+    descripcion varchar(255),
+    precio float,
+    constraint pk_productos primary key (cod)
+);
+CREATE TABLE pedidos (
+    cod_pedidos INT AUTO_INCREMENT,
+    cod_productos INT,
+    id_clientes INT,
+    fecha DATE,
+    CONSTRAINT pk_pedidos PRIMARY KEY (cod_pedidos),
+    CONSTRAINT fk_productos FOREIGN KEY (cod_productos) 
+        REFERENCES productos(cod)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_clientes FOREIGN KEY (id_clientes) 
+        REFERENCES clientes(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+//-------------------------------------Insert
+-- Insertar datos en la tabla clientes
+INSERT INTO clientes (nombre) VALUES ('Juan Pérez');
+INSERT INTO clientes (nombre) VALUES ('Ana García');
+INSERT INTO clientes (nombre) VALUES ('Carlos Rodríguez');
+INSERT INTO clientes (nombre) VALUES ('Lucía Martínez');
+INSERT INTO clientes (nombre) VALUES ('Pedro Sánchez');
+
+-- Insertar datos en la tabla productos
+INSERT INTO productos (descripcion, precio) VALUES ('Laptop Dell', 1200.50);
+INSERT INTO productos (descripcion, precio) VALUES ('Smartphone Samsung', 800.30);
+INSERT INTO productos (descripcion, precio) VALUES ('Auriculares Sony', 150.75);
+INSERT INTO productos (descripcion, precio) VALUES ('Teclado mecánico Logitech', 120.99);
+INSERT INTO productos (descripcion, precio) VALUES ('Monitor 4K LG', 350.00);
+
+-- Insertar datos en la tabla pedidos
+INSERT INTO pedidos (cod_productos, id_clientes, fecha) VALUES (1, 1, '2024-12-01');
+INSERT INTO pedidos (cod_productos, id_clientes, fecha) VALUES (2, 2, '2024-12-02');
+INSERT INTO pedidos (cod_productos, id_clientes, fecha) VALUES (3, 3, '2024-12-03');
+INSERT INTO pedidos (cod_productos, id_clientes, fecha) VALUES (4, 4, '2024-12-04');
+INSERT INTO pedidos (cod_productos, id_clientes, fecha) VALUES (5, 5, '2024-12-05');

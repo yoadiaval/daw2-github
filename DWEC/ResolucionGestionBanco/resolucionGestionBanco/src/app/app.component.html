@@ -1,0 +1,24 @@
+<div id="encabezado">
+    <div id="titulo">
+        <h1>GESTIÓN DEL BANCO</h1>
+    </div>
+    <div id="reloj">
+        <app-reloj></app-reloj>
+    </div>
+</div>
+<hr>
+<div id="principal">
+    <h3>Saldo actual del Banco: {{ saldoBanco.toFixed(2) }} €</h3>
+    <h2 *ngIf="saldoBanco < 0" id="quiebra">EL BANCO SE ENCUENTRA EN
+        QUIEBRA</h2>
+    <div *ngIf="saldoBanco >= 0" id="botones">
+        <button (click)="vbleLlamadaHijo.crea1operacion()">Generar 1
+            operación</button>
+        <button (click)="vbleLlamadaHijo.crea5operaciones()">Generar 5
+            operaciones</button>
+        <button (click)="vbleLlamadaHijo.crea100operacions()">Generar
+            100 operaciones</button>
+    </div>
+</div>
+<app-cliente [saldoBanco]="saldoBanco"
+(saldoBancoActualizado)="actualizarSaldoBanco($event)" #vbleLlamadaHijo></app-cliente>

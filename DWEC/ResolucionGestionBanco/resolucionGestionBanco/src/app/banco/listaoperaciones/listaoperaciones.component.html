@@ -1,0 +1,31 @@
+<div id="principal">
+    <h2>Listado de Operaciones</h2>
+    <div id="tabla">
+    <table>
+    <thead>
+    <tr>
+    <th>Posición</th>
+    <th>Núm Op</th>
+    <th>Núm Cli</th>
+    <th>Descripción</th>
+    <th>Importe</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let operacion of operaciones; let i =
+index">
+<td class="centrado">{{ i }}</td>
+<td class="centrado">{{ operacion.noperacion
+}}</td>
+<td class="centrado">{{ operacion.ncliente
+}}</td>
+<td id="descripcion">{{ operacion.descripcion
+}}</td>
+<td id="saldo"
+[ngClass]="{fondoRojo:operacion.importe<0}">{{
+operacion.importe.toFixed(2) }}€</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>

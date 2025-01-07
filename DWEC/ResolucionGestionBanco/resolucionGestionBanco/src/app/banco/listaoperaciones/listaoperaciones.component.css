@@ -1,0 +1,35 @@
+#principal{
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    padding-bottom: 1vh;
+    margin-top: 1vh;;
+   }
+   #tabla{
+    display: flex;
+    justify-content: center;
+   }
+   table{
+    border-collapse: collapse;
+   }
+   tr{
+    padding: 10px;
+   }
+   th, td{
+    border: 1px solid;
+    padding-left: 1vh;
+    padding-right: 1vh;
+   }
+   .fondoRojo{
+    background-color: lightcoral;
+    color: white;}
+    #saldo{
+     text-align: right;
+    }
+    .centrado{
+     text-align: center;
+    }
+    #descripcion{
+     text-align: left;
+    }

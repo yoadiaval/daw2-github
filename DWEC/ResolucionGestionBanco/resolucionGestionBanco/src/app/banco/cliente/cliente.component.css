@@ -1,0 +1,13 @@
+
+#principal{
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+    padding-bottom: 1vh;
+    margin-top: 1vh;;
+   }
+   #form{
+    text-align: initial;
+    padding-left: 1vh;
+   }

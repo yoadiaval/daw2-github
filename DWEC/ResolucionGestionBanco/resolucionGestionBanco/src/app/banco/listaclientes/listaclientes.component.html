@@ -1,0 +1,30 @@
+<div id="principal">
+    <h2>Listado de Clientes</h2>
+    <div id="tabla">
+    <table>
+    <thead>
+    <tr>
+    <th>Posición</th>
+    <th>Número</th>
+    <th>Nombre</th>
+    <th>Estado</th>
+    <th>Saldo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cliente of clientes; let i = index"
+    [ngClass]="{fondoVerde:cliente.activo,
+   fondoNegro: !cliente.activo}">
+    <td class="centrado">{{ i }}</td>
+    <td class="centrado">{{ cliente.ncliente }}</td>
+    <td>{{ cliente.nombre }}</td>
+    <td>{{ cliente.activo ? 'ACTIVO' : 'INACTIVO'
+   }}</td>
+    <td id="saldo"
+   [ngClass]="{fondoRojo:cliente.saldo<0}">{{ cliente.saldo.toFixed(2)
+   }}€</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+   </div>
