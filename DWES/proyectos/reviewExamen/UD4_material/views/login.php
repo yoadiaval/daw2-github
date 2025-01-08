@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,7 @@
         label {
             display: block;
         }
+
         label.lateral {
             display: inline;
             margin-left: 10px;
@@ -33,28 +35,33 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Login de usuario</h1>
-    
-    <form action="" method="">  
-       <div>
-            <label>Usuario:</label> 
-            <input type="text" name="username" required />  
+
+    <form action="../controllers/auth" method="POST">
+        <div>
+            <label>Usuario:</label>
+            <input type="text" name="username" required />
         </div>
         <div>
-            <label>Contraseña:</label> 
-            <input type="password" name="password" required />  
+            <label>Contraseña:</label>
+            <input type="password" name="password" required />
         </div>
         <div>
-            <input type="checkbox" name="recordarme" /> 
-            <label class="lateral">Recordarme</label>  
+            <input type="checkbox" name="recordarme" />
+            <label class="lateral">Recordarme</label>
         </div>
         <div>
-            <button type="submit">Entrar</button>  
+            <button type="submit">Entrar</button>
         </div>
     </form>
 
     <div class="error">
+        <?php
+        echo isset($_SESSION['mensaje']) ?? $_SESSION['mensaje'];
+        ?>
     </div>
 </body>
+
 </html>

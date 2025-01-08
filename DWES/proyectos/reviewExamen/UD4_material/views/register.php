@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +35,7 @@
 </head>
 <body>
     <h1>Registro de usuario</h1>
-    <form action="" method=""> 
+    <form action="../controllers/auth" method="POST"> 
         <div>
             <label>Usuario:</label> 
             <input type="text" name="username" required />  
@@ -42,11 +45,15 @@
             <input type="password" name="password" required />  
         </div>
         <div>
-            <button type="submit">Registrarse</button>  
+            <button type="submit" name="registrar">Registrarse</button>  
         </div>
     </form>
 
     <div class="error">
+        <?php
+       echo isset($_SESSION['mensaje']) ??  $_SESSION['mensaje'];
+        ?>
+        
     </div>
 </body>
 </html>
