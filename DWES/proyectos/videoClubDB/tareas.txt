@@ -1,0 +1,32 @@
+-conexionBD.php
+
+PRUEBAS CONEXION CON BD
+-Agregar para todos los soportes (dvd, juego, cintaVideo)
+-Agregar cliente
+-eliminar cliente
+-actualizar cliente
+
+
+DESDE VIDEOCLUB
+-obtener listado de clientes
+-obtener listado de soportes
+-obtener alquileres
+
+views
+showGestion.php
+	-Tabla clientes con opciones  eliminar
+	-Formulario alquilar (seleccionar soporte , seleccionar cliente)
+	-formulario agregar cliente      
+	-formulario agregar un juego
+	-formulario agregar un dvd
+	-formulario agregar una cintavideo
+
+
+-Hacer examen (cookies y localstorage)
+
+-Estudiar ACL
+-Implementar ACL
+-trabajo con las vistas
+-Tratamiento de estilos
+
+

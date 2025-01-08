@@ -1,0 +1,28 @@
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  border: solid 1px black;
+  text-align: center;
+  padding: 0.5rem 0.5rem;
+}
+fieldset {
+  background-color: rgb(241, 241, 241);
+  border: none;
+  box-shadow: 5px 5px 10% black;
+  margin: 10px 0;
+}
+a {
+  text-decoration: none;
+  background-color: rgb(132, 132, 132);
+  color: white;
+  padding: 0.2rem 0.2rem;
+}
+
+.editCliente {
+  background-color: rgb(0, 177, 200);
+  color: white;
+  padding: 2rem 2rem;
+  margin-bottom: 10px;
+}

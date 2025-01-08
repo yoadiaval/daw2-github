@@ -1,0 +1,76 @@
+create table cliente(
+	id varchar(255),
+    nombre varchar(255),
+    CONSTRAINT pk_cliente PRIMARY KEY(id)
+);
+create TABLE soporte(
+	 cod varchar(255),
+    titulo varchar(255),
+    precio decimal,
+    CONSTRAINT pk_soporte PRIMARY KEY(cod)
+);
+
+CREATE TABLE cliente_soporte (
+    cliente_id VARCHAR(255),
+    soporte_cod VARCHAR(255),
+    CONSTRAINT pk_cliente_soporte PRIMARY KEY (cliente_id, soporte_cod),
+    CONSTRAINT fk_cliente FOREIGN KEY (cliente_id) REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_soporte_cliente FOREIGN KEY (soporte_cod) REFERENCES soporte(cod) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE juego(
+   cod_soporte varchar(255),
+    consola varchar(255),
+    minJugadores int,
+    maxJugadores int,
+    CONSTRAINT pk_juego PRIMARY KEY(cod_soporte),
+    CONSTRAINT fk_soporte FOREIGN KEY(cod_soporte) REFERENCES soporte(cod) on update cascade on delete cascade
+);
+
+CREATE TABLE dvd(
+     cod_soporte varchar(255),
+   idioma varchar(255),
+   formatoPantalla varchar(255),
+    CONSTRAINT pk_dvd PRIMARY KEY(cod_soporte),
+    CONSTRAINT fk_soporte_dvd FOREIGN KEY(cod_soporte) REFERENCES soporte(cod) on update cascade on delete cascade
+);
+
+CREATE TABLE cintaVideo(
+	cod_soporte varchar(255),
+    duracion int,
+    CONSTRAINT pk_cintaVideo PRIMARY KEY (cod_soporte),
+    CONSTRAINT fk_soporte_cinta FOREIGN KEY(cod_soporte) REFERENCES soporte(cod) on update cascade on delete cascade
+);
+
+
+INSERT INTO cliente (id, nombre) VALUES
+('C001', 'Juan Pérez'),
+('C002', 'Ana Gómez'),
+('C003', 'Carlos Fernández');
+
+INSERT INTO soporte (cod, titulo, precio) VALUES
+('S001', 'Juego de Aventura', 29.99),
+('S002', 'Película de Acción', 15.49),
+('S003', 'Cinta de Video Clásica', 10.00),
+('S004', 'Estrategia', 19.99),
+('S005', 'Comedia Romántica', 12.49),
+('S006', 'Documental de Naturaleza', 8.99);
+
+INSERT INTO juego (cod_soporte, consola, minJugadores, maxJugadores) VALUES
+('S001', 'PlayStation 5', 1, 4),
+('S003', 'Xbox Series X', 1, 2);
+
+INSERT INTO dvd (cod_soporte, idioma, formatoPantalla) VALUES
+('S002', 'Español', '16:9'),
+('S005', 'Inglés', '4:3');
+
+INSERT INTO cintaVideo (cod_soporte, duracion) VALUES
+('S004', 120),
+('S006', 90);
+
+EJEMPLO CONSULTA
+SELECT *
+FROM soporte s
+LEFT JOIN dvd d ON s.cod = d.cod_soporte
+LEFT JOIN juego j ON s.cod = j.cod_soporte
+WHERE s.cod = 'S003';
