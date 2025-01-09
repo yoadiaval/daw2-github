@@ -39,7 +39,7 @@
 <body>
     <h1>Login de usuario</h1>
 
-    <form action="../controllers/auth" method="POST">
+    <form action="../controllers/auth.php" method="POST">
         <div>
             <label>Usuario:</label>
             <input type="text" name="username" required />
