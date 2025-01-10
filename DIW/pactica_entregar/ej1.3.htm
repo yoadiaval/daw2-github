@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+div{
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    animation-name: rotar; /*Se indica el  nombre de l animacion*/
+    animation-duration: 3s; /*tiempo de duracion*/
+    animation-timing-function: ease-in-out; /*Tipo de animacion*/
+
+}
+
+/*Se crea la animacion*/
+@keyframes rotar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+</style>
+<body>
+    <div>
+    </div>
+</body>
+</html>

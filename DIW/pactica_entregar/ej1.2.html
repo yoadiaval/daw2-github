@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 1.2</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+        h1{
+            position: relative;
+            animation-name: mover; 
+            animation-duration: 2s; /*duracion*/
+            animation-timing-function: ease-in-out; /*Tipo de animacion*/
+            animation-iteration-count: 1;
+        }
+       
+       /*Propiedades de la animacion*/
+       @keyframes mover {
+        from{
+            left: 120%
+        }
+        75%{
+        font-size: 300%; 
+        left: 25%;
+        }
+        to{
+            left: 0%;
+        }
+       }
+      
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a mi web</h1>
+    
+</body>
+</html>

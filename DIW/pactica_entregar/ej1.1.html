@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 1.1</title>
+    <style>
+      
+        h1, h2, h3, h4, h5{
+            position: relative;
+            animation-name: animacion;
+            animation-timing-function: ease-in-out; /*tipo de aimacion*/
+            animation-iteration-count: 1;
+        }
+
+        /*Se define una duracion para cada una de las cabeceras*/
+       h1{
+        animation-duration: 2s;
+       }
+       h2{
+        animation-duration: 2.5s;
+       }
+       h3{
+        animation-duration: 3s;
+       }
+       h4{
+        animation-duration: 3.5s;
+       }
+       
+       @keyframes animacion {
+        from{
+            left: 120%
+        }
+        to{
+            left: 0%;
+        }
+       }
+      
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a mi web</h1>
+    <h2>Bienvenido a mi web</h2>
+    <h3>Bienvenido a mi web</h3>
+    <h4>Bienvenido a mi web</h4>
+</body>
+</html>
