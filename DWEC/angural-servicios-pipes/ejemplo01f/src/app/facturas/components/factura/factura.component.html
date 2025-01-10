@@ -1,13 +1,11 @@
-<!--<h3>Gestión de la factura-{{ seleccionado }}</h3>-->-->
-<label>Número: </label>
-<!--<input type="number" [(ngModel)]="facturas[seleccionado].numero">--><br>
+<h3>{{ titulo }}</h3>
+
 <label>Fecha: </label>
-<!--<input type="string" [(ngModel)]="facturas[seleccionado].fecha">--><br>
+<input type="number" [(ngModel)]="facturaAct.fecha" [readOnly]="tipo==2"><br><br>
 <label>Con/Sin IVA: </label>
-<!--<input type="number" [(ngModel)]="facturas[seleccionado].iva" min="0"
-max="1">--><br>
+<input type="number" [(ngModel)]="facturaAct.iva" min="0"max="1" [readOnly]="tipo==2"><br><br><br>
 <label>Importe: </label>
-<!--<input type="number" [(ngModel)]="facturas[seleccionado].cantidad">--><br><br>
+<input type="number" [(ngModel)]="facturaAct.cantidad" min="0"max="1" [readOnly]="tipo==2"><br><br>
 <label>Cambiar a la factura (pos): </label>
-<!--<input type="number" [(ngModel)]="seleccionado" min="0" max="{{
-facturas.length-1 }}">--><br>
+<button (click)="guardaFactura()">Guardar</button>
+<button [routerLink]="[' /facturas']" class="ml-2">Cancelar</button>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FacturaComponent } from './components/factura/factura.component';
 import { ListaComponent } from './components/lista/lista.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ], 
   exports:[FacturaComponent,ListaComponent]
 })

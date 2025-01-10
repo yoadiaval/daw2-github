@@ -12,6 +12,6 @@ constructor(private _nominasService: NominasService) { }
 ngOnInit() {
 this.nominas = this._nominasService.obtengoNominas();
 }
-modificar(nnomina: number): void { }
-borrar(nnomina: number): void { }
+/*modificar(nnomina: number): void { }
+borrar(nnomina: number): void { }*/
 }

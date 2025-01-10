@@ -1,10 +1,11 @@
-<h3>Gestión de la nómina-</h3>
-<label>Número: </label>
-<!-- <input type="number" [(ngModel)]="nominas[seleccionado].numero"><br> -->
+<h3>{{ titulo }}</h3>
+
 <label>Fecha: </label>
-<!--<input type="string" [(ngModel)]="nominas[seleccionado].fecha"><br> -->
-<label>Importe Bruto: </label>
-<!-- <input type="number" [(ngModel)]="nominas[seleccionado].bruto"><br> -->
-<label>Retención: </label>
-<!-- <input type="number"
-[(ngModel)]="nominas[seleccionado].retencion"><br><br> -->
+<input type="number" [(ngModel)]="nominaAct.fecha" [readOnly]="tipo==2"><br><br>
+<label>Con/Sin IVA: </label>
+<input type="number" [(ngModel)]="nominaAct.bruto" min="0"max="1" [readOnly]="tipo==2"><br><br><br>
+<label>Importe: </label>
+<input type="number" [(ngModel)]="nominaAct.retencion" min="0"max="1" [readOnly]="tipo==2"><br><br>
+<label>Cambiar a la factura (pos): </label>
+<button (click)="guardaNomina()">Guardar</button>
+<button [routerLink]="[' /facturas']" class="ml-2">Cancelar</button>

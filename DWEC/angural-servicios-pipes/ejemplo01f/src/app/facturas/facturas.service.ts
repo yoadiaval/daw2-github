@@ -15,4 +15,26 @@ import { Factura } from './factura';
   obtengoFacturas(): Factura[] {
   return this.facturas;
   }
+
+
+  guardaNuevaFactura( factura:Factura){
+    let ultimoId: number = 0;
+    if (this.facturas.length > 0)
+    ultimoId = this.facturas[this.facturas.length-1].numero;
+    this.facturas.push(new Factura(ultimoId+1, factura.fecha,
+   factura.iva, factura.cantidad));
+    }
+    modificaFactura(nfactura:number, factura:Factura){
+      let indice = this.facturas.findIndex(item => item.numero == nfactura);
+      this.facturas[indice]=factura;
+      }
+      borraFactura(nfactura:number){
+      let indice = this.facturas.findIndex(item => item.numero == nfactura);
+      this.facturas.splice(indice, 1);
+      }
+      obtengoFactura(nfactura:number):Factura{
+      let indice = this.facturas.findIndex(item => item.numero == nfactura);
+      return this.facturas[indice];
+      }
+
  }

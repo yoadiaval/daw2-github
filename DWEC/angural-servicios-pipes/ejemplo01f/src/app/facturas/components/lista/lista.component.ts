@@ -13,6 +13,6 @@ export class ListaComponent {
   ngOnInit() {
   this.facturas = this._facturasService.obtengoFacturas();
   }
-  modificar(numfra: number): void { }
-  borrar(numfra: number): void { }
+  /*modificar(numfra: number): void { }
+  borrar(numfra: number): void { }*/
 }

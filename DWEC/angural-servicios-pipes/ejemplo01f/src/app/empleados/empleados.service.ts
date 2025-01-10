@@ -23,4 +23,16 @@ export class EmpleadosService {
       this.empleados.push(new Empleado(ultimoId+1, empleado.nombre,
      empleado.edad, empleado.contratado));
       }
+      modificaEmpleado(nempleado:number, empleado:Empleado){
+        let indice = this.empleados.findIndex(item => item.id == nempleado);
+        this.empleados[indice]=empleado;
+        }
+        borraEmpleado(nempleado:number){
+        let indice = this.empleados.findIndex(item => item.id == nempleado);
+        this.empleados.splice(indice, 1);
+        }
+        obtengoEmpleado(nempleado:number):Empleado{
+        let indice = this.empleados.findIndex(item => item.id == nempleado);
+        return this.empleados[indice];
+        }
 }

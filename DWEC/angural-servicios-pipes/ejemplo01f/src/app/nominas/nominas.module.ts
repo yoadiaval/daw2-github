@@ -4,6 +4,7 @@ import { ListaComponent } from './components/lista/lista.component';
 import { NominaComponent } from './components/nomina/nomina.component';
 import { FormsModule } from '@angular/forms';
 import { SueldoNetoPipe } from './pipes/sueldo-neto.pipe';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { SueldoNetoPipe } from './pipes/sueldo-neto.pipe';
     SueldoNetoPipe
   ],
   imports: [
-    CommonModule,FormsModule
+    CommonModule,FormsModule,
+    RouterModule
   ],
   exports:[
     NominaComponent,

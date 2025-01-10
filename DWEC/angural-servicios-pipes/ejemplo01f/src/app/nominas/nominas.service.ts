@@ -15,4 +15,25 @@ import { Nomina } from './nominas';
   obtengoNominas(): Nomina[] {
   return this.nominas;
   }
+
+
+  guardaNuevaNomina( nomina:Nomina){
+    let ultimoId: number = 0;
+    if (this.nominas.length > 0)
+    ultimoId = this.nominas[this.nominas.length-1].numero;
+    this.nominas.push(new Nomina(ultimoId+1, nomina.fecha,
+   nomina.bruto, nomina.retencion));
+    }
+    modificaNomina(nNomina:number, nomina:Nomina){
+      let indice = this.nominas.findIndex(item => item.numero == nNomina);
+      this.nominas[indice]=nomina;
+      }
+      borraNomina(nNomina:number){
+      let indice = this.nominas.findIndex(item => item.numero == nNomina);
+      this.nominas.splice(indice, 1);
+      }
+      obtengoNomina(nNomina:number):Nomina{
+      let indice = this.nominas.findIndex(item => item.numero == nNomina);
+      return this.nominas[indice];
+      }
  }

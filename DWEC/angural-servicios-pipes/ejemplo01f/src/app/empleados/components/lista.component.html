@@ -18,8 +18,7 @@
  <td [style.color]="empleado.edad > 25 ? 'blue' : 'red'">{{empleado.edad }}</td>
  <div *ngIf="empleado.contratado then cont else desp"></div>
  <td>
-    <button [routerLink]="['/empleados', 1,
-    empleado.id]">Modificar</button>
+    <button [routerLink]="['/empleados', 1,empleado.id]">Modificar</button>
      <button [routerLink]="['/empleados', 2, empleado.id]" class="ml2">Borrar</button>
  </td>
  </tr>

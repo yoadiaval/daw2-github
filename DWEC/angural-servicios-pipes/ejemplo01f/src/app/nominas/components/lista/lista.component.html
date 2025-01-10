@@ -1,4 +1,5 @@
 <h2>Listado de Nóminas</h2>
+<button [routerLink]="['/nominas', 0, 0]" class="ml-2">Nueva Nómina</button><br><br><thead></thead>
 <table>
 <thead>
 <tr>
@@ -22,11 +23,9 @@ nomina.bruto }}</td>
 nomina.retencion }}</td>
 <td>{{ nomina.bruto | sueldoNeto:nomina.retencion }}</td>
 <td>
-<button
-(click)="modificar(nomina.numero)">Modificar</button>
-<button *ngIf="nominas.length > 1"
-(click)="borrar(nomina.numero)" class="ml-2">Borrar nómina</button>
-</td>
+    <button [routerLink]="['/nominas', 1,nomina.numero]">Modificar</button>
+     <button [routerLink]="['/nominas', 2, nomina.numero]" class="ml2">Borrar</button>
+ </td>
 </tr>
 </tbody>
 </table>
