@@ -4,5 +4,4 @@ export class Empleado {
     public edad: number,
     public contratado: boolean = false
   ) {}
-  
 }
