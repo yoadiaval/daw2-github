@@ -9,8 +9,8 @@ class Conexiondb{
     public static function conectar(){
         try {
             $conexion = new mysqli(self::$hostname, self::$database, self::$user, self::$password);
-        } catch (mysqli_sql_exception $errror) {
-            echo $errror->getMessage();
+        } catch (mysqli_sql_exception $error) {
+            echo $error->getMessage();
         }
         
         return $conexion;
