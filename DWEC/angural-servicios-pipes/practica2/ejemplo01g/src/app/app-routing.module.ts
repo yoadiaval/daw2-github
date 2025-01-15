@@ -27,9 +27,9 @@ const routes: Routes = [
   { path: 'nominas', component: ListaNominas, canActivate:[loginGuard] }, 
   { path: 'nominas/:tipo/:id', component: NominaComponent, canActivate:[loginGuard] }, 
   // Ruta por defecto (vacía) -> Redirigir a /welcome 
-  { path: '', redirectTo: '/bienvenido', pathMatch: 'full', canActivate:[loginGuard] }, 
+  { path: '', redirectTo: '/bienvenido', pathMatch: 'full' }, 
   // Ruta que no coincide con ninguna de las anteriores 
-  { path: '**', redirectTo: '/bienvenido', pathMatch: 'full', canActivate:[loginGuard] } 
+  { path: '**', redirectTo: '/bienvenido', pathMatch: 'full'} 
   ];
 
 @NgModule({
