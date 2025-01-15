@@ -27,6 +27,11 @@
         <input type="text" name="precio" placeholder="Inserte el precio" required>
         <input type="submit" name="enviar" value="enviar">
     </form>
+    <p>
+        <?php 
+       echo isset($mensaje) ? $mensaje : "";
+        ?>
+    </p>
     <h2>Listado de productos</h2>
     <table>
         <thead>
@@ -41,7 +46,9 @@
             if (isset($productos)) {
                 foreach ($productos as $producto) { ?>
                     <tr>
-                <!-- codigo de los productos-->
+                        <th><?php echo $producto['cod']?></th>
+                        <th><?php echo $producto['descripcion']?></th>
+                        <th><?php echo $producto['precio']?></th>
                     </tr>
                 <?php }
             } else { ?>

@@ -1,6 +1,7 @@
 <?php
 include_once "../model/user.php";
 session_start();
+
 if (isset($_GET['enviar'])) {
     $user = $_GET['user'];
     $password = $_GET['password'];
@@ -8,14 +9,15 @@ if (isset($_GET['enviar'])) {
     if (isset($_GET['admin']) && $_GET['admin'] == "on") {
         $admin = $_GET['admin'];
         if (User::loginAdmin($user, $password)) {
-            include_once "../views/adminPage.php";
+            header("Location: ./adminController.php");
+            
         } else {
             $_SESSION['error'] = "Usuario o contraseña incorrectos";
             header("Location: ../index.php");
         }
     } else {
         if (User::loginUser($user, $password)) {
-            include_once "../views/userPage.php";
+            header("Location:./userController.php");
         } else {
             $_SESSION['error'] = "Usuario o contraseña incorrectos";
             header("Location: ../index.php");
