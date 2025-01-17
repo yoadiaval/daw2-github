@@ -15,9 +15,11 @@ import { loginGuard } from './login/login.guard';
 import { LogoutComponent } from './login/components/logout/logout.component';
 
 const routes: Routes = [ 
-
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
+/*Se definen todas las rutas de la aplicación con la modificación del GUARD de las funciones
+guard del canActivate
+*/
+  { path: 'login', component: LoginComponent }, /*Ruta del componente login*/
+  { path: 'logout', component: LogoutComponent }, /*Ruta del compomnente Logout*/
   { path: 'bienvenido', component: BienvenidoComponent , canActivate:[loginGuard]}, 
   { path: 'empleados', component: ListaComponent, canActivate:[loginGuard] }, 
   { path: 'empleados/:tipo/:id', component: EmpleadoComponent, canActivate: 
