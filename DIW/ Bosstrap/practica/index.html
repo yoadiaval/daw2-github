@@ -16,22 +16,27 @@
         background-color: violet;
     }
     .bg-green{
-        background-color: green;
+        background-color: rgb(126, 209, 126);
     }
     .bg-red{
         background-color: red;
     }
     .h-full{
-        height: 80vh;
+        height: auto;
     }
-
+.h-80{
+    height: 80vh;
+}
     .h-10{
         height: 10vh;
+    }
+    .h-20{
+        height: 20vh;
     }
     .h-5{
         height: 5vh;
     }
-    h-auto{
+    .h-auto{
         height: auto;
     }
     .border{
@@ -44,13 +49,14 @@
     <div class="container">
         <div class="row h-10 bg-green"></div>
         <div class="row">
-            <div class="bg-red h-full d-none d-sm-block col-md-2"></div>
+            <div class="col-sm-2 d-none d-sm-block bg-red  "></div>
             <div class="col">
+                <div class="row bg-violet h-5"></div>
                 <div class="row">
-                    <div class="col-12 bg-orange h-10 border"></div>
-                    <div class="col-12 bg-orange h-10 border"></div>
+                    <div class="col-12 col-md-6 bg-orange h-20 border"></div>
+                    <div class="col-12 col-md-6 bg-orange h-20 border"></div>
                 </div>
-                <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5">
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 ">
                     <div class="col h-10 bg-blue border"></div>
                     <div class="col h-10 bg-blue border"></div>
                     <div class="col h-10 bg-blue border"></div>
