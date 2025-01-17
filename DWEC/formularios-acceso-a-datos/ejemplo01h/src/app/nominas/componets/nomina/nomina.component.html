@@ -1,0 +1,10 @@
+<h3>{{ titulo }}</h3>
+<label>Fecha: </label>
+<input type="string" [(ngModel)]="nominaact.fecha"><br>
+<label>Importe Bruto: </label>
+<input type="number" [(ngModel)]="nominaact.bruto"><br>
+<label>Retención: </label>
+<input type="number" [(ngModel)]="nominaact.retencion"><br><br>
+
+<button (click)="guardaNomina()">{{ txtBtn }}</button>
+<button [routerLink]="['/nominas']" class="ml-2">Cancelar</button>
