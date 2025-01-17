@@ -55,8 +55,8 @@ class Empleado {
         }
 
     }
-    public static function actualizar( $datos ) {
-
+    public static function actualizar( $datos, $condicion ) {
+        $sql = "update set {$datos} where {$condicion};";
     }
     }
 
