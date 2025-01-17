@@ -5,7 +5,6 @@ export const empleadoGuard: CanActivateFn = (route, state) => {
   const id = +route.params['id'];
   const tipo = +route.params['tipo'];
   const router = inject(Router);
-  /*Controla que los datos de id y tipo sean datos válidos para acceder a la ruta*/
   if (isNaN(id) || isNaN(tipo) || tipo < 0 || tipo > 2 || id < 0) {
     return router.navigateByUrl('/empleados');
   }

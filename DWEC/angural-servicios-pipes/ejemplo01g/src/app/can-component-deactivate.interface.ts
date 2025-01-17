@@ -1,3 +1,3 @@
 export interface CanComponentDeactivate {
-  canDeactivate: () => boolean | Promise<boolean>;
+    canDeactivate: () => boolean | Promise<boolean>;
 }

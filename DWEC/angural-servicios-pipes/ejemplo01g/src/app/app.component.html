@@ -5,9 +5,13 @@
         <li><a [routerLink]="['/empleados']" [routerLinkActive]="['active']">Empleados</a></li>
         <li><a [routerLink]="['/facturas']" [routerLinkActive]="['active']">Facturas</a></li>
         <li><a [routerLink]="['/nominas']" [routerLinkActive]="['active']">Nóminas</a></li>
+        <li><a [routerLink]="['/logout']" [routerLinkActive]="['active']">Salir</a></li>
+   
     </ul>
 </nav>
 <hr>
 <div id="contenedor" class="componentes">
+    
     <router-outlet></router-outlet>
+    
 </div>
