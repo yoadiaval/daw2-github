@@ -1,0 +1,9 @@
+YOANNET DÍAZ VALDÉS
+
+ARCHIVO            TAMAÑO
+homer.mp3         55KB
+homer.ogg          50KB
+homer.wav          294KB
+
+Hay diferencia entre cada uno de los archivos exportados
+La diferencia radica en el tamaño y esto se debe  al grado de compresión aplicada, afectando el tamaño del archivo y la calidad del audio.
