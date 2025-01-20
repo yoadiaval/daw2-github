@@ -1,55 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <style>
-      .bg-red {
-        background-color: red;
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <style>
+    p {
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    .bg-red {
+      background-color: red;
+    }
+
+    .bg-green {
+      background-color: rgb(147, 210, 54);
+    }
+
+    .bg-yellow {
+      background-color: yellow;
+    }
+
+    .bg-header {
+      background-color: orange;
+    }
+
+    .bg-2 {
+      background-color: rgb(0, 174, 255);
+    }
+
+    .bg-3 {
+      background-color: red;
+    }
+
+    /*Se definen media queries para camiar el tamañp de los elementos y el color de fondo*/
+    /*Se utilizan los mismos break points de bootstrap */
+
+    @media screen and (min-width: 576px) and (max-width: 768px) {
+      .bg-header {
+        background-color: rgb(0, 174, 255);
       }
-      .bg-green {
+
+      .bg-2 {
+        background-color: red;
+       height: 100px;
+      }
+
+      .bg-3 {
         background-color: rgb(147, 210, 54);
       }
-      .bg-yellow {
-        background-color: yellow;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container d-flex flex-column gap-1">
-      <div class="row bg-green border border-secondary">Header</div>
-      <div class="row d-flex gap-1">
-        <div
-          class="col col-12 col-sm-6 col-md-4 border border-secondary bg-red"
-        >
-          1
-        </div>
-        <div class="col col-12 col-sm-6 col-md-4 border border-secondary">
-          2
-        </div>
+    }
 
-        <div class="col col-sm-12 col-md-4 border border-secondary bg-red">
-          3
-        </div>
+    @media screen and (min-width: 769px) {
+      .bg-header {
+        background-color: rgb(147, 210, 54);
+
+      }
+
+      .bg-2 {
+        background-color: red;
+        height: 300px;
+      }
+
+      .bg-3 {
+        background-color: red;
+        
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container ">
+    <div class="row bg-green border border-white border-2">
+      <p class="text-center text-sm-start bg-header">Header</p>
+    </div>
+    <div class="row row-cols-md-3">
+      <div class="col col-12 col-sm-6 border border-white border-2 bg-red">
+        <p class="display-3 text-start text-md-center">1</p>
       </div>
-      <div class="row d-flex gap-1">
-        <div class="col border border-secondary col-12 col-md-6 bg-yellow">
-          Footer 1
-        </div>
-        <div class="col border border-secondary bg-yellow">Footer 2</div>
+      <div class="col  border border-white border-2 bg-2">
+        <p class="display-3 text-center text-sm-end text-md-center">2</p>
+      </div>
+
+      <div class="col  col-12 col-sm-12 border border-white border-2 bg-3">
+        <p class="display-3 text-end text-sm-center ">3</p>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <div class="row ">
+      <div class="col  border border-white border-2 col-12 col-md-6 bg-yellow">
+        <p class="text-center text-md-end">Footer 1</p>
+      </div>
+      <div class="col border border-white border-2 bg-yellow">
+        <p class="text-center text-md-start">Footer 2</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
