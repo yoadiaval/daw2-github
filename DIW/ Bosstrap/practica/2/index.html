@@ -11,15 +11,12 @@
       crossorigin="anonymous"
     />
     <style>
-      /*Agrega borde a todos los elementos div menos el elemento container*/
-      div :not(div.container) {
-        border: 1px solid black;
-      }
+      /*Estilos para el color de fonto de de los diferentes elementos*/
       .bg-blue {
         background-color: deepskyblue;
       }
       .bg-gray {
-        background-color: gray;
+        background-color: rgb(186, 186, 186);
       }
       .bg-aqua {
         background-color: aqua;
@@ -30,35 +27,118 @@
       .bg-green {
         background-color: rgb(135, 245, 206);
       }
+
+      /*alturas comunes a diferentes elementos*/
+      .height-box {
+        height: 100px;
+      }
+      .height-box2 {
+        height: 40px;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="row bg-green">Header</div>
-
-      
-      <div class="row ">
-        <div class="bg-blue">1</div>
-        <div class="bg-blue">2</div>
-        <div class="bg-blue">3</div>
-        <div class="bg-blue">4</div>
+    <div class="container text-center d-flex flex-column gap-2">
+      <!--INICIO ROW -->
+      <div
+        class="row border border-secondary flex justify-content-center align-content-center bg-green height-box2"
+      >
+        Header
       </div>
-
-    
-      <div class="row ">
-        <div class="bg-gray">a</div>
-        <div class="bg-gray">b</div>
-        <div class="bg-gray">c</div>
-        <div class="bg-gray">d</div>
+      <!--fin row -->
+      <!--INICIO ROW -->
+      <div class="row d-flex flex-wrap gap-2">
+        <div class="col col-md-3 clearfix d-none d-md-block height-box"></div>
+        <div
+          class="col col-6 col-sm-3 border border-secondary bg-blue height-box flex align-content-center"
+        >
+          1
+        </div>
+        <div
+          class="col border border-secondary bg-blue height-box flex align-content-center"
+        >
+          2
+        </div>
+        <div class="col clearfix col-md-3 d-none d-md-block height-box"></div>
+        <div
+          class="col border border-secondary col-6 col-sm-3 bg-blue height-box flex align-content-center"
+        >
+          3
+        </div>
+        <div class="col clearfix col-md-3 d-none d-md-block height-box"></div>
+        <div class="col clearfix col-md-3 d-none d-md-block height-box"></div>
+        <div
+          class="col border border-secondary bg-blue height-box flex align-content-center"
+        >
+          4
+        </div>
       </div>
-
- 
-      <div class="row  bg-aqua">mobile</div>
-
-  
-      <div class="row row-cols-sm-2">
-        <div class="bg-orange">:D</div>
-        <div class="bg-orange d-none d-sm-block">:(</div>
+      <!--fin row -->
+      <!--INICIO ROW -->
+      <div
+        class="row border border-secondary d-none d-sm-block d-md-none flex align-content-center bg-aqua height-box2"
+      >
+        Tablet
+      </div>
+      <!--fin row -->
+      <!--INICIO ROW -->
+      <div class="row d-flex flex-wrap gap-2">
+        <div
+          class="col border border-secondary col-6 col-sm-3 order-md-last bg-gray height-box flex align-content-center"
+        >
+          a
+        </div>
+        <div
+          class="col border border-secondary order-md-2 bg-gray height-box flex align-content-center"
+        >
+          b
+        </div>
+        <div
+          class="col border border-secondary order-md-1 col-6 col-sm-3 bg-gray height-box flex align-content-center"
+        >
+          c
+        </div>
+        <div
+          class="col border border-secondary order-md-0 bg-gray height-box flex align-content-center"
+        >
+          d
+        </div>
+      </div>
+      <!--fin row -->
+      <!--INICIO ROW -->
+      <div
+        class="row border border-secondary d-sm-none bg-aqua flex align-content-center justify-content-center height-box2"
+      >
+        Mobile
+      </div>
+      <!--INICIO ROW -->
+      <div
+        class="row border border-secondary d-none d-md-block bg-aqua flex align-content-center height-box2"
+      >
+        Desktop
+      </div>
+      <!--fin row -->
+      <!--INICIO ROW -->
+      <div class="row d-flex flex-wrap gap-2">
+        <div
+          class="col clearfix col-md-3 d-none order-md-0 d-md-block height-box"
+        ></div>
+        <div
+          class="col border border-secondary order-md-2 col-md-3 bg-orange height-box flex align-content-center"
+        >
+          :D
+        </div>
+        <div
+          class="col border border-secondary order-md-1 col-md-3 bg-orange d-none d-sm-block flex align-content-center height-box"
+        >
+          :(
+        </div>
+        <div class="col clearfix d-none d-md-block order-md-3 height-box"></div>
+      </div>
+      <!--fin row -->
+      <!--INICIO ROW -->
+      <div class="row border border-secondary d-none d-sm-block bg-green">
+        Footer
       </div>
     </div>
 
