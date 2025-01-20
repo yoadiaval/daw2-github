@@ -1,6 +1,7 @@
 <?php 
 header('Content-Type: application/json');
 include 'db.php';
+include "./producto.php";
 
 // Obtener la acción de la URL (GET, POST, PUT, DELETE)
 $request_method = $_SERVER['REQUEST_METHOD'];
@@ -9,4 +10,29 @@ $uri_parts = explode('/', $uri); /*para un uri /usuarios/2 -> [ '' , usuarios , 
 
 // El ID del recurso (si es necesario) lo tomamos de la URL
 $id = isset($uri_parts[2]) ? (int)$uri_parts[2] : null; /*Busco el id en la posición 2*/ 
+
+switch ($request_method) {
+    case 'GET':
+            Producto::getProductos();
+            break;
+    case 'POST':
+            Producto::postProducto();
+            break;
+    case 'PUT':
+            Producto::putProducto();
+            break;
+    case 'PUT':
+            Producto::patchProducto();
+            break;
+    case 'DELETE':
+           Producto::DeleteProducto();
+            break;
+    default:
+        # code...
+        break;
+}
+
+
+
+
 ?>
