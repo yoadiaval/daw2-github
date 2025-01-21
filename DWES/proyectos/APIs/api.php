@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
-include 'db.php';
-include "./producto.php";
+
+include_once "./producto.php";
 
 // Obtener la acción de la URL (GET, POST, PUT, DELETE)
 $request_method = $_SERVER['REQUEST_METHOD'];

@@ -1,5 +1,5 @@
 <?php
-include_once "./db.php";
+include_once "./conexionDB.php";
 class Producto
 {
     public static function getProductos($condicion = 1)
