@@ -28,7 +28,7 @@ if ($request_method == "GET") {
 
 /*$data = json_decode(file_get_contents("php://input"), true);*/
 $data = json_decode(
-        '{
+                '{
                 "cod":"13",
                 "nombre": "Producto 10",
                 "descripcion": "Descripción del producto",
