@@ -1,50 +1,58 @@
 <?php
 header('Content-Type: application/json');
-
-include_once "./producto.php";
+include 'conexionDB.php';
+include "./producto.php";
 
 // Obtener la acción de la URL (GET, POST, PUT, DELETE)
 $request_method = $_SERVER['REQUEST_METHOD'];
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); /*La combinacin de parse_url y PHP_URL_PATH devuelve solo el end point /usuarios/5 que en principio hará referencia a la tabla y el id de la base de datos*/
+$uri = $_SERVER['REQUEST_URI']; /*Obtengo la ruta de la peticion*/
 $uri_parts = explode('/', $uri); /*para un uri /usuarios/2 -> [ '' , usuarios , 2]*/
 
 // El ID del recurso (si es necesario) lo tomamos de la URL
-$id = isset($uri_parts[2]) ? (int) $uri_parts[2] : null; /*Busco el id en la posición 2*/
+$lastPart = $uri_parts[count($uri_parts) - 1]; /*Busco el cod en la posición 2*/
 
 if ($request_method == "GET") {
-        if ($id !== null) {
-                $condicion = "id = {$id}";
+        if ($lastPart !== "api.php") {
+                $condicion = "cod = {$cod}";
                 $productos = Producto::getProductos($condicion);
 
         } else {
                 $productos = Producto::getProductos();
         }
 
-        if ($respuesta) {
-
+        if ($productos) {
                 return json_encode($productos);
         }
 
 }
 
-/*$data = json_decode(file_get_contents("php://input"), true);
+/*$data = json_decode(file_get_contents("php://input"), true);*/
+$data = json_decode(
+        '{
+                "cod":"13",
+                "nombre": "Producto 10",
+                "descripcion": "Descripción del producto",
+                "precio": 100.50
+                }',
+        true
+                );
 switch ($request_method) {
         case 'POST':
                 Producto::postProducto($data);
                 break;
         case 'PUT':
-                 Producto::putProducto($data);
+                Producto::putProducto($data);
                 break;
         case 'PATCH':
                 Producto::patchProducto($data);
                 break;
         case 'DELETE':
-                Producto::DeleteProducto($data);
+                $cod = $data['cod'];
+                $respuesta = Producto::deleteProducto($cod);
                 break;
         default:
-
                 break;
-}*/
+}
 
 
 ?>
