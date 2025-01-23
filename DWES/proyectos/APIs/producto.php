@@ -11,6 +11,7 @@ class Producto
             return $respuesta->fetch_all(MYSQLI_ASSOC);
         }
     }
+
     public static function postProducto($data)
     {
         $conexion = ConexionDB::conectar();
@@ -24,21 +25,21 @@ class Producto
     }
 
     public static function putProducto($data)
-    {
-        if (!isset($data['cod'], $data['nombre'], $data['descripcion'], $data['precio'])) {
-            echo "400, Faltan campos obligatorios (cod, nombre, descripcion, precio)";
-            return;
-        }
-        $conexion = ConexionDB::conectar();
-        $newData = "cod= '" . $data['cod'] . "', descripcion = '" . $data['descripcion'] . "',precio = '" . $data['precio'] . "', nombre = '" . $data['nombre'] . "'";
-        $sql = "UPDATE productos SET {$newData} WHERE cod = '" . $data['cod'] . "';";
-        echo $sql;
-        $respuesta = $conexion->query($sql);
-        if ($respuesta) {
-            return true;
-        } else {
-            return false;
-        }
+    { 
+         if (!isset($data['cod'], $data['nombre'], $data['descripcion'], $data['precio'])) {
+             echo "400, Faltan campos obligatorios (cod, nombre, descripcion, precio)";
+             return;
+         }
+         $conexion = ConexionDB::conectar();
+         $newData = "cod= '" . $data['cod'] . "', descripcion = '" . $data['descripcion'] . "',precio = '" . $data['precio'] . "', nombre = '" . $data['nombre'] . "'";
+         $sql = "UPDATE productos SET {$newData} WHERE cod = '" . $data['cod'] . "';";
+         echo $sql;
+         $respuesta = $conexion->query($sql);
+         if ($respuesta) {
+             return true;
+         } else {
+             return false;
+         }
     }
     public static function patchProducto($data)
     {
@@ -58,17 +59,17 @@ class Producto
             $newdatos[] = "nombre ='" . $data['nombre'] . "'";
         }
         var_dump($newdatos);
-         if (empty($newdatos)) {
-             echo "no se han proporcionado campos para actualizar";
-             return;
-         }
-        
+        if (empty($newdatos)) {
+            echo "no se han proporcionado campos para actualizar";
+            return;
+        }
+
         $conexion = ConexionDB::conectar();
         $sql = "UPDATE productos SET " . implode(',', $newdatos) . "where cod='" . $data['cod'] . "'";
         $respuesta = $conexion->query($sql);
-        if($respuesta){
+        if ($respuesta) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

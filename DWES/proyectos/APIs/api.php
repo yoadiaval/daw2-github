@@ -1,7 +1,11 @@
 <?php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');  // Permite solicitudes de cualquier dominio
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');  // Permite los métodos necesarios
+header('Access-Control-Allow-Headers: Content-Type');  // Permite cabeceras como Content-Type
+
 include 'conexionDB.php';
-include "./producto.php";
+include './producto.php';
 
 // Obtener la acción de la URL (GET, POST, PUT, DELETE)
 $request_method = $_SERVER['REQUEST_METHOD'];
@@ -13,37 +17,33 @@ $lastPart = $uri_parts[count($uri_parts) - 1]; /*Busco el cod en la posición 2*
 
 if ($request_method == "GET") {
         if ($lastPart !== "api.php") {
-                $condicion = "cod = {$cod}";
+                $condicion = "cod = {$lastPart}";
                 $productos = Producto::getProductos($condicion);
-
         } else {
                 $productos = Producto::getProductos();
         }
 
         if ($productos) {
-                return json_encode($productos);
+                echo json_encode($productos);
         }
 
 }
 
-/*$data = json_decode(file_get_contents("php://input"), true);*/
-$data = json_decode(
-                '{
-                "cod":"13",
-                "nombre": "Producto 10",
-                "descripcion": "Descripción del producto",
-                "precio": 100.50
-                }',
-        true
-                );
+
+
 switch ($request_method) {
         case 'POST':
                 Producto::postProducto($data);
                 break;
         case 'PUT':
-                Producto::putProducto($data);
+                $data = file_get_contents("php://input");
+                $data_decod = json_decode($data, true);
+                $respuesta =  Producto::putProducto($data_decod);
                 break;
         case 'PATCH':
+                $data = file_get_contents("php://input");
+                $data_decod = json_decode($data, true);
+                $respuesta = Producto::putProducto($data_decod);
                 Producto::patchProducto($data);
                 break;
         case 'DELETE':
