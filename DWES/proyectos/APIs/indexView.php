@@ -37,22 +37,11 @@
     <tbody></tbody>
   </table>
 
-  <h2>Modificar Todo</h2>
-  <form id="formModifTodo">
-    <label for="">Descripcion</label>
-    <input type="text" id="descripcion" name="descripcion"
-      value="<?php echo $productoSeleccionado[0]['descripcion'] ?? '' ?> ">
-    <label for="">Precio</label>
-    <input type="text" id="precio" name="precio" value="<?php echo $productoSeleccionado[0]['precio'] ?? '' ?>">
-    <label for="">Nombre</label>
-    <input type="text" id="nombre" name="nombre" value="<?php echo $productoSeleccionado[0]['nombre'] ?? '' ?>">
-    <input type="hidden" id="codigo" value="<?php echo $productoSeleccionado[0]['cod'] ?? '' ?>">
-    <button type="submit">Modificar</button>
 
-  </form>
   <h2>Modificar </h2>
   <p>Seleccione solo los valores que quiera modificar. De no seleccionar ninguno se mandarán a modificar todos los valores</p>
-  <form id="formModifParcial">
+  
+  <form id="formModif">
     <div>
       <input type="checkbox" id="checkdescripcion"><label for="">Descripcion</label>
       <input type="text" id="descripcion" name="descripcion"
@@ -68,8 +57,7 @@
       <input type="text" id="nombre" name="nombre" value="<?php echo $productoSeleccionado[0]['nombre'] ?? '' ?>">
     </div>
 
-
-    <input type="hidden" name="cod" value="<?php echo $productoSeleccionado[0]['cod'] ?>">
+    <input type="text" name="cod" value="<?php echo $productoSeleccionado[0]['cod']  ?? ''?>">
     <button type="submit">Modificar</button>
 
   </form>

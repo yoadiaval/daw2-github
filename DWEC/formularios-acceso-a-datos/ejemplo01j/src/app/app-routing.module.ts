@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'empleados', component: ListaComponent, canActivate: [loginGuard] },
   {
     path: 'empleados/:tipo/:id', component: EmpleadoComponent, canActivate: [loginGuard, empleadoGuard],
-    canDeactivate: [abandonarPaginaGuard], resolve: { empleadoact: empleadoResolveGuard },
+    canDeactivate: [abandonarPaginaGuard],
   },
   { path: 'facturas', component: ListaFacturas, canActivate: [loginGuard] },
   { path: 'facturas/:tipo/:id', component: FacturaComponent, canActivate: [loginGuard], canDeactivate: [abandonarPaginaGuard] },

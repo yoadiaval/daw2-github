@@ -41,6 +41,7 @@ class Producto
              return false;
          }
     }
+    
     public static function patchProducto($data)
     {
 
@@ -73,6 +74,7 @@ class Producto
             return false;
         }
     }
+
     public static function deleteProducto($cod)
     {
         $conexion = conexionDB::conectar();

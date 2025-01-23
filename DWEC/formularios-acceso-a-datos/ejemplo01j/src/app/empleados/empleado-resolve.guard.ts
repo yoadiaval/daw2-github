@@ -8,5 +8,6 @@ export const empleadoResolveGuard: ResolveFn<any> = (route, state) => {
   const tipo: number = parseInt(route.paramMap.get('tipo')!);
   if (id ==0 && tipo==0)
     return true
-  return _empleadosService.obtengoEmpleado(id);
+  /*return _empleadosService.obtengoEmpleado(id);*/
+  return true;
 };

@@ -7,12 +7,10 @@ header('Access-Control-Allow-Headers: Content-Type');  // Permite cabeceras como
 include 'conexionDB.php';
 include './producto.php';
 
-// Obtener la acción de la URL (GET, POST, PUT, DELETE)
+
 $request_method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI']; /*Obtengo la ruta de la peticion*/
 $uri_parts = explode('/', $uri); /*para un uri /usuarios/2 -> [ '' , usuarios , 2]*/
-
-// El ID del recurso (si es necesario) lo tomamos de la URL
 $lastPart = $uri_parts[count($uri_parts) - 1]; /*Busco el cod en la posición 2*/
 
 if ($request_method == "GET") {
@@ -22,14 +20,10 @@ if ($request_method == "GET") {
         } else {
                 $productos = Producto::getProductos();
         }
-
         if ($productos) {
                 echo json_encode($productos);
         }
-
 }
-
-
 
 switch ($request_method) {
         case 'POST':

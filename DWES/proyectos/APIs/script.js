@@ -1,25 +1,25 @@
 function obtenerDatos() {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost/proyectos/APIs/api.php");
-  // set response format
+  xhr.open("GET", "http://localhost:8080/APIs/api.php");
+
   xhr.responseType = "json";
   xhr.send();
   xhr.onload = () => {
-    // get JSON response
+
     const productos = xhr.response;
     tbody = document.querySelector("tbody").innerHTML = `
         ${productos
-          .map((producto) => {
-            /*elimina los parámetro de la url para que no se dupliquen cada vez que se llame al boton de editar*/
-            const baseUrl = window.location.href.split("?")[0];
-            return `<tr><td>${producto.cod}</td>
+        .map((producto) => {
+          /*elimina los parámetro de la url para que no se dupliquen cada vez que se llame al boton de editar*/
+          const baseUrl = window.location.href.split("?")[0];
+          return `<tr><td>${producto.cod}</td>
                         <td>${producto.descripcion}</td>
                             <td>${producto.precio}</td>
                             <td>${producto.nombre}</td>
                             <td><a href="${baseUrl}?accion=enviarEditar&cod=${producto.cod}">editar</a><a onclick="eliminar(${producto.cod})">Eliminar</a><td>
                         </tr>`;
-          })
-          .join("")}
+        })
+        .join("")}
   `;
   };
 }
@@ -49,31 +49,14 @@ function modificar(data) {
   };
 }
 
-document
-  .getElementById("formModifTodo")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    cod = document.getElementById("codigo").value;
-    nombre = document.getElementById("nombre").value;
-    descripcion = document.getElementById("descripcion").value;
-    precio = document.getElementById("precio").value;
-
-    data = {
-      cod: cod,
-      descripcion: descripcion,
-      precio: precio,
-      nombre: nombre,
-    };
-
-    modificar(data);
-  });
 
 document
-  .getElementById("formModifParcial")
+  .getElementById("formModif")
   .addEventListener("submit", function (event) {
     event.preventDefault();
-
-    cod = document.getElementById("codigo").value;
+    let data;
+    /*cod = document.getElementById("cod").value;*/
+    cod = "1";
     nombre = document.getElementById("checknombre").checked
       ? document.getElementById("nombre").value
       : "";
@@ -82,42 +65,33 @@ document
       : "";
     precio = document.getElementById("checkprecio").checked
       ? document.getElementById("precio").value
-      : ""; 
-if (
-  document.getElementById("checknombre").checked &&
-  document.getElementById("checkdescripcion").checked &&
-  document.getElementById("checkprecio").checked
-){
-  data = {
-    cod: cod,
-    descripcion: descripcion,
-    precio: precio,
-    nombre: nombre,
-  };
-}else{
- 
+      : "";
+    const dataTemp = {
+      cod: cod,
+      descripcion: descripcion,
+      precio: precio,
+      nombre: nombre,
+    };
+    if (
+      !document.getElementById("checknombre").checked &&
+      !document.getElementById("checkdescripcion").checked &&
+      !document.getElementById("checkprecio").checked
+    ) {
+      data = dataTemp;
+    } else {
 
- data = {
-   cod: cod,
-   descripcion: descripcion,
-   precio: precio,
-   nombre: nombre,
- };
- let dataCorregido;
- for (let prop in data) {
-   if (data[prop] !== "") {
-     dataCorregido[prop] = data[prop];
-   }
- }
-  console.log(dataCorregido);
-}
-   
+      data;
+      for (let prop in dataTemp) {
+        if (dataTemp[prop] !== "") {
+          data[prop] = dataTemp[prop];
+        }
+      }
 
-   
-
-    modificar(data);
+    }
+    console.log(data);
+    /* modificar(data);*/
   });
 
-function eliminar($id) {}
+function eliminar($id) { }
 
-window.addEventListener("load", obtenerDatos, false);
+window.addEventListener("load", obtenerDatos(), false);
