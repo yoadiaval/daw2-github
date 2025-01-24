@@ -1,0 +1,27 @@
+:root{
+  --bs-breadcrumb-item-active-color:white; 
+}
+
+img{
+    width: 100px;
+   
+}
+.migas{
+    width: 100%;
+    background-color: #736060;
+    padding: 1.1rem 0;
+    
+}
+.migas a{
+    text-decoration: none;
+    color: black;
+}
+
+.carousel img{
+    height: 80vh;
+    object-fit: cover;
+}
+.breadcrumb {
+    margin: 0;
+    padding-left: 1rem;
+}

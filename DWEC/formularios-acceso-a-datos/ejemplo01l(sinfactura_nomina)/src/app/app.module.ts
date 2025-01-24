@@ -8,6 +8,8 @@ import { FacturasModule } from './facturas/facturas.module';
 import { NominasModule } from './nominas/nominas.module';
 import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import { LoginModule } from './login/login.module';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { LoginModule } from './login/login.module';
     NominasModule,
     LoginModule
   ],
-  providers: [Title],
+  providers: [Title,provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
