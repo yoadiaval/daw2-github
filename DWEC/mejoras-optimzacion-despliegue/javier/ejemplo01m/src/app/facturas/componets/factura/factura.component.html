@@ -1,0 +1,18 @@
+<h3>{{ titulo }}</h3>
+<form #facturaForm="ngForm" (ngSubmit)="guardaFactura()" novalidate>
+    <label>Nombre: </label>
+    <input type="text" name="cliente" [(ngModel)]="facturaact.cliente" [readonly]="tipo == 2"
+        (ngModelChange)="cambiado()" minlength="3" maxlength="50" required><br>
+    <label>Fecha: </label>
+    <input type="date" name="fecha" [(ngModel)]="facturaact.fecha" [readonly]="tipo == 2"
+        (ngModelChange)="cambiado()" required><br>
+    <label>IVA(%): </label>
+    <input type="number" name="iva" [(ngModel)]="facturaact.iva" [readonly]="tipo == 2"
+        (ngModelChange)="cambiado()"><br>
+    <label>Importe: </label>
+    <input type="number" name="importe"  [(ngModel)]="facturaact.importe" [readonly]="tipo == 2"
+    (ngModelChange)="cambiado()"><br><br>
+
+    <input type="submit" name="guardar" value="{{ txtBtn }}">
+    <button [routerLink]="['/facturas']" class="ml-2">Cancelar</button>
+</form>

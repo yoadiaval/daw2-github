@@ -1,0 +1,25 @@
+<h2>Listado de Comentarios</h2>
+<button [routerLink]="['/comentarios', 0, 0]" class="ml-2">Nuevo Comentario</button><br><br>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Mensaje</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="comentarios">
+        <tr *ngFor="let comentario of comentarios; let i = index">
+            <td [ngClass]="{fondoAzul: i%2 == 0, fondoVerde: i%2 != 0}">{{ comentario.id }}</td>
+            <td [ngClass]="{fondoAzul: i%2 == 0, fondoVerde: i%2 != 0}">{{ comentario.nombre }}</td>
+            <td [ngClass]="{fondoAzul: i%2 == 0, fondoVerde: i%2 != 0}">{{ comentario.email }}</td>
+            <td [ngClass]="{fondoAzul: i%2 == 0, fondoVerde: i%2 != 0}">{{ comentario.mensaje }}</td>
+            <td>
+                <button [routerLink]="['/comentarios', 1, comentario.id]">Modificar</button>
+                <button [routerLink]="['/comentarios', 2, comentario.id]" class="ml-2">Borrar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
