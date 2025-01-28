@@ -1,97 +1,114 @@
-function obtenerDatos() {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:8080/APIs/api.php");
+function ajaxCall(data, method, url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.responseType = "json";
+    xhr.send(JSON.stringify(data));
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        resolve(xhr.response);
+      }
+    };
+  });
+}
 
-  xhr.responseType = "json";
-  xhr.send();
-  xhr.onload = () => {
+async function agregar(data) {
+  url = "http://localhost/proyectos/APIs/controller/api.php";
+  await ajaxCall(data, "POST", url);
+  getProductos();
+}
 
-    const productos = xhr.response;
+async function update(data, method) {
+  url = "http://localhost/proyectos/APIs/controller/api.php";
+  await ajaxCall(data, method, url);
+  getProductos();
+}
+
+async function eliminar(cod) {
+  url = "http://localhost/proyectos/APIs/controller/api.php";
+  data = {
+    cod: cod,
+  };
+  await ajaxCall(data, "DELETE", url);
+  getProductos();
+}
+
+async function getProducto(cod) {
+  url = `http://localhost/proyectos/APIs/controller/api.php/${cod}`;
+  producto = await ajaxCall("", "GET", url);
+  if (producto) {
+    document.getElementById("descripcion").value = producto[0].descripcion;
+    document.getElementById("nombre").value = producto[0].nombre;
+    document.getElementById("precio").value = producto[0].precio;
+  }
+}
+
+async function getProductos() {
+  url = "http://localhost/proyectos/APIs/controller/api.php";
+  const productos = await ajaxCall("", "GET", url);
+  if (productos) {
     tbody = document.querySelector("tbody").innerHTML = `
         ${productos
-        .map((producto) => {
-          /*elimina los parámetro de la url para que no se dupliquen cada vez que se llame al boton de editar*/
-          const baseUrl = window.location.href.split("?")[0];
-          return `<tr><td>${producto.cod}</td>
+          .map((producto) => {
+            /* const baseUrl = window.location.href.split("?")[0];*/
+            return `<tr><td>${producto.cod}</td>
                         <td>${producto.descripcion}</td>
                             <td>${producto.precio}</td>
                             <td>${producto.nombre}</td>
-                            <td><a href="${baseUrl}?accion=enviarEditar&cod=${producto.cod}">editar</a><a onclick="eliminar(${producto.cod})">Eliminar</a><td>
+                            <td><a onclick="getProducto(${producto.cod})">editar</a><a onclick="eliminar(${producto.cod})">Eliminar</a></td>
                         </tr>`;
-        })
-        .join("")}
-  `;
-  };
+          })
+          .join("")}
+           `;
+  }
 }
 
-function modificar(data) {
-  const cod = data.codigo;
-  const xhr = new XMLHttpRequest();
-  xhr.open("PUT", `http://localhost/proyectos/APIs/api.php/${cod}`, true);
-  // Establecer el encabezado Content-Type para JSON
-  xhr.setRequestHeader("Content-Type", "application/json");
-  // Configurar el tipo de respuesta como JSON
-  xhr.responseType = "json";
-  // Enviar la solicitud con los datos en formato JSON
-  xhr.send(JSON.stringify(data));
-  // Manejar la respuesta
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      console.log("Respuesta exitosa:", xhr.responseText);
-    } else {
-      console.error("Error en la solicitud:", xhr.status, xhr.statusText);
-    }
-  };
-
-  // Manejar errores en la solicitud
-  xhr.onerror = () => {
-    console.error("Error en la conexión con el servidor");
-  };
-}
-
-
+/*CAPTURA DE EVENTOS DE FORMULARIOS*/
 document
   .getElementById("formModif")
   .addEventListener("submit", function (event) {
     event.preventDefault();
-    let data;
-    /*cod = document.getElementById("cod").value;*/
-    cod = "1";
-    nombre = document.getElementById("checknombre").checked
-      ? document.getElementById("nombre").value
-      : "";
-    descripcion = document.getElementById("checkdescripcion").checked
-      ? document.getElementById("descripcion").value
-      : "";
-    precio = document.getElementById("checkprecio").checked
-      ? document.getElementById("precio").value
-      : "";
-    const dataTemp = {
-      cod: cod,
-      descripcion: descripcion,
-      precio: precio,
-      nombre: nombre,
-    };
-    if (
-      !document.getElementById("checknombre").checked &&
-      !document.getElementById("checkdescripcion").checked &&
-      !document.getElementById("checkprecio").checked
-    ) {
-      data = dataTemp;
-    } else {
 
-      data;
-      for (let prop in dataTemp) {
-        if (dataTemp[prop] !== "") {
-          data[prop] = dataTemp[prop];
-        }
-      }
+    let data = {};
+    modifNombre = document.getElementById("checknombre").checked;
+    modifDescription = document.getElementById("checkdescripcion").checked;
+    modifPrecio = document.getElementById("checkprecio").checked;
 
+    data["cod"] = document.getElementById("cod").value;
+    if (modifPrecio) {
+      data["precio"] = document.getElementById("precio").value;
     }
-    console.log(data);
-    /* modificar(data);*/
+    if (modifNombre) {
+      data["nombre"] = document.getElementById("nombre").value;
+    }
+    if (modifDescription) {
+      data["descripcion"] = document.getElementById("descripcion").value;
+    }
+
+    if (!modifNombre && !modifDescription && !modifPrecio) {
+      console.log("entre");
+      alert("No ha selecconado ningún campo para modificar");
+      return;
+    }
+    if (modifNombre && modifDescription && modifPrecio) {
+      update(data, "PUT");
+    } else {
+      update(data, "PATCH");
+    }
   });
 
-function eliminar($id) { }
+document
+  .getElementById("formAgregar")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    data = {
+      descripcion: event.target[1].value,
+      precio: event.target[2].value,
+      nombre: event.target[3].value,
+    };
+    this.reset();
+    agregar(data);
+  });
 
-window.addEventListener("load", obtenerDatos(), false);
+window.addEventListener("load", getProductos(), false);
