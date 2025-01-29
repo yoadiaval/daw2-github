@@ -30,10 +30,21 @@ switch ($request_method) {
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"),true);
         Libro::putLibro($data);
+        
+        if(Libro::putLibro($data)){
+            header('Content-Type: text/html');
+            include "../view/vista.php";
+        }else{
+            header('Content-Type: text/html');
+            include "../view/vista_error.php";
+        }
+        
+        
         break;
     case 'DELETE':
         $data = json_decode(file_get_contents("php://input"), true);
         Libro::deleteLibro($data);
+
         break;
     default:
         # code...

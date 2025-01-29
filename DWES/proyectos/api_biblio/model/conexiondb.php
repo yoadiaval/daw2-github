@@ -1,8 +1,8 @@
 <?php
 class Conexiondb{
 private static $localhost = "127.0.0.1";
-private static $user = "root";
-private static $password = "";
+private static $user = "phpmyadmin";
+private static $password = "1234";
 private static $database = "biblioteca";
 
 public static function conectar(){

@@ -21,9 +21,9 @@ class Libro{
         $resp = $con->query($sql);
 
         if($resp){
-            echo  json_encode(["mensaje"=>"Libro modificado correctamente"]);
+            retun true;
         }else{
-            echo json_encode(["mensaje"=>"ERROR al modificar el libro"]);
+            retun false;
         }
         
     }
