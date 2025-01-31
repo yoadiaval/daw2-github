@@ -15,8 +15,6 @@ $uri_parts = explode('/', $uri);
 $last_part = $uri_parts[count($uri_parts)-1];
 
 
-
-
 switch ($last_part == "api.php") {
     case 'GET':
        

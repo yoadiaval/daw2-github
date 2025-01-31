@@ -3,9 +3,13 @@
     <?php 
      foreach ($libros as $libro) { ?>
         <tr>
-        <td colspan="4"><?php echo $libro['autor']?></td>    
+        <td><?php echo $libro['id']?></td>    
+        <td><?php echo $libro['titulo']?></td>    
+        <td><?php echo $libro['autor']?></td>    
+        <td><?php echo $libro['genero']?></td>  
+        <td><a <?php echo "onclick=eliminar({$libro['id']})"?>>eliminar</a></td>  
         </tr>
     <?php }
     ?>
-    <td colspan="4">Hay datos para mostrar</td>
+
 </tr>
